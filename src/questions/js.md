@@ -4,10 +4,8 @@
   <h2>📝 JavaScript Questions</h1>
 </div>
 
-### 1. What is JavaScript?
-
 <details>
-<summary>🔍 <b>Answer</b></summary>
+<summary><h3 style="display: inline;">What is JavaScript?</h3></summary>
 <br />
 
 JavaScript is a high-level, interpreted programming language used to create dynamic and interactive elements on web pages
@@ -16,10 +14,8 @@ JavaScript is a high-level, interpreted programming language used to create dyna
 
 ---
 
-### 2. Why do we use JS specifically for working with browsers?
-
 <details>
-<summary>🔍 <b>Answer</b></summary>
+<summary><h3 style="display: inline;">Why do we use JS specifically for working with browsers?</h3></summary>
 <br />
 
 - Only language supported by all browsers without plugins

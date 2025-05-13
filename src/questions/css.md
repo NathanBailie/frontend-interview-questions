@@ -1,13 +1,11 @@
-  <a href="../../README.md">← Back</a>
+<a href="../../README.md">← Back</a>
 
 <div align="center">
   <h2>📝 CSS Questions</h1>
 </div>
 
-### 1. What is CSS?
-
 <details>
-<summary>🔍 <b>Answer</b></summary>
+<summary><h3 style="display: inline;">What is CSS?</h3></summary>
 <br />
 
 CSS (Cascading Style Sheets) is a style sheet language used to describe the presentation of HTML documents. It defines how elements should be displayed on screen, controlling layout, colors, fonts, spacing and other visual aspects of web pages.
@@ -16,10 +14,8 @@ CSS (Cascading Style Sheets) is a style sheet language used to describe the pres
 
 ---
 
-### 2. What are the ways to connect a CSS file?
-
 <details>
-<summary>🔍 <b>Answer</b></summary>
+<summary><h3 style="display: inline;">What are the ways to connect a CSS file?</h3></summary>
 <br />
 
 There are three ways to include CSS in an HTML document:

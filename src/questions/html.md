@@ -4,10 +4,8 @@
   <h2>📝 HTML Questions</h1>
 </div>
 
-### 1. What is HTML?
-
 <details>
-<summary>🔍 <b>Answer</b></summary>
+<summary><h3 style="display: inline;">What is HTML?</h3></summary>
 <br />
 
 DOCTYPE (Document Type Declaration) is an instruction at the beginning of an HTML document that tells the browser which version of HTML to use for rendering the page
@@ -16,10 +14,8 @@ DOCTYPE (Document Type Declaration) is an instruction at the beginning of an HTM
 
 ---
 
-### 2. What is DOCTYPE?
-
 <details>
-<summary>🔍 <b>Answer</b></summary>
+<summary><h3 style="display: inline;">What is DOCTYPE?</h3></summary>
 <br />
 
 DOCTYPE (Document Type Declaration) is an instruction at the beginning of an HTML document that tells the browser which version of HTML to use for rendering the page
