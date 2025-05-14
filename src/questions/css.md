@@ -79,3 +79,14 @@ There are three ways to include CSS in an HTML document:
 </details>
 
 ---
+
+<details>
+<summary><h3 style="display: inline;">What is the difference between margin and padding?</h3></summary>
+<br />
+
+- **Padding** is the space inside an element between its content and border
+- **Margin** is the space outside an element that creates distance from other elements
+
+</details>
+
+---
