@@ -90,3 +90,124 @@ There are three ways to include CSS in an HTML document:
 </details>
 
 ---
+
+<details>
+<summary><h3 style="display: inline;">What are the possible values of the display property?</h3></summary>
+<br />
+
+Most commonly used display values:
+
+- block
+- inline
+- inline-block
+- none
+- flex
+- grid
+- table
+- inherit
+- initial
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What are the characteristics of block elements?</h3></summary>
+<br />
+
+- Start on a new line
+- Take up full width available by default
+- Can be sized using width and height properties
+- Can be centered using margin: auto
+- Respect margin and padding properties
+- Can contain other block and inline elements
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What are the characteristics of inline elements?</h3></summary>
+<br />
+
+- Flow within text content in a single line
+- Only take up as much width as their content
+- Cannot have width and height set
+- Can be horizontally aligned using text-align property
+- Vertical margin has no effect
+- Only horizontal padding and margins are respected
+- Can only contain other inline elements
+- Line height affects vertical spacing
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What block elements do you know?</h3></summary>
+<br />
+
+Common block elements:
+
+- `<div>` - generic container
+- `<p>` - paragraph
+- `<h1>` to `<h6>` - headings
+- `<section>` - section container
+- `<article>` - article container
+- `<header>` - header container
+- `<footer>` - footer container
+- `<form>` - form container
+- `<ul>`, `<ol>` - lists
+- `<li>` - list item
+- `<main>` - main content
+- `<nav>` - navigation container
+- `<aside>` - sidebar content
+- `<blockquote>` - quoted content
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What inline elements do you know?</h3></summary>
+<br />
+
+Common inline elements:
+
+- `<span>` - generic inline container
+- `<img>` - image
+- `<a>` - hyperlink
+- `<label>` - form label
+- `<input>` - form input
+- `<button>` - clickable button
+- `<code>` - code snippet
+- `<br>` - line break
+- `<b>` - bold text
+- `<strong>` - strong emphasis
+- `<i>` - italicized text
+- `<em>` - emphasized text
+- `<small>` - smaller text
+- `<sub>` - subscript
+- `<sup>` - superscript
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">How do inline-block elements differ from block and inline elements?</h3></summary>
+<br />
+
+Key characteristics of inline-block elements:
+
+- Combine features of both block and inline elements
+- Flow within text content like inline elements
+- Do not force new lines like inline elements
+- Can have width, height, margins and padding like block elements
+- Both vertical and horizontal margins/padding are applied
+- Do not take up full parent width by default
+- Multiple elements can sit side by side if space allows
+
+</details>
+
+---

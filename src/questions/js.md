@@ -65,3 +65,132 @@ Both **null** and **undefined** represent "nothing" or absence of value, but the
 </details>
 
 ---
+
+<details>
+<summary><h3 style="display: inline;">What are the ways to declare variables in JavaScript?</h3></summary>
+<br />
+
+`var`:
+
+- Function scope
+- Can be reassigned
+- Can be redeclared
+- Has hoisting but value is undefined before initialization
+- Implicit initialization is available
+
+`let`:
+
+- Block scope
+- Can be reassigned
+- Redeclaration leads to error
+- No hoisting, reference error when called before initialization (temporal dead zone)
+- Implicit initialization is available
+
+`const`:
+
+- Block scope
+- Cannot be reassigned but object properties can be modified
+- Redeclaration leads to error
+- No hoisting, reference error when called before initialization (temporal dead zone)
+- Implicit initialization leads to error
+
+Undeclared variable:
+
+- Global scope (if strict mode is not enabled)
+- Can be reassigned without restrictions (x = 10; x = 20;)
+- No explicit declaration (x = 5; instead of let x = 5;)
+- Has hoisting but can lead to errors in strict mode
+- Implicit initialization is possible but unpredictable (y; will create ReferenceError in strict mode)
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What is scope in JavaScript?</h3></summary>
+<br />
+
+Scope in JavaScript is the visibility and accessibility of variables, functions, and objects within the code. It determines where a variable can be referenced during program execution.
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What types of scope exist in JavaScript?</h3></summary>
+<br />
+
+- **Global Scope**: Variables declared outside any function or block are globally accessible throughout the code
+- **Function/Local Scope**: Variables declared inside a function are only accessible within that function
+- **Block Scope**: Variables declared with let and const are only accessible within the block they are declared in (like if statements or loops)
+- **Lexical/Static Scope**: Inner functions have access to variables in their outer scope
+- **Module Scope**: Variables declared in a module are only accessible within that module unless explicitly exported
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What is a closure?</h3></summary>
+<br />
+
+A closure is a mechanism that allows a function to remember a reference to its lexical environment, even if it no longer exists in the main call stack
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What can we use closure for?</h3></summary>
+<br />
+
+- Preserve state between function calls
+
+```javascript
+function debounce(fn, delay) {
+	let timerId;
+	return (...args) => {
+		clearTimeout(timerId);
+		timerId = setTimeout(() => fn(...args), delay);
+	};
+}
+```
+
+- Encapsulate data by hiding variables inside a closure, preventing external modification
+
+```javascript
+function createCounter(initialValue = 0) {
+	let count = initialValue; // private state
+
+	return {
+		increment() {
+			count++;
+		},
+		decrement() {
+			count--;
+		},
+		get() {
+			return count;
+		},
+	};
+}
+```
+
+- Enable functional programming, such as using compose
+
+```javascript
+const compose =
+	(...funcs) =>
+	input =>
+		funcs.reduceRight((acc, fn) => fn(acc), input);
+```
+
+- Create partially applied functions by fixing some arguments (currying)
+
+```javascript
+const add = a => b => a + b;
+```
+
+</details>
+
+---

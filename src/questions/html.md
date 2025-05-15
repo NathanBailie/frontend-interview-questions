@@ -78,3 +78,67 @@ There are two main ways to include JavaScript in an HTML document:
    </details>
 
 ---
+
+<details>
+<summary><h3 style="display: inline;">What is semantic markup?</h3></summary>
+<br />
+
+Semantic markup is an approach to HTML markup where tags are used to convey the meaning of content rather than just defining its appearance
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What are examples of semantic HTML tags?</h3></summary>
+<br />
+
+Here are common semantic HTML tags:
+
+- `<header>` - Defines a header section
+- `<nav>` - Contains navigation links
+- `<main>` - Specifies the main content
+- `<article>` - Represents a self-contained composition
+- `<section>` - Defines a thematic grouping of content
+- `<aside>` - Contains content tangentially related to surrounding content
+- `<footer>` - Defines a footer section
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What are the benefits of semantic markup?</h3></summary>
+<br />
+
+- **Improves SEO**: Search engines better understand the page structure, which can improve site rankings in search results
+
+- **Enhances accessibility**: Screen readers and other assistive technologies can better interpret content, making the site more usable for people with disabilities
+
+- **Simplifies code maintenance**: Semantic tags make code more readable, reducing the complexity of editing and scaling
+
+- **Improves user experience**: Logically structured content helps users find information more quickly
+
+- **Increases compatibility**: Semantic HTML adapts better to different devices and future web standards
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What are examples of global HTML attributes?</h3></summary>
+<br />
+
+- `class` - Specifies one or more class names for styling and JavaScript selection
+- `id` - Defines a unique identifier for an element
+- `style` - Contains inline CSS styles
+- `title` - Provides additional information shown on hover
+- `data-*` - Custom data attributes for storing extra information
+- `hidden` - Hides an element from display
+- `lang` - Specifies the language of element's content
+- `dir` - Sets text direction (ltr or rtl)
+- `tabindex` - Controls element's tab order
+- `contenteditable` - Makes element content editable
+
+</details>
+
+---
