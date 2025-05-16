@@ -1,11 +1,11 @@
 <a href="../../README.md">← Back</a>
 
 <div align="center">
-  <h2>📝 HTML Questions</h1>
+  <h2>📝 HTML Questions</h2>
 </div>
 
 <details>
-<summary><h3 style="display: inline;">What is HTML?</h3></summary>
+<summary><span>What is HTML?</span></summary>
 <br />
 
 HTML (HyperText Markup Language) is the standard markup language used to create and structure content on the web.
@@ -15,7 +15,7 @@ HTML (HyperText Markup Language) is the standard markup language used to create 
 ---
 
 <details>
-<summary><h3 style="display: inline;">What is DOCTYPE?</h3></summary>
+<summary><span>What is DOCTYPE?</span></summary>
 <br />
 
 DOCTYPE (Document Type Declaration) is an instruction at the beginning of an HTML document that tells the browser which version of HTML to use for rendering the page
@@ -25,7 +25,7 @@ DOCTYPE (Document Type Declaration) is an instruction at the beginning of an HTM
 ---
 
 <details>
-<summary><h3 style="display: inline;">What are the ways to link a JavaScript file to an HTML document?</h3></summary>
+<summary><span>What are the ways to link a JavaScript file to an HTML document?</span></summary>
 <br />
 
 There are two main ways to include JavaScript in an HTML document:
@@ -80,7 +80,7 @@ There are two main ways to include JavaScript in an HTML document:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What is semantic markup?</h3></summary>
+<summary><span>What is semantic markup?</span></summary>
 <br />
 
 Semantic markup is an approach to HTML markup where tags are used to convey the meaning of content rather than just defining its appearance
@@ -90,7 +90,7 @@ Semantic markup is an approach to HTML markup where tags are used to convey the 
 ---
 
 <details>
-<summary><h3 style="display: inline;">What are examples of semantic HTML tags?</h3></summary>
+<summary><span>What are examples of semantic HTML tags?</span></summary>
 <br />
 
 Here are common semantic HTML tags:
@@ -107,7 +107,7 @@ Here are common semantic HTML tags:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What are the benefits of semantic markup?</h3></summary>
+<summary><span>What are the benefits of semantic markup?</span></summary>
 <br />
 
 - **Improves SEO**: Search engines better understand the page structure, which can improve site rankings in search results
@@ -125,7 +125,7 @@ Here are common semantic HTML tags:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What are examples of global HTML attributes?</h3></summary>
+<summary><span>What are examples of global HTML attributes?</span></summary>
 <br />
 
 - `class` - Specifies one or more class names for styling and JavaScript selection
@@ -144,7 +144,7 @@ Here are common semantic HTML tags:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What meta tags do you know?</h3></summary>
+<summary><span>What meta tags do you know?</span></summary>
 <br />
 
 - `<meta charset="UTF-8">` - Specifies document encoding. UTF-8 is the most common
@@ -170,7 +170,7 @@ Here are common semantic HTML tags:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What are data attributes used for?</h3></summary>
+<summary><span>What are data attributes used for?</span></summary>
 <br />
 
 They are used to store additional data directly in the markup. Nowadays, they are most commonly used to store test IDs, making it easier to locate the required element
@@ -180,7 +180,7 @@ They are used to store additional data directly in the markup. Nowadays, they ar
 ---
 
 <details>
-<summary><h3 style="display: inline;">What is the label tag used for?</h3></summary>
+<summary><span>What is the label tag used for?</span></summary>
 <br />
 
 **Binding label to form element** - this makes the interface more convenient since users can click on the text to activate the corresponding `<input>`, `<textarea>` or `<select>`

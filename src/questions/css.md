@@ -1,11 +1,11 @@
 <a href="../../README.md">← Back</a>
 
 <div align="center">
-  <h2>📝 CSS Questions</h1>
+  <h2>📝 CSS Questions</h2>
 </div>
 
 <details>
-<summary><h3 style="display: inline;">What is CSS?</h3></summary>
+<summary><span>What is CSS?</span></summary>
 <br />
 
 CSS (Cascading Style Sheets) is a style sheet language used to describe the presentation of HTML documents. It defines how elements should be displayed on screen, controlling layout, colors, fonts, spacing and other visual aspects of web pages.
@@ -15,7 +15,7 @@ CSS (Cascading Style Sheets) is a style sheet language used to describe the pres
 ---
 
 <details>
-<summary><h3 style="display: inline;">What are the ways to connect a CSS file?</h3></summary>
+<summary><span>What are the ways to connect a CSS file?</span></summary>
 <br />
 
 There are three ways to include CSS in an HTML document:
@@ -81,7 +81,7 @@ There are three ways to include CSS in an HTML document:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What is the difference between margin and padding?</h3></summary>
+<summary><span>What is the difference between margin and padding?</span></summary>
 <br />
 
 - **Padding** is the space inside an element between its content and border
@@ -92,7 +92,7 @@ There are three ways to include CSS in an HTML document:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What are the possible values of the display property?</h3></summary>
+<summary><span>What are the possible values of the display property?</span></summary>
 <br />
 
 Most commonly used display values:
@@ -112,7 +112,7 @@ Most commonly used display values:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What are the characteristics of block elements?</h3></summary>
+<summary><span>What are the characteristics of block elements?</span></summary>
 <br />
 
 - Start on a new line
@@ -127,7 +127,7 @@ Most commonly used display values:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What are the characteristics of inline elements?</h3></summary>
+<summary><span>What are the characteristics of inline elements?</span></summary>
 <br />
 
 - Flow within text content in a single line
@@ -144,7 +144,7 @@ Most commonly used display values:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What block elements do you know?</h3></summary>
+<summary><span>What block elements do you know?</span></summary>
 <br />
 
 Common block elements:
@@ -169,7 +169,7 @@ Common block elements:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What inline elements do you know?</h3></summary>
+<summary><span>What inline elements do you know?</span></summary>
 <br />
 
 Common inline elements:
@@ -195,7 +195,7 @@ Common inline elements:
 ---
 
 <details>
-<summary><h3 style="display: inline;">How do inline-block elements differ from block and inline elements?</h3></summary>
+<summary><span>How do inline-block elements differ from block and inline elements?</span></summary>
 <br />
 
 Key characteristics of inline-block elements:
@@ -213,7 +213,7 @@ Key characteristics of inline-block elements:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What is z-index and how does it work?</h3></summary>
+<summary><span>What is z-index and how does it work?</span></summary>
 <br />
 
 This property defines the stacking order of elements along the Z-axis (depth), determining which elements appear on top of others. It only works for elements with position: relative, absolute, fixed, or sticky.
@@ -226,7 +226,7 @@ This property defines the stacking order of elements along the Z-axis (depth), d
 ---
 
 <details>
-<summary><h3 style="display: inline;">What is selector specificity?</h3></summary>
+<summary><span>What is selector specificity?</span></summary>
 <br />
 
 It is the specific weight by which the browser determines the priority of styles when multiple rules are applied to the same element. The higher the specificity, the higher the priority of the style
@@ -244,7 +244,7 @@ Selector specificity can be represented as a tuple of three numbers, where:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What is a pseudo-element? Provide examples</h3></summary>
+<summary><span>What is a pseudo-element? Provide examples</span></summary>
 <br />
 
 A pseudo-element in CSS allows styling a part of an element without modifying the HTML markup.
@@ -261,7 +261,7 @@ Most commonly used:
 ---
 
 <details>
-<summary><h3 style="display: inline;">What is a pseudo-classes? Provide examples</h3></summary>
+<summary><span>What is a pseudo-classes? Provide examples</span></summary>
 <br />
 
 This is a way to apply styles to an element based on its state or position in the DOM, without adding classes or attributes in HTML
