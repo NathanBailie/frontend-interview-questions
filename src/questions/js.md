@@ -131,6 +131,39 @@ Scope in JavaScript is the visibility and accessibility of variables, functions,
 ---
 
 <details>
+<summary><h3 style="display: inline;">What is Function Declaration?</h3></summary>
+<br />
+
+It is a way to declare a function in JavaScript using the `function` keyword.
+Such a function can be called before its definition due to the hoisting mechanism.
+
+Main features:
+
+- Available anywhere in the code after declaration, even if called - before it
+- Its name is mandatory
+- Does not require assignment to a variable, unlike Function Expression
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What is Function Expression?</h3></summary>
+<br />
+
+It is a way to declare a function in JavaScript where the function is created within an expression and can be assigned to a variable. Unlike Function Declaration, it is not hoisted, so it can only be called after its declaration.
+
+Main features:
+
+- Anonymous functions (without a name) can be used
+- The function cannot be called before its declaration; otherwise, an error will occur
+- Convenient for passing into callbacks and using in arrow functions
+
+</details>
+
+---
+
+<details>
 <summary><h3 style="display: inline;">What is a closure?</h3></summary>
 <br />
 
@@ -189,6 +222,48 @@ const compose =
 
 ```javascript
 const add = a => b => a + b;
+```
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What is recursion? Provide examples</h3></summary>
+<br />
+
+Recursion is when a function calls itself to solve a problem that can be broken down into smaller repetitive subproblems
+
+Examples:
+
+**Factorial calculation:**
+
+```javascript
+const factorial = n => (n === 1 ? 1 : n * factorial(n - 1));
+```
+
+**Euclidean algorithm:**
+
+```javascript
+const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
+```
+
+**Quick sort:**
+
+```javascript
+function quickSort(array) {
+	if (array.length <= 1) return array;
+	let less = [],
+		equal = [],
+		more = [],
+		pivot = array[Math.floor(array.length / 2)];
+
+	array.forEach(n =>
+		n < pivot ? less.push(n) : n === pivot ? equal.push(n) : more.push(n)
+	);
+
+	return [...quickSort(less), ...equal, ...quickSort(more)];
+}
 ```
 
 </details>

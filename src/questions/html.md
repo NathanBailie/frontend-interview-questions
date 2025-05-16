@@ -142,3 +142,51 @@ Here are common semantic HTML tags:
 </details>
 
 ---
+
+<details>
+<summary><h3 style="display: inline;">What meta tags do you know?</h3></summary>
+<br />
+
+- `<meta charset="UTF-8">` - Specifies document encoding. UTF-8 is the most common
+
+- `<meta name="viewport" content="width=device-width, initial-scale=1.0">` - Controls scaling and adaptation of the page on mobile devices
+
+- `<meta name="description" content="Page description">` - Brief description of page content for search engines and social media
+
+- `<meta name="keywords" content="keywords, here">` - List of keywords
+
+- `<meta name="author" content="Author name">` - Specifies the page or website author
+
+- `<meta name="robots" content="index, follow">` - Sets instructions for search engine robots (e.g. whether to index or not)
+
+- `<meta property="og:title" content="Social media title">` - Page title for display on Facebook, LinkedIn etc
+
+- `<meta property="og:description" content="Social media description">` - Brief description when sharing links
+
+- `<meta property="og:image" content="image URL">` - Link to image displayed when sharing
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What are data attributes used for?</h3></summary>
+<br />
+
+They are used to store additional data directly in the markup. Nowadays, they are most commonly used to store test IDs, making it easier to locate the required element
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What is the label tag used for?</h3></summary>
+<br />
+
+**Binding label to form element** - this makes the interface more convenient since users can click on the text to activate the corresponding `<input>`, `<textarea>` or `<select>`
+
+**Improving accessibility** - screen readers recognize `<label>` and help people with disabilities understand what data needs to be entered.
+
+</details>
+
+---

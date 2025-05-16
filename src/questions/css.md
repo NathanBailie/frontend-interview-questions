@@ -211,3 +211,71 @@ Key characteristics of inline-block elements:
 </details>
 
 ---
+
+<details>
+<summary><h3 style="display: inline;">What is z-index and how does it work?</h3></summary>
+<br />
+
+This property defines the stacking order of elements along the Z-axis (depth), determining which elements appear on top of others. It only works for elements with position: relative, absolute, fixed, or sticky.
+
+- The higher the z-index value, the closer the element is to the user
+- The lower the value, the further the element is
+- If z-index is not set, elements are arranged in the order they appear in the code
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What is selector specificity?</h3></summary>
+<br />
+
+It is the specific weight by which the browser determines the priority of styles when multiple rules are applied to the same element. The higher the specificity, the higher the priority of the style
+
+If two or more selectors conflict, the browser selects the one with the greater weight. If the specificity is the same, the rule written later in the code is applied
+
+Selector specificity can be represented as a tuple of three numbers, where:
+
+- The first value is the number of ID selectors (highest priority)
+- The second value is the sum of classes, attributes, and pseudo-classes
+- The third value is the number of tags and pseudo-elements
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What is a pseudo-element? Provide examples</h3></summary>
+<br />
+
+A pseudo-element in CSS allows styling a part of an element without modifying the HTML markup.
+
+Most commonly used:
+
+- `::before` - adds content before the element
+- `::after` - adds content after the element
+- `::first-letter` - letter styles the first letter of the text
+- `::first-line` - line styles the first line of the text
+
+</details>
+
+---
+
+<details>
+<summary><h3 style="display: inline;">What is a pseudo-classes? Provide examples</h3></summary>
+<br />
+
+This is a way to apply styles to an element based on its state or position in the DOM, without adding classes or attributes in HTML
+
+Main pseudo-classes:
+
+- `:hover` – applied when the user hovers over an element
+- `:focus` – activated when an element gains focus (e.g., when clicking inside an input field)
+- `:active` – when an element is active (pressed)
+- `:checked` – applied to a checked checkbox or radio button
+- `:first-child` / `:last-child `– styles the first or last child element
+- `:nth-child(n)` – selects a specific child element among siblings (e.g., the second item in a list)
+- `:disabled` – used for disabled form elements
+
+</details>
+
+---
