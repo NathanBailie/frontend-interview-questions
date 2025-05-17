@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>⚡ Frontend Developer Interview Questions</h1>
+  <h1>⚡ Frontend developer interview questions</h1>
 </div>
 
 <p style="font-size: 16px">

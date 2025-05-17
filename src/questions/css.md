@@ -279,3 +279,40 @@ Main pseudo-classes:
 </details>
 
 ---
+
+<details>
+<summary><span>What are the types of element positioning?</span></summary>
+<br />
+
+- `static`
+- `relative`
+- `absolute`
+- `fixed`
+- `sticky`
+
+</details>
+
+---
+
+<details>
+<summary><span>What is the difference between <b>relative</b> and <b>absolute</b> positioning?</span></summary>
+<br />
+
+- `relative` — the element remains in the document flow but can be shifted relative to its original position
+- `absolute` — the element is removed from the document flow and positioned relative to the nearest parent with **fixed**, **relative** or **absolute** positioning
+
+</details>
+
+---
+
+<details>
+<summary><span>What is the difference between <b>fixed</b> and <b>sticky</b> positioning?</span></summary>
+<br />
+
+- `fixed` — the element is anchored relative to the browser window and remains in place even when the entire page is scrolled.
+
+- `sticky` — the element behaves like relative until it reaches the position specified via top, left, etc. Then, it sticks to that position within its parent and stays there until the end of the parent's area, without exceeding its boundaries.
+
+</details>
+
+---

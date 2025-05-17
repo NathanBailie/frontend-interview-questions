@@ -131,6 +131,54 @@ Scope in JavaScript is the visibility and accessibility of variables, functions,
 ---
 
 <details>
+<summary><span>What function creation methods do you know?</span></summary>
+<br />
+
+- **Function Declaration**
+
+```javascript
+function greet() {}
+```
+
+- **Function Expression**
+
+```javascript
+const greet = function () {};
+```
+
+- **Arrow Function**
+
+```javascript
+const greet = () => {};
+```
+
+- **Method in an object**
+
+```javascript
+const obj = {
+	greet() {},
+};
+```
+
+- **Method in an class**
+
+```javascript
+class Greeter {
+	greet() {}
+}
+```
+
+- **Function Constructor**
+
+```javascript
+const greet = new Function();
+```
+
+</details>
+
+---
+
+<details>
 <summary><span>What is Function Declaration?</span></summary>
 <br />
 
@@ -164,6 +212,25 @@ Main features:
 ---
 
 <details>
+<summary><span>What is an Arrow Function?</span></summary>
+<br />
+
+It is a compact syntax for defining functions in JavaScript
+
+Key features:
+
+- Does not have its own `this`, it takes the value from the outer context
+- Does not have its own `arguments` object
+- Cannot be used as a **constructor** (cannot be called with `new`)
+- Does not have `super` or `new.target` properties
+- Short and concise syntax
+- Automatically returns the result of an expression if there are no curly braces
+- If it takes a single parameter, parentheses around the argument can be omitted
+</details>
+
+---
+
+<details>
 <summary><span>What is a closure?</span></summary>
 <br />
 
@@ -178,3 +245,76 @@ A closure is a mechanism that allows a function to remember a reference to its l
 <br />
 
 - Preserve state between function calls
+
+```javascript
+function debounce(fn, delay) {
+	let timerId;
+	return (...args) => {
+		clearTimeout(timerId);
+		timerId = setTimeout(() => fn(...args), delay);
+	};
+}
+```
+
+- Encapsulate data by hiding variables inside a closure, preventing external modification
+
+```javascript
+function createCounter(initialValue = 0) {
+	let count = initialValue; // private state
+
+	return {
+		increment() {
+			count++;
+		},
+		decrement() {
+			count--;
+		},
+		get() {
+			return count;
+		},
+	};
+}
+```
+
+- Enable functional programming, such as using compose
+
+```javascript
+const compose =
+	(...funcs) =>
+	input =>
+		funcs.reduceRight((acc, fn) => fn(acc), input);
+```
+
+- Create partially applied functions by fixing some arguments (currying)
+
+```javascript
+const add = a => b => a + b;
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>What does the keyword <b>this</b> do?</span></summary>
+<br />
+
+The keyword `this` in JavaScript refers to the execution context of a function that is, the object within which the function was called.
+
+**Important:**
+
+- In a regular function, `this` is determined by the function call location (who called it).
+- In an arrow function, `this` is determined by the place where the function was declared and never changes, even when called in a different context.
+
+Examples of `this` usage:
+
+- **Object method -** `this` refers to the object itself where the method was called.
+- **Regular function (in strict mode) -** `this` is undefined because the function was called outside the object context.
+- **Arrow function -** `this` takes its value from the outer context—where the function was declared, not called.
+- **Event handler -** `this` refers to the HTML element where the event occurred (e.g., a button).
+- **Constructor function (new) -** `this` refers to the newly created object.
+- **Class method -** `this` refers to the class instance on which the method was called.
+
+</details>
+
+---

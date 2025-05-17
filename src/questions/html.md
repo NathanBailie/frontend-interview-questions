@@ -190,3 +190,87 @@ They are used to store additional data directly in the markup. Nowadays, they ar
 </details>
 
 ---
+
+<details>
+<summary><span>How can an image be inserted into HTML?</span></summary>
+<br />
+
+Tag `<img>`
+
+```html
+<img src="image.jpg" alt="Описание" width="300" height="200" />
+```
+
+CSS `background-image`
+
+```css
+background-image: url('image.jpg');
+```
+
+CSS `content` в `::before` и `::after`
+
+```css
+background-image: url('image.jpg');
+```
+
+Tag `<picture>`
+
+```html
+<picture>
+	<source srcset="image-large.jpg" media="(min-width: 800px)" />
+	<source srcset="image-small.jpg" media="(max-width: 799px)" />
+	<img src="fallback.jpg" alt="Описание" />
+</picture>
+```
+
+Base64 encoding
+
+```html
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." alt="Описание" />
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>Why is the <b>alt</b> attribute needed in the <b>img</b> tag?</span></summary>
+<br />
+
+- For screen readers
+- To improve image ranking in search engines
+- To explain the content of the image and display its description when it fails to load
+
+</details>
+
+---
+
+<details>
+<summary><span>How is the <b>srcset</b> attribute used?</span></summary>
+<br />
+
+The `srcset` attribute is used to load different versions of an image depending on screen resolution or pixel density
+
+- Here, the browser will choose image-2x.jpg for screens with a density of 2x and image-3x.jpg for 3x
+
+```html
+<img
+	src="default.jpg"
+	srcset="image-2x.jpg 2x, image-3x.jpg 3x"
+	alt="Описание"
+/>
+```
+
+- Here, the `srcset` attribute in `source` tags tells the browser which image to load depending on the screen width
+
+```html
+<picture>
+	<source srcset="image-large.jpg" media="(min-width: 800px)" />
+	<source srcset="image-medium.jpg" media="(min-width: 500px)" />
+	<img src="image-small.jpg" alt="Адаптивное изображение" />
+</picture>
+```
+
+</details>
+
+---
