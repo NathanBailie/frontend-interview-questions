@@ -1,7 +1,8 @@
 <a href="../../README.md">← Back</a>
 
 <div align="center">
-  <h2>📝 HTML Questions</h2>
+  <img src="../assets/icons/icons-for-titles/html.png">
+  <h2>HTML questions</h2>
 </div>
 
 <details>
