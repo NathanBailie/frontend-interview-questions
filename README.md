@@ -14,6 +14,8 @@ The questions cover topics ranging from the basics of HTML, CSS and JavaScript t
 
 ## Question Categories
 
-- [HTML](src/questions/html.md)
-- [CSS](src/questions/css.md)
-- [JS](src/questions/js.md)
+<!-- - [HTML](./src/assets/icons/html.png)(src/questions/html.md) -->
+
+- ![HTML](./src/assets/icons/icons-for-main-readme/html.png) [HTML](src/questions/html.md)
+- ![CSS](./src/assets/icons/icons-for-main-readme/css.png) [CSS](src/questions/css.md)
+- ![JS](./src/assets/icons/icons-for-main-readme/js.png) [JS](src/questions/js.md)

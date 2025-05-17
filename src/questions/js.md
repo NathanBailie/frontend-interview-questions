@@ -1,7 +1,10 @@
 <a href="../../README.md">← Back</a>
 
 <div align="center">
-  <h2>📝 JavaScript Questions</h2>
+  <h2 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+    <img src="../assets/icons/icons-for-titles/js.png" style="vertical-align: middle;">
+    JavaScript Questions
+  </h2>
 </div>
 
 <details>
