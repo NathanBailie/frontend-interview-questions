@@ -319,3 +319,22 @@ Examples of `this` usage:
 </details>
 
 ---
+
+<details>
+<summary><span>List the array iteration methods in JavaScript?</span></summary>
+<br />
+
+- `map` – creates a new array by applying a function to each element.
+- `forEach` – executes a provided function once for each array element.
+- `filter` – creates a new array with elements that pass a given condition.
+- `reduce` – reduces the array to a single value by applying a function to each element.
+- `some` – checks if at least one element meets the specified condition.
+- `every` – checks if all elements meet the specified condition.
+- `find` – returns the first element that matches the given condition.
+- `findIndex` – returns the index of the first element that matches the condition.
+- `sort` – sorts the array elements based on a comparison function.
+- `reverse` – reverses the order of elements in the array.
+
+</details>
+
+---
