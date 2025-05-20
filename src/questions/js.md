@@ -324,16 +324,134 @@ Examples of `this` usage:
 <summary><span>List the array iteration methods in JavaScript?</span></summary>
 <br />
 
-- `map` – creates a new array by applying a function to each element.
-- `forEach` – executes a provided function once for each array element.
-- `filter` – creates a new array with elements that pass a given condition.
-- `reduce` – reduces the array to a single value by applying a function to each element.
-- `some` – checks if at least one element meets the specified condition.
-- `every` – checks if all elements meet the specified condition.
-- `find` – returns the first element that matches the given condition.
-- `findIndex` – returns the index of the first element that matches the condition.
-- `sort` – sorts the array elements based on a comparison function.
-- `reverse` – reverses the order of elements in the array.
+- `map` – creates a new array by applying a function to each element
+- `forEach` – executes a provided function once for each array element
+- `filter` – creates a new array with elements that pass a given condition
+- `reduce` – reduces the array to a single value by applying a function to each element
+- `some` – checks if at least one element meets the specified condition
+- `every` – checks if all elements meet the specified condition
+- `find` – returns the first element that matches the given condition
+- `findIndex` – returns the index of the first element that matches the condition
+- `sort` – sorts the array elements based on a comparison function
+- `reverse` – reverses the order of elements in the array
+- `flatMap` – iterates over array elements, applies a callback to each one, creates a new array from the results, and removes one level of nesting from the final array
+
+</details>
+
+---
+
+<details>
+<summary><span>Tell about Event Loop?</span></summary>
+<br />
+
+**Event Loop** is a mechanism in JavaScript that ensures the correct execution sequence of tasks.
+
+It consists of three key components:
+
+1. **Call Stack** – the execution stack where synchronous code runs (works on the LIFO principle: last in, first out).
+2. **Callback Queue** – stores macro tasks (timers, events, etc.) and operates on the FIFO principle.
+3. **Web APIs** – browser or environment interfaces that handle asynchronous operations (`setTimeout`, events, etc.).
+
+One cycle of the Event Loop proceeds as follows:
+
+1. All synchronous code in the Call Stack is executed
+2. All microtasks are processed
+3. One macro task from the queue is executed
+
+The cycle repeats as long as there are pending tasks.
+
+Event Loop enables JavaScript's asynchronous nature, allowing operations with unknown execution times (such as server requests) to run without blocking the main code execution thread.
+
+</details>
+
+---
+
+<details>
+<summary><span>What belongs to microtasks?</span></summary>
+<br />
+
+- **Promise** - methods `.then()`, `.catch()`, `.finally()`
+- **queueMicrotask()** - explicit invocation of a microtask
+- **MutationObserver** - observing changes in the DOM
+
+</details>
+
+---
+
+<details>
+<summary><span>What observers exist in JavaScript?</span></summary>
+<br />
+
+1. **MutationObserver** – monitors changes in the DOM
+2. **IntersectionObserver** – tracks when an element enters or exits in the viewport
+3. **ResizeObserver** – observes changes in an element's size
+4. **PerformanceObserver** – monitors performance-related events
+
+</details>
+
+---
+
+<details>
+<summary><span>What are the ways to work with asynchronous code?</span></summary>
+<br />
+
+1. **Callbacks** – a basic approach, but it can lead to "callback hell"
+2. **Promises** – a more convenient method for handling asynchronous operations
+3. **async/await** – a modern syntax for efficient asynchronous code management
+
+</details>
+
+---
+
+<details>
+<summary><span>What is async/await?</span></summary>
+<br />
+
+This is a syntax for working with asynchronous code, allowing you to write it as if it were synchronous, simplifying readability and error handling.
+
+- **async** before a function means it always returns a Promise
+- **await** forces JavaScript to wait for the Promise to resolve before continuing execution
+
+</details>
+
+---
+
+<details>
+<summary><span>What is Promise?</span></summary>
+<br />
+
+**Promise** is a syntax for handling asynchronous code.  
+The name is reflecting its essence: a promise is an object that guarantees to return the result of an operation in the future
+</br></br>
+
+A promise has **three states**:
+
+1. **pending** – waiting (initial state)
+2. **fulfilled** – successfully completed
+3. **rejected** – failed with an error
+   </br></br>
+
+Promises make it convenient to build **chains**:
+
+- `.then()` – executes on successful completion (**fulfilled**)
+- `.catch()` – handles errors (**rejected**)
+- `.finally()` – runs regardless of the result
+  </br></br>
+
+`.then(resolve, reject)` – takes two optional callbacks.
+
+1. **first** – a function called on successful execution (`resolve`)
+2. **second** – a function called in case of an error (`reject`)
+
+But errors are usually handled separately with `.catch()`.
+</br></br>
+
+**Promise** also has static methods:
+
+- `Promise.all()` – waits for all promises to resolve or for one to reject
+- `Promise.allSettled()` – waits for all promises to complete regardless of the result
+- `Promise.race()` – returns the result of the first completed promise (success or failure)
+- `Promise.any()` – returns the first **successful** result, ignoring errors
 
 </details>
 
