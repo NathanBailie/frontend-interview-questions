@@ -6,7 +6,7 @@
 </div>
 
 <details>
-<summary><span>What is CSS?</span></summary>
+<summary><span>1. What is CSS?</span></summary>
 <br />
 
 CSS (Cascading Style Sheets) is a style sheet language used to describe the presentation of HTML documents. It defines how elements should be displayed on screen, controlling layout, colors, fonts, spacing and other visual aspects of web pages.
@@ -16,7 +16,7 @@ CSS (Cascading Style Sheets) is a style sheet language used to describe the pres
 ---
 
 <details>
-<summary><span>What are the ways to connect a CSS file?</span></summary>
+<summary><span>2. What are the ways to connect a CSS file?</span></summary>
 <br />
 
 There are three ways to include CSS in an HTML document:
@@ -82,7 +82,7 @@ There are three ways to include CSS in an HTML document:
 ---
 
 <details>
-<summary><span>What is the difference between margin and padding?</span></summary>
+<summary><span>3. What is the difference between margin and padding?</span></summary>
 <br />
 
 - **Padding** is the space inside an element between its content and border
@@ -93,7 +93,7 @@ There are three ways to include CSS in an HTML document:
 ---
 
 <details>
-<summary><span>What are the possible values of the display property?</span></summary>
+<summary><span>4. What are the possible values of the display property?</span></summary>
 <br />
 
 Most commonly used display values:
@@ -113,7 +113,7 @@ Most commonly used display values:
 ---
 
 <details>
-<summary><span>What are the characteristics of block elements?</span></summary>
+<summary><span>5. What are the characteristics of block elements?</span></summary>
 <br />
 
 - Start on a new line
@@ -128,7 +128,7 @@ Most commonly used display values:
 ---
 
 <details>
-<summary><span>What are the characteristics of inline elements?</span></summary>
+<summary><span>6. What are the characteristics of inline elements?</span></summary>
 <br />
 
 - Flow within text content in a single line
@@ -145,7 +145,7 @@ Most commonly used display values:
 ---
 
 <details>
-<summary><span>What block elements do you know?</span></summary>
+<summary><span>7. What block elements do you know?</span></summary>
 <br />
 
 Common block elements:
@@ -170,7 +170,7 @@ Common block elements:
 ---
 
 <details>
-<summary><span>What inline elements do you know?</span></summary>
+<summary><span>8. What inline elements do you know?</span></summary>
 <br />
 
 Common inline elements:
@@ -196,7 +196,7 @@ Common inline elements:
 ---
 
 <details>
-<summary><span>How do inline-block elements differ from block and inline elements?</span></summary>
+<summary><span>9. How do inline-block elements differ from block and inline elements?</span></summary>
 <br />
 
 Key characteristics of inline-block elements:
@@ -214,7 +214,7 @@ Key characteristics of inline-block elements:
 ---
 
 <details>
-<summary><span>What is z-index and how does it work?</span></summary>
+<summary><span>10. What is z-index and how does it work?</span></summary>
 <br />
 
 This property defines the stacking order of elements along the Z-axis (depth), determining which elements appear on top of others. It only works for elements with position: relative, absolute, fixed, or sticky.
@@ -227,7 +227,7 @@ This property defines the stacking order of elements along the Z-axis (depth), d
 ---
 
 <details>
-<summary><span>What is selector specificity?</span></summary>
+<summary><span>11. What is selector specificity?</span></summary>
 <br />
 
 It is the specific weight by which the browser determines the priority of styles when multiple rules are applied to the same element. The higher the specificity, the higher the priority of the style
@@ -245,7 +245,7 @@ Selector specificity can be represented as a tuple of three numbers, where:
 ---
 
 <details>
-<summary><span>What is a pseudo-element? Provide examples</span></summary>
+<summary><span>12. What is a pseudo-element? Provide examples</span></summary>
 <br />
 
 A pseudo-element in CSS allows styling a part of an element without modifying the HTML markup.
@@ -262,7 +262,7 @@ Most commonly used:
 ---
 
 <details>
-<summary><span>What is a pseudo-classes? Provide examples</span></summary>
+<summary><span>13. What is a pseudo-classes? Provide examples</span></summary>
 <br />
 
 This is a way to apply styles to an element based on its state or position in the DOM, without adding classes or attributes in HTML
@@ -282,7 +282,7 @@ Main pseudo-classes:
 ---
 
 <details>
-<summary><span>What are the types of element positioning?</span></summary>
+<summary><span>14. What are the types of element positioning?</span></summary>
 <br />
 
 - `static`
@@ -296,7 +296,7 @@ Main pseudo-classes:
 ---
 
 <details>
-<summary><span>What is the difference between <b>relative</b> and <b>absolute</b> positioning?</span></summary>
+<summary><span>15. What is the difference between <b>relative</b> and <b>absolute</b> positioning?</span></summary>
 <br />
 
 - `relative` — the element remains in the document flow but can be shifted relative to its original position
@@ -307,7 +307,7 @@ Main pseudo-classes:
 ---
 
 <details>
-<summary><span>What is the difference between <b>fixed</b> and <b>sticky</b> positioning?</span></summary>
+<summary><span>16. What is the difference between <b>fixed</b> and <b>sticky</b> positioning?</span></summary>
 <br />
 
 - `fixed` — the element is anchored relative to the browser window and remains in place even when the entire page is scrolled.

@@ -6,7 +6,7 @@
 </div>
 
 <details>
-<summary><span>What is JavaScript?</span></summary>
+<summary><span>1. What is JavaScript?</span></summary>
 <br />
 
 JavaScript is a high-level, interpreted programming language used to create dynamic and interactive elements on web pages
@@ -16,7 +16,7 @@ JavaScript is a high-level, interpreted programming language used to create dyna
 ---
 
 <details>
-<summary><span>Why do we use JS specifically for working with browsers?</span></summary>
+<summary><span>2. Why do we use JS specifically for working with browsers?</span></summary>
 <br />
 
 - Only language supported by all browsers without plugins
@@ -31,7 +31,7 @@ JavaScript is a high-level, interpreted programming language used to create dyna
 ---
 
 <details>
-<summary><span>What are the data types in JavaScript?</span></summary>
+<summary><span>3. What are the data types in JavaScript?</span></summary>
 <br />
 
 JavaScript has 8 data types: 7 primitive types and 1 object type.
@@ -55,7 +55,7 @@ JavaScript has 8 data types: 7 primitive types and 1 object type.
 ---
 
 <details>
-<summary><span>What is the difference between null and undefined?</span></summary>
+<summary><span>4. What is the difference between null and undefined?</span></summary>
 <br />
 
 Both **null** and **undefined** represent "nothing" or absence of value, but they are used differently:
@@ -68,7 +68,7 @@ Both **null** and **undefined** represent "nothing" or absence of value, but the
 ---
 
 <details>
-<summary><span>What are the ways to declare variables in JavaScript?</span></summary>
+<summary><span>5. What are the ways to declare variables in JavaScript?</span></summary>
 <br />
 
 `var`:
@@ -108,7 +108,7 @@ Undeclared variable:
 ---
 
 <details>
-<summary><span>What is scope in JavaScript?</span></summary>
+<summary><span>6. What is scope in JavaScript?</span></summary>
 <br />
 
 Scope in JavaScript is the visibility and accessibility of variables, functions, and objects within the code. It determines where a variable can be referenced during program execution.
@@ -118,7 +118,7 @@ Scope in JavaScript is the visibility and accessibility of variables, functions,
 ---
 
 <details>
-<summary><span>What is Temporal Dead Zone?</span></summary>
+<summary><span>7. What is Temporal Dead Zone?</span></summary>
 <br />
 
 This is the period of time during which a variable exists in the context but cannot be used until it is initialized. This applies to variables declared with `let` and `const`
@@ -133,7 +133,7 @@ let a = 5;
 ---
 
 <details>
-<summary><span>What types of scope exist in JavaScript?</span></summary>
+<summary><span>8. What types of scope exist in JavaScript?</span></summary>
 <br />
 
 - **Global Scope**: Variables declared outside any function or block are globally accessible throughout the code
@@ -147,7 +147,7 @@ let a = 5;
 ---
 
 <details>
-<summary><span>What function creation methods do you know?</span></summary>
+<summary><span>9. What function creation methods do you know?</span></summary>
 <br />
 
 - **Function Declaration**
@@ -195,7 +195,7 @@ const greet = new Function();
 ---
 
 <details>
-<summary><span>What is Function Declaration?</span></summary>
+<summary><span>10. What is Function Declaration?</span></summary>
 <br />
 
 It is a way to declare a function in JavaScript using the `function` keyword.
@@ -212,7 +212,7 @@ Main features:
 ---
 
 <details>
-<summary><span>What is Function Expression?</span></summary>
+<summary><span>11. What is Function Expression?</span></summary>
 <br />
 
 It is a way to declare a function in JavaScript where the function is created within an expression and can be assigned to a variable. Unlike Function Declaration, it is not hoisted, so it can only be called after its declaration.
@@ -228,7 +228,7 @@ Main features:
 ---
 
 <details>
-<summary><span>What is an Arrow Function?</span></summary>
+<summary><span>12. What is an Arrow Function?</span></summary>
 <br />
 
 It is a compact syntax for defining functions in JavaScript
@@ -247,7 +247,7 @@ Key features:
 ---
 
 <details>
-<summary><span>What is a closure?</span></summary>
+<summary><span>13. What is a closure?</span></summary>
 <br />
 
 A closure is a mechanism that allows a function to remember a reference to its lexical environment, even if it no longer exists in the main call stack
@@ -257,7 +257,7 @@ A closure is a mechanism that allows a function to remember a reference to its l
 ---
 
 <details>
-<summary><span>What can we use closure for?</span></summary>
+<summary><span>14. What can we use closure for?</span></summary>
 <br />
 
 - Preserve state between function calls
@@ -312,7 +312,7 @@ const add = a => b => a + b;
 ---
 
 <details>
-<summary><span>What does the keyword <b>this</b> do?</span></summary>
+<summary><span>15. What does the keyword <b>this</b> do?</span></summary>
 <br />
 
 The keyword `this` in JavaScript refers to the execution context of a function that is, the object within which the function was called.
@@ -336,7 +336,7 @@ Examples of `this` usage:
 ---
 
 <details>
-<summary><span>List the array iteration methods in JavaScript?</span></summary>
+<summary><span>16. List the array iteration methods in JavaScript?</span></summary>
 <br />
 
 - `map` – creates a new array by applying a function to each element
@@ -356,7 +356,7 @@ Examples of `this` usage:
 ---
 
 <details>
-<summary><span>Tell about Event Loop?</span></summary>
+<summary><span>17. Tell about Event Loop?</span></summary>
 <br />
 
 **Event Loop** is a mechanism in JavaScript that ensures the correct execution sequence of tasks.
@@ -382,7 +382,7 @@ Event Loop enables JavaScript's asynchronous nature, allowing operations with un
 ---
 
 <details>
-<summary><span>What belongs to microtasks?</span></summary>
+<summary><span>18. What belongs to microtasks?</span></summary>
 <br />
 
 - **Promise** - methods `.then()`, `.catch()`, `.finally()`
@@ -394,7 +394,7 @@ Event Loop enables JavaScript's asynchronous nature, allowing operations with un
 ---
 
 <details>
-<summary><span>What observers exist in JavaScript?</span></summary>
+<summary><span>19. What observers exist in JavaScript?</span></summary>
 <br />
 
 1. **MutationObserver** – monitors changes in the DOM
@@ -407,7 +407,7 @@ Event Loop enables JavaScript's asynchronous nature, allowing operations with un
 ---
 
 <details>
-<summary><span>What are the ways to work with asynchronous code?</span></summary>
+<summary><span>20. What are the ways to work with asynchronous code?</span></summary>
 <br />
 
 1. **Callbacks** – a basic approach, but it can lead to "callback hell"
@@ -419,7 +419,7 @@ Event Loop enables JavaScript's asynchronous nature, allowing operations with un
 ---
 
 <details>
-<summary><span>What is async/await?</span></summary>
+<summary><span>21. What is async/await?</span></summary>
 <br />
 
 This is a syntax for working with asynchronous code, allowing you to write it as if it were synchronous, simplifying readability and error handling.
@@ -432,7 +432,7 @@ This is a syntax for working with asynchronous code, allowing you to write it as
 ---
 
 <details>
-<summary><span>What is Promise?</span></summary>
+<summary><span>22. What is Promise?</span></summary>
 <br />
 
 **Promise** is a syntax for handling asynchronous code.  
@@ -473,7 +473,7 @@ But errors are usually handled separately with `.catch()`.
 ---
 
 <details>
-<summary><span>What types of operators exist in JavaScript?</span></summary>
+<summary><span>23. What types of operators exist in JavaScript?</span></summary>
 <br />
 
 1. **Arithmetic operators**
@@ -550,7 +550,7 @@ But errors are usually handled separately with `.catch()`.
 ---
 
 <details>
-<summary><span>Which logical operator has the highest precedence?</span></summary>
+<summary><span>24. Which logical operator has the highest precedence?</span></summary>
 <br />
 
 The `!` (logical "NOT") operator has the highest precedence among logical operators in JavaScript
@@ -560,7 +560,7 @@ The `!` (logical "NOT") operator has the highest precedence among logical operat
 ---
 
 <details>
-<summary><span>What is the difference between simple and strict comparison operators?</span></summary>
+<summary><span>25. What is the difference between simple and strict comparison operators?</span></summary>
 <br />
 
 1. `==`
@@ -581,7 +581,7 @@ The `!` (logical "NOT") operator has the highest precedence among logical operat
 ---
 
 <details>
-<summary><span>How do postfix and prefix increment and decrement operators work?</span></summary>
+<summary><span>26. How do postfix and prefix increment and decrement operators work?</span></summary>
 <br />
 
 - **Prefix increment (`++variable`) and decrement (`--variable`)**  
@@ -595,7 +595,7 @@ The `!` (logical "NOT") operator has the highest precedence among logical operat
 ---
 
 <details>
-<summary><span>What is short-circuit evaluation in JavaScript?</span></summary>
+<summary><span>27. What is short-circuit evaluation in JavaScript?</span></summary>
 <br />
 
 This is a feature of the logical operators `&&` and `||`, where an expression **stops execution** as soon as the result is clear.
@@ -613,7 +613,7 @@ This helps **optimize code** and **avoid unnecessary computations**, especially 
 ---
 
 <details>
-<summary><span>What does the <b>instanceof</b> operator do?</span></summary>
+<summary><span>28. What does the <b>instanceof</b> operator do?</span></summary>
 <br />
 
 It is used to check whether an object belongs to a specific constructor or class
@@ -632,7 +632,7 @@ console.log(dog instanceof Array); // false (dog is not an array)
 ---
 
 <details>
-<summary><span>Which operator can be used to check if a property exists in an object?</span></summary>
+<summary><span>29. Which operator can be used to check if a property exists in an object?</span></summary>
 <br />
 
 The `in` operator checks for the existence of a property in an object, including properties inherited from its prototype
@@ -649,7 +649,7 @@ console.log('toString' in obj); // true (inherited from Object.prototype)
 ---
 
 <details>
-<summary><span>How to check if a property belongs to an object itself, excluding inheritance?</span></summary>
+<summary><span>30. How to check if a property belongs to an object itself, excluding inheritance?</span></summary>
 <br />
 
 The `hasOwnProperty()` method allows checking whether a property is an object's own, excluding inherited properties
