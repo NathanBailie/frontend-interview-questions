@@ -118,6 +118,21 @@ Scope in JavaScript is the visibility and accessibility of variables, functions,
 ---
 
 <details>
+<summary><span>What is Temporal Dead Zone?</span></summary>
+<br />
+
+This is the period of time during which a variable exists in the context but cannot be used until it is initialized. This applies to variables declared with `let` and `const`
+
+```javascript
+console.log(a); // ❌ ReferenceError (TDZ)
+let a = 5;
+```
+
+</details>
+
+---
+
+<details>
 <summary><span>What types of scope exist in JavaScript?</span></summary>
 <br />
 
@@ -452,6 +467,197 @@ But errors are usually handled separately with `.catch()`.
 - `Promise.allSettled()` – waits for all promises to complete regardless of the result
 - `Promise.race()` – returns the result of the first completed promise (success or failure)
 - `Promise.any()` – returns the first **successful** result, ignoring errors
+
+</details>
+
+---
+
+<details>
+<summary><span>What types of operators exist in JavaScript?</span></summary>
+<br />
+
+1. **Arithmetic operators**
+
+   - `+` (addition)
+   - `-` (subtraction)
+   - `*` (multiplication)
+   - `/` (division)
+   - `%` (remainder)
+   - `**` (exponentiation)
+   - `++` (increment)
+   - `--` (decrement)
+
+2. **Assignment operators**
+
+   - `=` (simple assignment)
+   - `+=`, `-=`, `*=`, `/=`, `%=` (combined assignment operators)
+   - `**=` (exponentiation assignment)
+
+3. **Comparison operators**
+
+   - `==` (equal, but without type checking)
+   - `===` (strict equality, with type checking)
+   - `!=` (not equal)
+   - `!==` (strict inequality)
+   - `>` (greater than)
+   - `<` (less than)
+   - `>=` (greater than or equal to)
+   - `<=` (less than or equal to)
+
+4. **Logical operators**
+
+   - `&&` (logical "and")
+   - `||` (logical "or")
+   - `!` (logical "not")
+
+5. **Bitwise operators**
+
+   - `&` (bitwise "and")
+   - `|` (bitwise "or")
+   - `^` (bitwise "xor")
+   - `~` (bitwise "not")
+   - `<<` (left shift)
+   - `>>` (right shift)
+   - `>>>` (zero-fill right shift)
+
+6. **Type operator**
+
+   - `typeof` (returns a string indicating the type of a value)
+
+7. **Nullish coalescing operator**
+
+   - `??` (checks if the left operand is `null` or `undefined`. If so, it returns the right operand)
+
+8. **Ternary Operator**
+
+   - `? :` (conditional operator)
+
+9. **String operators**
+
+   - `+` (string concatenation, joining)
+   - `+=` (appending to a string)
+
+10. **Other operators**
+
+- `delete` (removes an object's property)
+- `in` (checks for the existence of a property in an object)
+- `instanceof` (checks if an object belongs to a certain class)
+- `await` (used inside `async` functions for handling promises)
+- `new` (creates an instance of an object)
+
+</details>
+
+---
+
+<details>
+<summary><span>Which logical operator has the highest precedence?</span></summary>
+<br />
+
+The `!` (logical "NOT") operator has the highest precedence among logical operators in JavaScript
+
+</details>
+
+---
+
+<details>
+<summary><span>What is the difference between simple and strict comparison operators?</span></summary>
+<br />
+
+1. `==`
+
+- Compares two values without considering their type
+- Automatically converts data types if necessary
+- Can lead to unexpected results due to implicit type conversion  
+  <br /><br />
+
+2. `===`
+
+- Compares both value and type without conversion
+- Returns `true` only if both operands have the same type and value
+- Prevents errors related to implicit type conversions
+
+</details>
+
+---
+
+<details>
+<summary><span>How do postfix and prefix increment and decrement operators work?</span></summary>
+<br />
+
+- **Prefix increment (`++variable`) and decrement (`--variable`)**  
+  Increases/decreases the variable's value first, then returns the updated value
+
+- **Postfix increment (`variable++`) and decrement (`variable--`)**  
+  Returns the old value first, then increases/decreases the variable
+
+</details>
+
+---
+
+<details>
+<summary><span>What is short-circuit evaluation in JavaScript?</span></summary>
+<br />
+
+This is a feature of the logical operators `&&` and `||`, where an expression **stops execution** as soon as the result is clear.
+
+```js
+let x = a || (b && c);
+```
+
+If `a` has a **true** value, the expression **resolves** at `a`, and `b && c` **is not evaluated**.
+
+This helps **optimize code** and **avoid unnecessary computations**, especially in `if` conditions or complex logical expressions.
+
+</details>
+
+---
+
+<details>
+<summary><span>What does the <b>instanceof</b> operator do?</span></summary>
+<br />
+
+It is used to check whether an object belongs to a specific constructor or class
+
+```javascript
+class Animal {}
+let dog = new Animal();
+
+console.log(dog instanceof Animal); // true (dog was created through Animal)
+console.log(dog instanceof Object); // true (all objects inherit from Object)
+console.log(dog instanceof Array); // false (dog is not an array)
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>Which operator can be used to check if a property exists in an object?</span></summary>
+<br />
+
+The `in` operator checks for the existence of a property in an object, including properties inherited from its prototype
+
+```javascript
+let obj = { name: 'Alice' };
+
+console.log('name' in obj); // true (the property exists)
+console.log('toString' in obj); // true (inherited from Object.prototype)
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>How to check if a property belongs to an object itself, excluding inheritance?</span></summary>
+<br />
+
+The `hasOwnProperty()` method allows checking whether a property is an object's own, excluding inherited properties
+
+```javascript
+console.log(obj.hasOwnProperty('name')); // true (own property)
+console.log(obj.hasOwnProperty('toString')); // false (inherited)
+```
 
 </details>
 
