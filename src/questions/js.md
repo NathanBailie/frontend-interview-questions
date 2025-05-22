@@ -4,6 +4,7 @@
   <img src="../assets/icons/icons-for-titles/js.png">
   <h2>JS questions</h2>
 </div>
+<br />
 
 <details>
 <summary><span>1. What is JavaScript?</span></summary>
@@ -662,3 +663,30 @@ console.log(obj.hasOwnProperty('toString')); // false (inherited)
 </details>
 
 ---
+
+<details>
+<summary><span>31. What is IIFE?</span></summary>
+<br />
+
+An Immediately Invoked Function Expression (**IIFE**) is a function that executes immediately after its definition. It is commonly used to create a local scope and avoid naming conflicts.
+
+Examples of **IIFE**:
+
+```javascript
+// Standard syntax
+(function () {
+	console.log('IIFE executed!');
+})();
+
+// Arrow function
+(() => {
+	console.log('Arrow IIFE');
+})();
+
+// Passing a parameter
+(name => {
+	console.log(`Hello, ${name}!`);
+})('Alex');
+```
+
+</details>

@@ -4,6 +4,7 @@
   <img src="../assets/icons/icons-for-titles/css.png">
   <h2>CSS questions</h2>
 </div>
+<br />
 
 <details>
 <summary><span>1. What is CSS?</span></summary>

@@ -4,6 +4,7 @@
   <img src="../assets/icons/icons-for-titles/html.png">
   <h2>HTML questions</h2>
 </div>
+<br />
 
 <details>
 <summary><span>1. What is HTML?</span></summary>
