@@ -690,3 +690,158 @@ Examples of **IIFE**:
 ```
 
 </details>
+
+---
+
+<details>
+<summary><span>32. How does the garbage collector work?</span></summary>
+<br />
+
+The garbage collector operates based on the concept of **object reachability**.  
+An object is considered reachable if it can be accessed via a chain of references starting from so-called **roots**—for example, global objects (`window`, `globalThis`), local variables of the current functions, parameters, variables in closures, etc.
+
+If an object is reachable, it remains in memory. If not, it is considered unreachable and can be removed.
+
+The most commonly used algorithm in JavaScript is called **"Mark-and-Sweep"**:
+
+- **Mark**: The garbage collector traverses all reachable objects starting from the roots and marks them
+- **Sweep**: All objects that were not marked are considered unreachable and are removed
+
+</details>
+
+---
+
+<details>
+<summary><span>33. <b>Map</b> and <b>Set</b> in JavaScript?</span></summary>
+<br />
+
+### **Map** – collection of key-value pairs
+
+- Keys can be **any type** (unlike plain objects, where keys are only strings or symbols)
+- **Maintains insertion order**
+- **More optimized for property deletion** compared to plain objects
+  <br /><br />
+
+**Key methods:**
+| Method | Description |
+|--------|------------|
+| `map.set(key, value)` | Sets a value by key |
+| `map.get(key)` | Retrieves a value by key |
+| `map.has(key)` | Checks if a key exists |
+| `map.delete(key)` | Removes an entry by key |
+| `map.clear()` | Clears the entire collection |
+| `map.size` | Returns the number of elements |
+<br />
+
+### **Set** – collection of unique values
+
+- **Values do not repeat**
+- **Maintains insertion order**
+- **Allows fast lookup of values**
+  <br /><br />
+
+**Key methods:**
+| Method | Description |
+|--------|------------|
+| `set.add(value)` | Adds a value |
+| `set.has(value)` | Checks if a value exists |
+| `set.delete(value)` | Removes a value |
+| `set.clear()` | Clears the entire set |
+| `set.size` | Returns the count of unique values |
+
+</details>
+
+---
+
+<details>
+<summary><span>34. <b>WeakMap</b> and <b>WeakSet</b> in JavaScript?</span></summary>
+<br />
+
+WeakMap and WeakSet are **weakened** versions of Map and Set, designed for handling temporary data. They differ in memory management and garbage collection behavior.
+
+### **WeakMap** – a collection of key-value pairs with special characteristics:
+
+- **Keys can only be objects** (strings, numbers, and other primitives are not allowed)
+- **Does not prevent garbage collection** – if an object is no longer used, it gets automatically removed
+- **No `.size`, `.keys()`, `.values()`, or `.entries()` methods** – the data cannot be iterated over
+  <br /><br />
+
+✅ **Key Methods:**
+| Method | Description |
+|--------|------------|
+| `weakMap.set(obj, value)` | Adds a key-value pair (`object → value`) |
+| `weakMap.get(obj)` | Retrieves a value by object |
+| `weakMap.has(obj)` | Checks if an object exists in the collection |
+| `weakMap.delete(obj)` | Removes an object from the collection |
+<br />
+
+🔹 **Usage** – storing data that should be automatically removed, such as caching or metadata binding to objects.
+
+```js
+const weakMap = new WeakMap();
+let user = { name: 'Nathan' };
+
+weakMap.set(user, 'data');
+console.log(weakMap.get(user)); // 'data'
+
+user = null; // Now the object can be garbage collected
+```
+
+<br />
+
+### **WeakSet** – a collection of **unique objects**:
+
+- **Can only contain objects** (primitive values are not allowed)
+- **Objects are automatically removed** when no longer used
+- **No `.size` method or iteration capabilities**
+  <br /><br />
+
+✅ **Key Methods:**
+| Method | Description |
+|--------|------------|
+| `weakSet.add(obj)` | Adds an object |
+| `weakSet.has(obj)` | Checks if an object exists |
+| `weakSet.delete(obj)` | Removes an object |
+<br />
+
+🔹 **Usage** – tracking objects without risking memory leaks, such as storing temporary markers for operations.
+
+```js
+const weakSet = new WeakSet();
+let session = { id: 123 };
+
+weakSet.add(session);
+console.log(weakSet.has(session)); // true
+
+session = null; // Now the object can be garbage collected
+```
+
+WeakMap and WeakSet are useful when objects should automatically **disappear from the collection** upon losing references, helping prevent **memory leaks**.
+
+</details>
+
+---
+
+<details>
+<summary><span>35. Why is the <b>Map</b> collection more optimized for deleting fields than a regular object?
+</span></summary>
+<br />
+
+Regular objects are initially optimized for a **static structure**—when the set of keys does not change. This allows the V8 engine (in Chrome and Node.js) and other engines to use **hidden classes** and **inline caching** to speed up property access.
+<br /><br />
+
+When you use `delete obj.key`, the engine **breaks optimizations** associated with these hidden classes:
+
+- The hidden class is changed
+- Property access becomes slower
+- The object is no longer considered "simple," reducing performance
+  <br /><br />
+
+With `Map`, the situation is different:
+
+- `Map` is **designed** for frequent changes and operations on keys, including deletion
+- Deleting keys in `Map` **does not cause de-optimization** in the JavaScript engine
+- `Map` **does not have a prototype chain**, so there are no conflicts with inherited properties
+- In `Map`, **removal works reliably and efficiently**, even with large amounts of data
+
+</details>
