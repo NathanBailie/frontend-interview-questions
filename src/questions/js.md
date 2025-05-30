@@ -845,3 +845,296 @@ With `Map`, the situation is different:
 - In `Map`, **removal works reliably and efficiently**, even with large amounts of data
 
 </details>
+
+---
+
+<details>
+<summary><span>36. What does the keyword <b>new</b> do?</span></summary>
+<br />
+
+The `new` keyword is primarily used to create an instance of an object based on a constructor function or class.
+
+Here are the key cases where `new` is used in JavaScript:
+
+1. **Creating objects using constructors** – Allows the creation of object instances:
+
+   ```javascript
+   function Person(name) {
+   	this.name = name;
+   }
+   const user = new Person('Nathan');
+   ```
+
+2. **Creating built-in object types** – Generates wrapper objects:
+
+   ```javascript
+   const num = new Number(42); // an object, not a primitive number
+   const str = new String('Hello'); // wrapper object for a string
+   const bool = new Boolean(true); // wrapper object for a boolean value
+   ```
+
+3. **Creating class instances** – Used to create instances of a `class`:
+
+   ```javascript
+   class Car {
+   	constructor(model) {
+   		this.model = model;
+   	}
+   }
+   const myCar = new Car('Tesla');
+   ```
+
+4. **Working with `Map`, `Set`, and `WeakMap`** – Creating collections:
+
+   ```javascript
+   const map = new Map();
+   const set = new Set();
+   const weakMap = new WeakMap();
+   ```
+
+5. **Creating objects using `Date`** – Allows working with dates:
+
+   ```javascript
+   const now = new Date();
+   ```
+
+6. **Using `RegExp` for regular expressions** – Creates a dynamic pattern:
+
+   ```javascript
+   const regex = new RegExp('\\d+');
+   console.log(regex.test('123')); // true
+   ```
+
+7. **Working with `Promise`** – Creates a new promise:
+
+   ```javascript
+   const myPromise = new Promise(resolve => resolve('Done!'));
+   myPromise.then(console.log); // "Done!"
+   ```
+
+8. **Creating `Error` objects** – Used for error handling:
+   ```javascript
+   const err = new Error('Something went wrong!');
+   console.error(err.message);
+   ```
+
+</details>
+
+---
+
+<details>
+<summary><span>37. What is prototype inheritance?</span></summary>
+<br />
+
+It is a mechanism in JavaScript that allows objects to inherit properties and methods from other objects.
+
+Each object in JavaScript has a hidden property `[[Prototype]]`, which points to another object (the prototype). If a property is requested that does not exist in the current object, JavaScript looks for it in the prototype.
+
+</details>
+
+---
+
+<details>
+<summary><span>38. How to create an object with a given prototype?</span></summary>
+<br />
+
+In JavaScript, an object can be created with a specific prototype using several methods:
+
+### 1. `Object.create(prototype)`
+
+This is the most convenient way to create an object with a specified prototype:
+
+```javascript
+const person = {
+	greet() {
+		console.log('Hello!');
+	},
+};
+
+const user = Object.create(person);
+user.name = 'Nathan';
+
+console.log(user.name); // "Nathan"
+user.greet(); // "Hello!" (inherited from person)
+```
+
+### 2. Using `__proto__`
+
+You can explicitly set a prototype using `__proto__`, but this method is poorly optimized, deprecated, and **not recommended**:
+
+```javascript
+const person = {
+	greet() {
+		console.log('Hello!');
+	},
+};
+
+const user = { name: 'Nathan' };
+user.__proto__ = person;
+
+user.greet(); // "Hello!"
+```
+
+### 3. `Object.setPrototypeOf(obj, prototype)`
+
+A safer way to change an object's prototype after creation:
+
+```javascript
+const person = {
+	greet() {
+		console.log('Hello!');
+	},
+};
+
+const user = { name: 'Nathan' };
+Object.setPrototypeOf(user, person);
+
+user.greet(); // "Hello!"
+```
+
+### 4. Using a constructor function and `prototype`
+
+This method is commonly used to create multiple instances:
+
+```javascript
+function Person(name) {
+	this.name = name;
+}
+
+Person.prototype.greet = function () {
+	console.log(`Hello, my name is ${this.name}`);
+};
+
+const user = new Person('Nathan');
+user.greet(); // "Hello, my name is Nathan"
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>39. How to change an object's prototype after it's created?</span></summary>
+<br />
+
+This can be done using the following methods:
+
+- `Object.setPrototypeOf()`
+- `__proto__` (not recommended)
+
+</details>
+
+---
+
+<details>
+<summary><span>40. How to check if an object is the prototype of another object?</span></summary>
+<br />
+
+- **`Object.prototype.isPrototypeOf(obj)`**
+
+  ```javascript
+  const person = {};
+  const user = Object.create(person);
+
+  console.log(person.isPrototypeOf(user)); // true
+  ```
+
+- **`Object.getPrototypeOf()`** - this method returns the prototype of an object, which can be compared directly
+
+  ```javascript
+  const person = {};
+  const user = Object.create(person);
+
+  console.log(Object.getPrototypeOf(user) === person); // true
+  ```
+
+- **`__proto__` (not recommended)**
+
+  ```javascript
+  const person = {};
+  const user = {};
+  user.__proto__ = person;
+
+  console.log(user.__proto__ === person); // true
+  ```
+
+</details>
+
+---
+
+<details>
+<summary><span>41. What happens if a property is not found in an object or its prototype?</span></summary>
+<br />
+
+If a property is not found in an object or its prototype, JavaScript will return `undefined`.
+
+</details>
+
+---
+
+<details>
+<summary><span>42. What is the difference between <b>__proto__</b> and <b>prototype</b>?</span></summary>
+<br />
+
+### **`__proto__` (deprecated but still used)**
+
+An instance property of an object that points to its prototype. It allows you to get or change the prototype, but **it's not recommended** due to performance issues.
+
+#### **Example:**
+
+```javascript
+const person = {
+	greet() {
+		console.log('Hello!');
+	},
+};
+const user = { name: 'Anton' };
+user.__proto__ = person; // Changing the prototype
+
+console.log(user.greet()); // "Hello!" (inherited)
+```
+
+---
+
+### **`prototype` (used in constructor functions and classes)**
+
+A property of a constructor function or class that defines the prototype for all objects created with `new`. It allows adding methods that are shared across all instances.
+
+#### **Example:**
+
+```javascript
+function Person(name) {
+	this.name = name;
+}
+
+Person.prototype.sayHello = function () {
+	console.log(`Hello, my name is ${this.name}`);
+};
+
+const user = new Person('Anton');
+user.sayHello(); // "Hello, my name is Anton"
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>43. How to remove an object's connection to its prototype?</span></summary>
+<br />
+
+- `Object.setPrototypeOf(obj, null)` - removes the prototype from an existing object
+- `Object.create(null)` - creates an object without a prototype
+
+</details>
+
+---
+
+<!--
+<details>
+<summary><span></span></summary>
+<br />
+
+</details>
+
+--- -->
