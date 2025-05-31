@@ -1130,6 +1130,156 @@ user.sayHello(); // "Hello, my name is Anton"
 
 ---
 
+<details>
+<summary><span>44. What are template literals used for?</span></summary>
+<br />
+
+This is a convenient way to create strings, allowing you to embed variables and expressions directly into the text.
+
+</details>
+
+---
+
+<details>
+<summary><span>45. Which values in JavaScript are considered false?</span></summary>
+<br />
+
+- `false` — logical `false`.
+- `0`, `-0`, `0n` — all zero variants, including BigInt `0n`.
+- `""`, `''`, ```` — empty strings.
+- `null` — absence of value.
+- `undefined` — undefined value.
+- `NaN` — "Not a Number", result of invalid mathematical operations.
+
+</details>
+
+---
+
+<details>
+<summary><span>46. What is destructuring?</span></summary>
+<br />
+
+**Destructuring** is a convenient way to extract values from objects and arrays and assign them to variables in JavaScript.
+
+### **Examples:**
+
+- **Objects:**
+  ```js
+  const user = { name: 'Nathan', age: 33 };
+  const { name, age } = user;
+  console.log(name, age); // "Nathan", 33
+  ```
+- **Arrays:**
+  ```js
+  const numbers = [10, 20, 30];
+  const [first, second] = numbers;
+  console.log(first, second); // 10, 20
+  ```
+
+</details>
+
+---
+
+<details>
+<summary><span>47. What is a pure function?</span></summary>
+<br />
+
+**A pure function** is a function that always returns the same result for the same input and does not modify external state.
+
+</details>
+
+---
+
+<details>
+<summary><span>48. What is a higher-order function?</span></summary>
+<br />
+
+A higher-order function is a function that takes another function as an argument or returns a function as a result.
+
+</details>
+
+---
+
+<details>
+<summary><span>49. How to check if a value is specifically an array?</span></summary>
+<br />
+
+1. `Array.isArray()`
+
+   ```js
+   console.log(Array.isArray([1, 2, 3])); // true
+   console.log(Array.isArray({ a: 1, b: 2 })); // false
+   ```
+
+2. `Object.prototype.toString.call(value)`
+   ```js
+   console.log(Object.prototype.toString.call([1, 2, 3])); // "[object Array]"
+   ```
+
+</details>
+
+---
+
+<details>
+<summary><span>50. How to check if a value is specifically an object?</span></summary>
+<br />
+
+`Object.prototype.toString.call(value)`
+
+```js
+console.log(Object.prototype.toString.call({ a: 1 })); // "[object Object]"
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>51. What are the methods of objects?</span></summary>
+<br />
+
+### **Working with keys and values**
+
+- `Object.keys(obj)` — returns an array of object keys.
+- `Object.values(obj)` — returns an array of values.
+- `Object.entries(obj)` — returns an array of `[key, value]` pairs.
+
+### **Working with properties**
+
+- `Object.assign(target, source)` — copies properties from one object to another.
+- `Object.defineProperty(obj, key, descriptor)` — defines a new property with settings (`writable`, `configurable`, `enumerable`).
+- `Object.defineProperties(obj, descriptors)` — similar to `defineProperty`, but for multiple properties.
+
+### **Checks and prototypes**
+
+- `Object.hasOwn(obj, key)` — checks if a key exists in the object **(excluding the prototype)**.
+- `Object.prototype.hasOwnProperty(key)` — checks whether the object contains a specific property.
+- `Object.getPrototypeOf(obj)` — returns the object's prototype.
+- `Object.setPrototypeOf(obj, prototype)` — changes the object's prototype.
+
+### **Creating and freezing objects**
+
+- `Object.create(proto)` — creates a new object with the specified prototype.
+- `Object.freeze(obj)` — makes an object **immutable** (properties can't be added or removed).
+- `Object.seal(obj)` — prevents property deletion but allows modifications to existing properties.
+
+</details>
+
+---
+
+<details>
+<summary><span>52. How to bind a function to a context?</span></summary>
+<br />
+
+- **call** – invokes a function with the specified context and arguments passed separately
+- **apply** – similar to `call`, but arguments are passed as an array
+- **bind** – creates a new function with the bound context but does not invoke it immediately
+- **arrow functions** – automatically bind `this` to the surrounding context where they are defined
+
+</details>
+
+---
+
 <!--
 <details>
 <summary><span></span></summary>
@@ -1138,3 +1288,11 @@ user.sayHello(); // "Hello, my name is Anton"
 </details>
 
 --- -->
+
+<!-- спред и рест оператор
+всплытие и пгружение
+как отслеживать и обрабатывать ошибки
+что такое дом
+шадоу дом
+почему мы можем вызывать методы у примитивов
+как скопировать объект -->
