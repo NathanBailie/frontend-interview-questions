@@ -1280,6 +1280,64 @@ console.log(Object.prototype.toString.call({ a: 1 })); // "[object Object]"
 
 ---
 
+<details>
+<summary><span>53. What does the Spread operator do?</span></summary>
+<br />
+
+The Spread operator is used to copy or merge both arrays and objects.
+
+Examples:
+
+✅ **Merging arrays**:
+
+```javascript
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const combined = [...arr1, ...arr2];
+console.log(combined); // [1, 2, 3, 4, 5, 6]
+```
+
+✅ **Copying an object**:
+
+```javascript
+const person = { name: 'Alice', age: 25 };
+const copiedPerson = { ...person };
+
+console.log(copiedPerson); // { name: 'Alice', age: 25 }
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>54. What does the Rest operator do?</span></summary>
+<br />
+
+The Rest operator is used to collect implicitly passed function arguments into an array so they can be easily processed.
+
+This technique is useful when the number of parameters is **unknown in advance**, but they still need to be handled.
+
+### ✅ Example:
+
+```javascript
+function logArguments(first, second, ...rest) {
+	console.log(`First: ${first}`);
+	console.log(`Second: ${second}`);
+	console.log(`Rest:`, rest);
+}
+
+logArguments(1, 2, 3, 4, 5);
+// First: 1
+// Second: 2
+// Rest: [3, 4, 5]
+```
+
+</details>
+
+---
+
 <!--
 <details>
 <summary><span></span></summary>
@@ -1289,7 +1347,7 @@ console.log(Object.prototype.toString.call({ a: 1 })); // "[object Object]"
 
 --- -->
 
-<!-- спред и рест оператор
+<!--
 всплытие и пгружение
 как отслеживать и обрабатывать ошибки
 что такое дом
