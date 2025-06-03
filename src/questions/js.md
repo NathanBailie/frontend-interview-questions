@@ -1338,6 +1338,46 @@ logArguments(1, 2, 3, 4, 5);
 
 ---
 
+<details>
+<summary><span>55. What is <b>event bubbling</b>?</span></summary>
+<br />
+
+**Event bubbling** is the process in which an event that occurs on a nested element is first handled on that element and then propagates up the DOM hierarchy, triggering event handlers on its parent elements.
+
+This happens because nested elements are part of their parent containers, and interacting with them affects the entire chain of nesting up to the root element.
+
+</details>
+
+---
+
+<details>
+<summary><span>56. What is <b>event capturing</b>?</span></summary>
+<br />
+
+**Event capturing** is the phase of event processing that is the opposite of bubbling. In this phase, the event starts propagating from the topmost element of the DOM tree and sequentially moves down the hierarchy to the target element.
+
+By default, event capturing is disabled. To enable it, we need to pass `true` as the third argument in `addEventListener` or use an object `{ capture: true }`.
+
+```javascript
+element.addEventListener('click', handler, true);
+
+element.addEventListener('click', handler, { capture: true });
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>57. How to stop event bubbling?</span></summary>
+<br />
+
+To stop event bubbling, call the `event.stopPropagation()` method inside the child element's event handler in `addEventListener`
+
+</details>
+
+---
+
 <!--
 <details>
 <summary><span></span></summary>
@@ -1348,7 +1388,6 @@ logArguments(1, 2, 3, 4, 5);
 --- -->
 
 <!--
-всплытие и пгружение
 как отслеживать и обрабатывать ошибки
 что такое дом
 шадоу дом
