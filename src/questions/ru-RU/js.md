@@ -1,4 +1,4 @@
-<a href="../../../README.md">← Назад</a>
+<a href="./README.md">← Назад</a>
 
 <div align="center">
   <img src="../../assets/icons/icons-for-titles/js.png">
