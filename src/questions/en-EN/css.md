@@ -1,7 +1,7 @@
-<a href="../../README.md">← Back</a>
+<a href="../../../README.md">← Back</a>
 
 <div align="center">
-  <img src="../assets/icons/icons-for-titles/css.png">
+  <img src="../../../src/assets/icons/icons-for-titles/css.png">
   <h2>CSS questions</h2>
 </div>
 <br />

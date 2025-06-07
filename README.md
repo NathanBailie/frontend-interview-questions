@@ -10,12 +10,14 @@ This repository contains carefully selected questions covering key aspects of fr
 The questions cover topics ranging from the basics of HTML, CSS and JavaScript to modern frameworks, performance and architectural approaches 🚀
 </p>
 
+<p style="font-size: 16px">
+Questions are also available in <a href="./src/questions/ru-RU/README.md">Russian</a> ⭐
+</p>
+
 ---
 
 ## Question Categories
 
-<!-- - [HTML](./src/assets/icons/html.png)(src/questions/html.md) -->
-
-- ![HTML](./src/assets/icons/icons-for-main-readme/html.png) [HTML](src/questions/html.md)
-- ![CSS](./src/assets/icons/icons-for-main-readme/css.png) [CSS](src/questions/css.md)
-- ![JS](./src/assets/icons/icons-for-main-readme/js.png) [JS](src/questions/js.md)
+- ![HTML](./src/assets/icons/icons-for-main-readme/html.png) [HTML](src/questions/en-EN/html.md)
+- ![CSS](./src/assets/icons/icons-for-main-readme/css.png) [CSS](src/questions/en-EN/css.md)
+- ![JS](./src/assets/icons/icons-for-main-readme/js.png) [JS](src/questions/en-EN/js.md)
