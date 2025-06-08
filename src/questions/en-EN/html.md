@@ -276,3 +276,106 @@ The `srcset` attribute is used to load different versions of an image depending 
 </details>
 
 ---
+
+<details>
+<summary><span>14. What types of lists exist in HTML?</span></summary>
+<br />
+
+In HTML, there are three main types of lists:
+
+1. **Ordered list (`<ol>`)** – used to display items in a specific order, usually numbered with digits or letters.
+
+   ```html
+   <ol>
+   	<li>First item</li>
+   	<li>Second item</li>
+   	<li>Third item</li>
+   </ol>
+   ```
+
+2. **Unordered list (`<ul>`)** – items are displayed without a strict order, usually with bullet points (circles, squares, etc.).
+
+   ```html
+   <ul>
+   	<li>Item 1</li>
+   	<li>Item 2</li>
+   	<li>Item 3</li>
+   </ul>
+   ```
+
+3. **Definition list (`<dl>`)** – used to display terms and their descriptions.
+   ```html
+   <dl>
+   	<dt>HTML</dt>
+   	<dd>A markup language for creating web pages</dd>
+   	<dt>CSS</dt>
+   	<dd>A styling language for designing web pages</dd>
+   </dl>
+   ```
+
+Additionally, lists can be styled using CSS to change markers, add custom numbering, or apply unique styles.
+
+</details>
+
+---
+
+<details>
+<summary><span>15. How to change the list marker?</span></summary>
+<br />
+
+In HTML, list markers can be modified using CSS. Here are the main methods:
+
+### 1. **`list-style-type`**
+
+```css
+ul {
+	list-style-type: square; /* Square instead of the default circle */
+}
+```
+
+Available values: `disc` (default), `circle`, `square`, `none` (removes markers).
+
+```css
+ol {
+	list-style-type: upper-roman; /* Roman numerals (I, II, III) */
+}
+```
+
+Available values: `decimal`, `lower-alpha`, `upper-alpha`, `lower-roman`, `upper-roman`.
+
+### 2. **Custom image as a marker**
+
+```css
+ul {
+	list-style-image: url('marker.png'); /* Set a custom marker */
+}
+```
+
+However, it's better to use `background-image`.
+
+### 3. **Custom marker using `::before`**
+
+```css
+ul li {
+	list-style: none; /* Remove default markers */
+}
+
+ul li::before {
+	content: '🔥'; /* Add emoji as a marker */
+	margin-right: 10px;
+}
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>16. What is <b>iframe</b>? </span></summary>
+<br />
+
+It is an HTML element that allows embedding one web page inside another. It is used to display external content such as maps, videos, other web pages, or even interactive applications.
+
+</details>
+
+---

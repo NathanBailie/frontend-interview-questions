@@ -318,3 +318,121 @@ Main pseudo-classes:
 </details>
 
 ---
+
+<details>
+<summary><span>17. How does <b>flexbox</b> work and what are its main properties?</span></summary>
+<br />
+
+It is a CSS tool for convenient element positioning on a page, used to create responsive interfaces and center elements.
+<br /><br />
+
+Flexbox uses **two axes** that help control element placement:
+
+1. **Main Axis** — the direction along which elements are placed
+   - Defined by the `flex-direction` property
+   - Can be **horizontal** (`row`) or **vertical** (`column`)
+2. **Cross Axis** — perpendicular to the main axis, responsible for element alignment
+   - Controlled via `align-items` and `align-content`
+
+---
+
+### **Alignment along the main axis (`justify-content`)**
+
+Used to control element placement **horizontally** (if `flex-direction: row`) or **vertically** (if `flex-direction: column`):
+
+- `flex-start` — elements are aligned at the start
+- `flex-end` — aligned at the end
+- `center` — centered
+- `space-between` — evenly distributed **without gaps at the edges**
+- `space-around` — evenly distributed **with gaps on the sides**
+- `space-evenly` — fully evenly distributed, including the edges
+
+---
+
+### **Alignment along the cross axis (`align-items`)**
+
+Controls element placement **perpendicular to the main axis**:
+
+- `stretch` (default) — elements stretch to fit the container height
+- `flex-start` — aligned at the start of the cross axis
+- `flex-end` — aligned at the end
+- `center` — centered
+- `baseline` — aligned along the text baseline
+
+---
+
+### 🔹 **Additional Flexbox commands**
+
+- **`flex-direction`** — sets the direction of elements (`row`, `column`, `row-reverse`, `column-reverse`, `inherit`, `initial`, `unset`).
+- **`flex-wrap`** — controls line wrapping (`nowrap`, `wrap`, `wrap-reverse`, `inherit`, `initial`, `unset`).
+- **`flex-flow`** — combines `flex-direction` and `flex-wrap` (e.g., `row wrap`, `column nowrap`).
+- **`flex-shrink`** — defines how much elements shrink (`0` — does not shrink, `1` — standard shrinking).
+- **`flex-grow`** — regulates element growth (`0` — does not grow, `1+` — degree of growth).
+- **`flex-basis`** — sets the initial size (`auto`, `100px`, `25%`).
+- **`order`** — changes display order (`-1`, `0`, `1`, `2`, etc.).
+- **`align-self`** — individual alignment (`auto`, `flex-start`, `flex-end`, `center`, `baseline`, `stretch`).
+- **`align-content`** — manages row placement (`flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `stretch`).
+- **`justify-content`** — controls element positioning along the main axis (`flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `space-evenly`).
+
+</details>
+
+---
+
+<details>
+<summary><span>18. How is the <b>grid</b> system structured?</span></summary>
+<br />
+
+It is a tool for creating complex layouts that allows working with row and column grids. Unlike Flexbox, which controls elements along one axis, **Grid** organizes content in a **two-dimensional** structure.
+
+### **Main grid properties (`grid-container`)**
+
+Used on the parent element (`display: grid;`):
+
+- **`grid-template-columns`** — sets the number and width of columns (`100px 200px 1fr`).
+- **`grid-template-rows`** — defines row heights (`50px auto 1fr`).
+- **`grid-template-areas`** — sets named areas (`"header header" "sidebar main" "footer footer"`).
+- **`grid-template`** — combines `grid-template-rows`, `grid-template-columns`, and `grid-template-areas` into one property.
+- **`grid-gap` / `gap`** — sets spacing between elements (`10px`, `20px`).
+- **`justify-items`** — controls alignment **inside cells** (`start`, `end`, `center`, `stretch`).
+- **`align-items`** — sets vertical alignment inside **cells** (`start`, `end`, `center`, `stretch`).
+- **`justify-content`** — distributes the entire grid along the **main axis** (`start`, `end`, `center`, `space-between`, `space-around`, `space-evenly`).
+- **`align-content`** — distributes the entire grid along the **cross axis** (similar to `justify-content`, but vertically).
+
+---
+
+### **Grid item properties (`grid-item`)**
+
+Used on child elements inside `grid-container`:
+
+- **`grid-column-start` / `grid-column-end`** — defines which column the element starts and ends in (`2 / 4`).
+- **`grid-row-start` / `grid-row-end`** — sets rows (`1 / 3`).
+- **`grid-area`** — combines `row` and `column` (`1 / 2 / 3 / 4`).
+- **`justify-self`** — controls horizontal positioning of an element (`start`, `end`, `center`, `stretch`).
+- **`align-self`** — adjusts vertical positioning of an element (`start`, `end`, `center`, `stretch`).
+
+---
+
+### 🔹 **Automatic placement (`auto-fill`, `auto-fit`)**
+
+- **`grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));`**
+- **`grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));`**
+
+✔ `auto-fill` **fills the grid with the maximum number of possible columns**.  
+✔ `auto-fit` **adjusts column sizes so they fill the available space**.
+
+</details>
+
+---
+
+<details>
+<summary><span>19. When to use flexbox and when to use grids?</span></summary>
+<br />
+
+**Flexbox** — a tool for one-axis element management, ideal for arranging components **horizontally or vertically**.  
+**Grid** — a powerful system for two-dimensional layouts, where elements need to be **positioned in both rows and columns**.
+
+The choice depends on the task: if flexibility along a single axis is needed — **Flexbox**, if a structured grid is required — **Grid**.
+
+</details>
+
+---
