@@ -436,3 +436,183 @@ The choice depends on the task: if flexibility along a single axis is needed —
 </details>
 
 ---
+
+<details>
+<summary><span>20. What is the difference between <b>div</b> and <b>span</b>?</span></summary>
+<br />
+
+- `div` — a block-level element used for grouping content and creating structural blocks.
+- `span` — an inline element used for highlighting specific parts of text or styling within a line.
+
+</details>
+
+---
+
+<details>
+<summary><span>21. What is <b>box-sizing</b> and what values can it take?</span></summary>
+<br />
+
+**`box-sizing`** is a CSS property that defines how the size of an element is calculated, including its width and height.
+
+### **Available values**
+
+- **`content-box`** (default) — the element's size is calculated **excluding** `padding` and `border`.
+- **`border-box`** — **all** inner paddings (`padding`) and borders (`border`) are included within the specified `width` and `height`.
+
+</details>
+
+---
+
+<details>
+<summary><span>22. What are the ways to hide an element from a page?</span></summary>
+<br />
+
+There are several ways to hide an element:
+
+- **`display: none`** — completely removes the element from the document flow; it does not take up space.
+- **`visibility: hidden`** — the element is invisible but still takes up space on the page.
+- **`opacity: 0`** — makes the element fully transparent, but it remains clickable.
+- **`width: 0; height: 0`** — collapses the element to zero dimensions.
+- **`position: absolute; left: -9999px`** — moves the element far beyond the visible area.
+- **`clip-path: polygon(0 0)`** — crops the element to an invisible point.
+
+Each method has its own characteristics:
+
+- `display: none` **cannot be animated**.
+- `visibility` and `opacity` **can be animated**.
+- `opacity` **preserves interactivity** (the element remains clickable).
+- `position: absolute` **may affect performance**.
+
+</details>
+
+---
+
+<details>
+<summary><span>23. What is the difference between opacity and visibility?</span></summary>
+<br />
+
+- **`opacity`** controls transparency levels, **can be animated**, and keeps the element **interactive** (clickable, responsive to events).
+- **`visibility`** simply hides the element, but it remains in the document flow and **does not respond to events**. `visibility` **cannot be animated** using `transition`.
+
+</details>
+
+---
+
+<details>
+<summary><span>24. What are the relative size units?</span></summary>
+<br />
+
+- **`em`** — depends on the font size of the parent element.
+- **`rem`** — depends on the font size of the root element (`html`).
+- **`%`** — percentage-based size relative to the parent element.
+- **`vh`** — percentage of the viewport height.
+- **`vw`** — percentage of the viewport width.
+- **`vmin`** — percentage of the smaller dimension (`vh` or `vw`).
+- **`vmax`** — percentage of the larger dimension (`vh` or `vw`).
+- **`ex`** — depends on the height of the lowercase letter `x` in the current font.
+- **`ch`** — depends on the width of the `0` character in the current font.
+
+</details>
+
+---
+
+<details>
+<summary><span>25. What are media queries used for?</span></summary>
+<br />
+
+Media queries allow different styles to be applied based on device characteristics (screen width, orientation, device type, etc.). They are the primary tool for creating **responsive design**.
+
+</details>
+
+---
+
+<details>
+<summary><span>26. How to ensure responsiveness without media queries?</span></summary>
+<br />
+
+- **Flexbox and Grid** — flexible layouts that adapt to available space.
+- **Relative units (`em`, `rem`, `%`, `vh`, `vw`)** — scale based on the container or screen.
+- **`max-width` and `min-width`** — prevent elements from being too large or too small.
+- **`clamp()`** — sets a dynamic range (`clamp(200px, 50%, 600px)`).
+- **`auto` instead of fixed sizes** — elements adjust to content.
+- **`fit-content`** — used for adaptive widths (`width: fit-content;`).
+- **`calc()`** — allows combining sizes (`width: calc(100% - 50px);`).
+- **`aspect-ratio`** — maintains correct proportions without media queries (`aspect-ratio: 16/9;`).
+- **CSS `container queries` (modern browsers)** — adapts styling based on the parent block's size.
+
+</details>
+
+---
+
+<details>
+<summary><span>27. What is <b>@keyframes</b>?</span></summary>
+<br />
+
+`@keyframes` is a CSS rule that allows animations to be created by defining a sequence of styles at specific points in an animation. It is used together with the `animation` property to apply animations to elements.
+
+### **Main animation properties**
+
+- **`animation-name`** — defines the name of the `@keyframes` animation.
+- **`animation-duration`** — sets the animation duration in seconds or milliseconds.
+- **`animation-timing-function`** — controls transition behavior (`linear`, `ease`, `ease-in`, `ease-out`, `ease-in-out`, `steps()`).
+- **`animation-delay`** — sets the delay before the animation starts.
+- **`animation-iteration-count`** — sets the number of repetitions (`1`, `infinite`, etc.).
+- **`animation-direction`** — defines playback direction (`normal`, `reverse`, `alternate`, `alternate-reverse`).
+- **`animation-fill-mode`** — controls the element's state before and after the animation (`none`, `forwards`, `backwards`, `both`).
+- **`animation-play-state`** — defines whether the animation is **running** or **paused**.
+
+</details>
+
+---
+
+<details>
+<summary><span>28. How does <b>transition</b> work?</span></summary>
+<br />
+
+`transition` is a CSS property for smooth transitions between values of other properties.
+
+### **Main parameters:**
+
+- **`transition-property`** — defines the property to animate.
+- **`transition-duration`** — sets the duration of the transition.
+- **`transition-timing-function`** — controls easing behavior.
+- **`transition-delay`** — defines a delay before the transition starts.
+
+Example: `transition: all 0.3s ease;`
+
+</details>
+
+---
+
+<details>
+<summary><span>29. What is <b>will-change</b> and when should it be used?</span></summary>
+<br />
+
+This CSS property tells the browser which properties are likely to change, allowing it to optimize rendering in advance.
+
+It is used to improve the performance of complex animations but should be applied **sparingly** to avoid unnecessary load on the browser.
+
+</details>
+
+---
+
+<details>
+<summary><span>30. What is <b>float</b>?</span></summary>
+<br />
+
+This is a CSS property that allows an element to "float" along the left or right edge of its container while text and inline elements wrap around it.  
+<br /><br />
+
+### **Main values:**
+
+- `left` — the element floats at the left edge.
+- `right` — the element floats at the right edge.
+- `none` — disables floating (default value).
+
+### **Key characteristics:**
+
+- Floating elements **are removed from the document flow**.
+- The **parent container may collapse** if it only contains floating elements.
+- The `clear` property **is used to prevent unwanted wrapping**.
+
+</details>
