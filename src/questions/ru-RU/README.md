@@ -12,7 +12,7 @@
 
 ---
 
-## Question Categories
+## Question categories
 
 - ![HTML](../../../src/assets/icons/icons-for-main-readme/html.png) [HTML](./html.md)
 - ![CSS](../../../src/assets/icons/icons-for-main-readme/css.png) [CSS](./css.md)

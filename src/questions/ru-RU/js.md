@@ -1377,6 +1377,52 @@ element.addEventListener('click', handler, { capture: true });
 
 ---
 
+<details>
+<summary><span>58. Что такое Shadow Dom?</span></summary>
+<br />
+
+Shadow DOM - это технология веб-компонентов, которая позволяет создавать изолированное DOM-дерево, присоединенное к элементу, но отдельное от основного DOM документа. Это обеспечивает инкапсуляцию стилей и разметки компонента.
+
+</details>
+
+---
+
+<details>
+<summary><span>59. Почему мы можем вызывать методы у примитивов?</span></summary>
+<br />
+
+Когда мы пытаемся вызвать метод у примитива, JavaScript автоматически оборачивает его во временный объект-обертку (wrapper object).
+
+Этот процесс называется "автоупаковкой" (autoboxing). После вызова метода временный объект удаляется.
+
+</details>
+
+---
+
+<details>
+<summary><span>60. Как скопировать объект?</span></summary>
+<br />
+
+### **Методы поверхностного копирования**:
+
+- `Object.assign()`
+- `spread` operator (`...`)
+- `Array.prototype.slice()` (для массивов)
+- `Array.prototype.concat()` (для массивов)
+- `Object.create()`
+
+### **Методы глубокого копирования**:
+
+- `structuredClone()`
+- `JSON.parse(JSON.stringify(obj))`
+- Рекурсивный обход
+- `lodash.cloneDeep()`
+- `cloneDeep` из `underscore.js`
+
+</details>
+
+---
+
 <!--
 <details>
 <summary><span></span></summary>
@@ -1385,10 +1431,3 @@ element.addEventListener('click', handler, { capture: true });
 </details>
 
 --- -->
-
-<!--
-как отслеживать и обрабатывать ошибки
-что такое дом
-шадоу дом
-почему мы можем вызывать методы у примитивов
-как скопировать объект -->

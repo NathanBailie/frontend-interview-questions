@@ -16,7 +16,7 @@ Questions are also available in <a href="./src/questions/ru-RU/README.md">Russia
 
 ---
 
-## Question Categories
+## Question categories
 
 - ![HTML](./src/assets/icons/icons-for-main-readme/html.png) [HTML](src/questions/en-EN/html.md)
 - ![CSS](./src/assets/icons/icons-for-main-readme/css.png) [CSS](src/questions/en-EN/css.md)

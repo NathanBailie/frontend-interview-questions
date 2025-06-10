@@ -1378,18 +1378,46 @@ To stop event bubbling, call the `event.stopPropagation()` method inside the chi
 
 ---
 
-<!--
 <details>
-<summary><span></span></summary>
+<summary><span>58. What is Shadow DOM?</span></summary>
 <br />
+
+Shadow DOM is a web component technology that allows creating an isolated DOM tree attached to an element but separate from the main document DOM. This ensures encapsulation of the component's styles and markup.
 
 </details>
 
---- -->
+---
 
-<!--
-как отслеживать и обрабатывать ошибки
-что такое дом
-шадоу дом
-почему мы можем вызывать методы у примитивов
-как скопировать объект -->
+<details>
+<summary><span>59. Why can we call methods on primitives?</span></summary>
+<br />
+
+When we try to call a method on a primitive, JavaScript automatically wraps it in a temporary wrapper object.
+
+This process is called "autoboxing." After the method is invoked, the temporary object is discarded.
+
+</details>
+
+---
+
+<details>
+<summary><span>60. How to copy an object?</span></summary>
+<br />
+
+### **Shallow Copy Methods**:
+
+- `Object.assign()`
+- `spread` operator (`...`)
+- `Array.prototype.slice()` (for arrays)
+- `Array.prototype.concat()` (for arrays)
+- `Object.create()`
+
+### **Deep Copy Methods**:
+
+- `structuredClone()`
+- `JSON.parse(JSON.stringify(obj))`
+- Recursive traversal
+- `lodash.cloneDeep()`
+- `cloneDeep` from `underscore.js`
+
+</details>
