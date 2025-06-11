@@ -21,3 +21,4 @@ Questions are also available in <a href="./src/questions/ru-RU/README.md">Russia
 - ![HTML](./src/assets/icons/icons-for-main-readme/html.png) [HTML](src/questions/en-EN/html.md)
 - ![CSS](./src/assets/icons/icons-for-main-readme/css.png) [CSS](src/questions/en-EN/css.md)
 - ![JS](./src/assets/icons/icons-for-main-readme/js.png) [JS](src/questions/en-EN/js.md)
+- ![GIT](./src/assets/icons/icons-for-main-readme/git.png) [GIT](src/questions/en-EN/git.md)
