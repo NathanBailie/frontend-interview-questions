@@ -17,4 +17,5 @@
 - ![HTML](../../../src/assets/icons/icons-for-main-readme/html.png) [HTML](./html.md)
 - ![CSS](../../../src/assets/icons/icons-for-main-readme/css.png) [CSS](./css.md)
 - ![JS](../../../src/assets/icons/icons-for-main-readme/js.png) [JS](./js.md)
+- ![TS](../../../src/assets/icons/icons-for-main-readme/ts.png) [TS](./ts.md)
 - ![GIT](../../../src/assets/icons/icons-for-main-readme/git.png) [GIT](./git.md)
