@@ -16,6 +16,7 @@
 
 - ![HTML](../../../src/assets/icons/icons-for-main-readme/html.png) [HTML](./html.md)
 - ![CSS](../../../src/assets/icons/icons-for-main-readme/css.png) [CSS](./css.md)
-- ![JS](../../../src/assets/icons/icons-for-main-readme/js.png) [JS](./js.md)
-- ![TS](../../../src/assets/icons/icons-for-main-readme/ts.png) [TS](./ts.md)
+- ![JavaScript](../../../src/assets/icons/icons-for-main-readme/js.png) [JavaScript](./js.md)
+- ![TypeScript](../../../src/assets/icons/icons-for-main-readme/ts.png) [TypeScript](./ts.md)
 - ![GIT](../../../src/assets/icons/icons-for-main-readme/git.png) [GIT](./git.md)
+- ![React](../../../src/assets/icons/icons-for-main-readme/react.png) [React](./react.md)

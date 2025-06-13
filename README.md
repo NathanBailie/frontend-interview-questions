@@ -20,6 +20,7 @@ Questions are also available in <a href="./src/questions/ru-RU/README.md">Russia
 
 - ![HTML](./src/assets/icons/icons-for-main-readme/html.png) [HTML](src/questions/en-EN/html.md)
 - ![CSS](./src/assets/icons/icons-for-main-readme/css.png) [CSS](src/questions/en-EN/css.md)
-- ![JS](./src/assets/icons/icons-for-main-readme/js.png) [JS](src/questions/en-EN/js.md)
-- ![TS](./src/assets/icons/icons-for-main-readme/ts.png) [TS](src/questions/en-EN/ts.md)
+- ![JavaScript](./src/assets/icons/icons-for-main-readme/js.png) [JavaScript](src/questions/en-EN/js.md)
+- ![TypeScript](./src/assets/icons/icons-for-main-readme/ts.png) [TypeScript](src/questions/en-EN/ts.md)
 - ![GIT](./src/assets/icons/icons-for-main-readme/git.png) [GIT](src/questions/en-EN/git.md)
+- ![React](./src/assets/icons/icons-for-main-readme/react.png) [React](src/questions/en-EN/react.md)
