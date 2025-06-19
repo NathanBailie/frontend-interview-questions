@@ -89,8 +89,6 @@ Here's a brief structure of data types in **TypeScript**:
 
 6. **Generic types**
 
-Let me know if you’d like this formatted with examples or styled as a cheatsheet.
-
 </details>
 
 ---

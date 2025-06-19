@@ -7,7 +7,7 @@
 <br />
 
 <details>
-<summary><span>1. What is JavaScript?</span></summary>
+<summary><span>1. What is <b>JavaScript</b>?</span></summary>
 <br />
 
 JavaScript is a high-level, interpreted programming language used to create dynamic and interactive elements on web pages
@@ -56,7 +56,7 @@ JavaScript has 8 data types: 7 primitive types and 1 object type.
 ---
 
 <details>
-<summary><span>4. What is the difference between null and undefined?</span></summary>
+<summary><span>4. What is the difference between <b>null</b> and <b>undefined</b>?</span></summary>
 <br />
 
 Both **null** and **undefined** represent "nothing" or absence of value, but they are used differently:
@@ -109,7 +109,7 @@ Undeclared variable:
 ---
 
 <details>
-<summary><span>6. What is scope in JavaScript?</span></summary>
+<summary><span>6. What is <b>scope</b> in JavaScript?</span></summary>
 <br />
 
 Scope in JavaScript is the visibility and accessibility of variables, functions, and objects within the code. It determines where a variable can be referenced during program execution.
@@ -119,7 +119,7 @@ Scope in JavaScript is the visibility and accessibility of variables, functions,
 ---
 
 <details>
-<summary><span>7. What is Temporal Dead Zone?</span></summary>
+<summary><span>7. What is <b>Temporal Dead Zone</b>?</span></summary>
 <br />
 
 This is the period of time during which a variable exists in the context but cannot be used until it is initialized. This applies to variables declared with `let` and `const`
@@ -196,7 +196,7 @@ const greet = new Function();
 ---
 
 <details>
-<summary><span>10. What is Function Declaration?</span></summary>
+<summary><span>10. What is <b>Function Declaration</b>?</span></summary>
 <br />
 
 It is a way to declare a function in JavaScript using the `function` keyword.
@@ -213,7 +213,7 @@ Main features:
 ---
 
 <details>
-<summary><span>11. What is Function Expression?</span></summary>
+<summary><span>11. What is <b>Function Expression</b>?</span></summary>
 <br />
 
 It is a way to declare a function in JavaScript where the function is created within an expression and can be assigned to a variable. Unlike Function Declaration, it is not hoisted, so it can only be called after its declaration.
@@ -248,7 +248,7 @@ Key features:
 ---
 
 <details>
-<summary><span>13. What is a closure?</span></summary>
+<summary><span>13. What is a <b>closure</b>?</span></summary>
 <br />
 
 A closure is a mechanism that allows a function to remember a reference to its lexical environment, even if it no longer exists in the main call stack
@@ -357,7 +357,7 @@ Examples of `this` usage:
 ---
 
 <details>
-<summary><span>17. Tell about Event Loop?</span></summary>
+<summary><span>17. Tell about <b>Event Loop</b>?</span></summary>
 <br />
 
 **Event Loop** is a mechanism in JavaScript that ensures the correct execution sequence of tasks.
@@ -420,7 +420,7 @@ Event Loop enables JavaScript's asynchronous nature, allowing operations with un
 ---
 
 <details>
-<summary><span>21. What is async/await?</span></summary>
+<summary><span>21. What is <b>async/await</b>?</span></summary>
 <br />
 
 This is a syntax for working with asynchronous code, allowing you to write it as if it were synchronous, simplifying readability and error handling.
@@ -433,7 +433,7 @@ This is a syntax for working with asynchronous code, allowing you to write it as
 ---
 
 <details>
-<summary><span>22. What is Promise?</span></summary>
+<summary><span>22. What is <b>Promise</b>?</span></summary>
 <br />
 
 **Promise** is a syntax for handling asynchronous code.  
@@ -596,7 +596,7 @@ The `!` (logical "NOT") operator has the highest precedence among logical operat
 ---
 
 <details>
-<summary><span>27. What is short-circuit evaluation in JavaScript?</span></summary>
+<summary><span>27. What is <b>short-circuit evaluation</b> in JavaScript?</span></summary>
 <br />
 
 This is a feature of the logical operators `&&` and `||`, where an expression **stops execution** as soon as the result is clear.
@@ -665,7 +665,7 @@ console.log(obj.hasOwnProperty('toString')); // false (inherited)
 ---
 
 <details>
-<summary><span>31. What is IIFE?</span></summary>
+<summary><span>31. What is <b>IIFE</b>?</span></summary>
 <br />
 
 An Immediately Invoked Function Expression (**IIFE**) is a function that executes immediately after its definition. It is commonly used to create a local scope and avoid naming conflicts.
@@ -694,7 +694,7 @@ Examples of **IIFE**:
 ---
 
 <details>
-<summary><span>32. How does the garbage collector work?</span></summary>
+<summary><span>32. How does the <b>garbage collector</b> work?</span></summary>
 <br />
 
 The garbage collector operates based on the concept of **object reachability**.  
@@ -1131,7 +1131,7 @@ user.sayHello(); // "Hello, my name is Anton"
 ---
 
 <details>
-<summary><span>44. What are template literals used for?</span></summary>
+<summary><span>44. What are <b>template literals</b> used for?</span></summary>
 <br />
 
 This is a convenient way to create strings, allowing you to embed variables and expressions directly into the text.
@@ -1156,7 +1156,7 @@ This is a convenient way to create strings, allowing you to embed variables and 
 ---
 
 <details>
-<summary><span>46. What is destructuring?</span></summary>
+<summary><span>46. What is <b>destructuring</b>?</span></summary>
 <br />
 
 **Destructuring** is a convenient way to extract values from objects and arrays and assign them to variables in JavaScript.
@@ -1181,7 +1181,7 @@ This is a convenient way to create strings, allowing you to embed variables and 
 ---
 
 <details>
-<summary><span>47. What is a pure function?</span></summary>
+<summary><span>47. What is a <b>pure function</b>?</span></summary>
 <br />
 
 **A pure function** is a function that always returns the same result for the same input and does not modify external state.
@@ -1191,7 +1191,7 @@ This is a convenient way to create strings, allowing you to embed variables and 
 ---
 
 <details>
-<summary><span>48. What is a higher-order function?</span></summary>
+<summary><span>48. What is a <b>higher-order function</b>?</span></summary>
 <br />
 
 A higher-order function is a function that takes another function as an argument or returns a function as a result.
@@ -1281,7 +1281,7 @@ console.log(Object.prototype.toString.call({ a: 1 })); // "[object Object]"
 ---
 
 <details>
-<summary><span>53. What does the Spread operator do?</span></summary>
+<summary><span>53. What does the <b>Spread</b> operator do?</span></summary>
 <br />
 
 The Spread operator is used to copy or merge both arrays and objects.
@@ -1312,7 +1312,7 @@ console.log(copiedPerson); // { name: 'Alice', age: 25 }
 ---
 
 <details>
-<summary><span>54. What does the Rest operator do?</span></summary>
+<summary><span>54. What does the <b>Rest</b> operator do?</span></summary>
 <br />
 
 The Rest operator is used to collect implicitly passed function arguments into an array so they can be easily processed.
@@ -1379,7 +1379,7 @@ To stop event bubbling, call the `event.stopPropagation()` method inside the chi
 ---
 
 <details>
-<summary><span>58. What is Shadow DOM?</span></summary>
+<summary><span>58. What is <b>Shadow Dom</b>?</span></summary>
 <br />
 
 Shadow DOM is a web component technology that allows creating an isolated DOM tree attached to an element but separate from the main document DOM. This ensures encapsulation of the component's styles and markup.

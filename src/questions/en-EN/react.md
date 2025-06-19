@@ -35,7 +35,7 @@ It’s a JavaScript library for building user interfaces using components and th
 ---
 
 <details>
-<summary><span>3. Can you explain about the reconciliation algorithm?</span></summary>
+<summary><span>3. Can you explain about the <b>reconciliation algorithm</b>?</span></summary>
 <br />
 
 **Reconciliation in React** is the process of comparing the new and previous Virtual DOM to determine the minimal changes needed in the real DOM.
@@ -64,7 +64,7 @@ _On average_, the complexity is close to **O(n)**, but due to optimizations and 
 ---
 
 <details>
-<summary><span>5. Lifecycle phases and methods?</span></summary>
+<summary><span>5. <b>Lifecycle phases</b> and methods?</span></summary>
 <br />
 
 In React, a component’s lifecycle is divided into **mounting**, **updating**, and **unmounting** — each phase includes specific methods or hooks depending on the component type.
@@ -97,7 +97,7 @@ Hooks were introduced in **React 16.8**, released in **February 2019**.
 ---
 
 <details>
-<summary><span>7. What is the Virtual DOM?</span></summary>
+<summary><span>7. What is the <b>Virtual DOM</b>?</span></summary>
 <br />
 
 **Virtual DOM** is a lightweight abstraction of the real DOM — essentially a JavaScript-based in-memory tree that React uses to calculate UI changes before applying them to the real DOM.
@@ -130,7 +130,7 @@ Most common and widely used:
 ---
 
 <details>
-<summary><span>9. What is `useState` for?</span></summary>
+<summary><span>9. What is <b>useState</b> for?</span></summary>
 <br />
 
 **`useState`** is a hook for storing and managing local state in functional components.
@@ -142,7 +142,7 @@ It preserves a value between renders and provides a way to update it — trigger
 ---
 
 <details>
-<summary><span>10. What is `useRef` for?</span></summary>
+<summary><span>10. What is <b>useRef</b> for?</span></summary>
 <br />
 
 **`useRef`** returns a mutable object with a `.current` property — allowing you to store values across renders **without** triggering re-renders.
@@ -159,7 +159,7 @@ Updating `.current` **does not trigger a component re-render**.
 ---
 
 <details>
-<summary><span>11. What’s the difference between `useRef` and `useState`?</span></summary>
+<summary><span>11. What’s the difference between <b>useRef</b> and <b>useState</b>?</span></summary>
 <br />
 
 **`useRef`** doesn’t cause a component to re-render when its value changes (stored in `.current`), while **`useState`** does — making `useRef` great for non-visual or transient values.
@@ -169,7 +169,7 @@ Updating `.current` **does not trigger a component re-render**.
 ---
 
 <details>
-<summary><span>12. What is `useContext` used for?</span></summary>
+<summary><span>12. What is <b>useContext</b> used for?</span></summary>
 <br />
 
 **`useContext`** allows you to access shared data (context) inside any component within the matching `<Provider>`, helping to avoid prop drilling.
@@ -179,7 +179,7 @@ Updating `.current` **does not trigger a component re-render**.
 ---
 
 <details>
-<summary><span>13. What are the downsides of `useContext`?</span></summary>
+<summary><span>13. What are the downsides of <b>useContext</b>?</span></summary>
 <br />
 
 **The main downside of `useContext`** is that any change in the context value causes **all** consuming components to re-render, even if they only use part of the context — potentially hurting performance.
@@ -189,7 +189,7 @@ Updating `.current` **does not trigger a component re-render**.
 ---
 
 <details>
-<summary><span>14. What are props?</span></summary>
+<summary><span>14. What are <b>props</b>?</span></summary>
 <br />
 
 **Props** are the mechanism for passing data from a parent component to a child in React, allowing components to be dynamic and reusable.
@@ -201,7 +201,7 @@ They are read-only — a child can use them but should not modify them.
 ---
 
 <details>
-<summary><span>15. What is prop drilling?</span></summary>
+<summary><span>15. What is <b>prop drilling</b>?</span></summary>
 <br />
 
 **Prop drilling** is when data is passed through a chain of intermediate components via props, even if only a deeply nested component needs it.
@@ -213,7 +213,7 @@ It becomes problematic as it **adds unnecessary complexity** — every level mus
 ---
 
 <details>
-<summary><span>16. What is useEffect?</span></summary>
+<summary><span>16. What is <b>useEffect</b>?</span></summary>
 <br />
 
 **`useEffect`** is a hook that replaces class component lifecycle methods in functional components.
@@ -234,7 +234,7 @@ The behavior of `useEffect` depends on the second argument:
 ---
 
 <details>
-<summary><span>17. What's the difference between useEffect and useLayoutEffect?</span></summary>
+<summary><span>17. What's the difference between <b>useEffect</b> and <b>useLayoutEffect</b>?</span></summary>
 <br />
 
 **`useLayoutEffect`** works almost the same as `useEffect`, with one key difference:  
@@ -249,7 +249,7 @@ Unlike `useEffect`, which is **asynchronous and runs after paint**, `useLayoutEf
 ---
 
 <details>
-<summary><span>18. What is JSX?</span></summary>
+<summary><span>18. What is <b>JSX</b>?</span></summary>
 <br />
 
 JSX is a way to write HTML-like markup directly in JavaScript to describe what the UI should look like in React components.
@@ -259,7 +259,7 @@ JSX is a way to write HTML-like markup directly in JavaScript to describe what t
 ---
 
 <details>
-<summary><span>19. What are logical and presentational components?</span></summary>
+<summary><span>19. What are <b>logical</b> and <b>presentational</b> components?</span></summary>
 <br />
 
 **Presentational components** focus on appearance — they render given data as UI.
@@ -271,7 +271,7 @@ JSX is a way to write HTML-like markup directly in JavaScript to describe what t
 ---
 
 <details>
-<summary><span>20. What's the difference between controlled and uncontrolled components?</span></summary>
+<summary><span>20. What's the difference between <b>controlled</b> and <b>uncontrolled</b> components?</span></summary>
 <br />
 
 **Controlled components** manage their state via React: the value (e.g., `input`) is stored in `useState` and updated via events.
@@ -299,7 +299,7 @@ A React component re-renders when:
 ---
 
 <details>
-<summary><span>22. What is memoization?</span></summary>
+<summary><span>22. What is <b>memoization</b>?</span></summary>
 <br />
 
 **Memoization** is an optimization technique where a function’s result is **cached**, so it's not recalculated on repeated calls with the same arguments.
@@ -311,7 +311,7 @@ In React, it helps **prevent unnecessary re-renders** and redundant computations
 ---
 
 <details>
-<summary><span>23. How does useMemo work?</span></summary>
+<summary><span>23. How does <b>useMemo</b> work?</span></summary>
 <br />
 
 **`useMemo`** is a hook that caches a function’s result and reuses it, so it's not re-executed on every render.
@@ -323,7 +323,7 @@ A new computation runs only if dependencies (passed in the array) change.
 ---
 
 <details>
-<summary><span>24. How does useCallback work?</span></summary>
+<summary><span>24. How does <b>useCallback</b> work?</span></summary>
 <br />
 
 **`useCallback`** caches the function itself to avoid recreating it on each render.
@@ -335,7 +335,7 @@ A new function is created only if the dependencies in the second argument array 
 ---
 
 <details>
-<summary><span>25. Why use React.memo?</span></summary>
+<summary><span>25. Why use <b>React.memo</b>?</span></summary>
 <br />
 
 **`React.memo`** allows React to _remember_ a component’s render result so it can **skip re-rendering** if props haven’t changed.
@@ -364,7 +364,7 @@ This gives precise control over when a component updates — useful for performa
 ---
 
 <details>
-<summary><span>27. What is a pure component?</span></summary>
+<summary><span>27. What is a <b>pure component</b>?</span></summary>
 <br />
 
 A **pure component** is one that always returns the same output given the same props and doesn't cause side effects.
@@ -374,7 +374,7 @@ A **pure component** is one that always returns the same output given the same p
 ---
 
 <details>
-<summary><span>28. What is batching?</span></summary>
+<summary><span>28. What is <b>batching</b>?</span></summary>
 <br />
 
 **Batching** is a mechanism in React where **multiple state updates are grouped into a single re-render** to reduce extra repaints and boost performance.
@@ -386,7 +386,7 @@ Previously, batching only worked inside synthetic events, but since React 18, it
 ---
 
 <details>
-<summary><span>29. What is React Fiber?</span></summary>
+<summary><span>29. What is <b>React Fiber</b>?</span></summary>
 <br />
 
 **React Fiber** is the internal engine architecture introduced in React 16, allowing more flexible and efficient rendering.
@@ -404,7 +404,7 @@ Thanks to Fiber, React can better manage performance — especially in complex U
 ---
 
 <details>
-<summary><span>30. What is React Fragment?</span></summary>
+<summary><span>30. What is <b>React Fragment</b>?</span></summary>
 <br />
 
 **React Fragment** is a special component that lets you group multiple elements **without adding extra nodes to the DOM**.
@@ -425,7 +425,7 @@ Thanks to Fiber, React can better manage performance — especially in complex U
 ---
 
 <details>
-<summary><span>32. Why are keys needed in lists?</span></summary>
+<summary><span>32. Why are <b>keys</b> needed in lists?</span></summary>
 <br />
 
 Keys in lists help React efficiently track which elements have changed, been added, or removed — enabling precise updates without re-rendering the entire component tree.
@@ -435,7 +435,7 @@ Keys in lists help React efficiently track which elements have changed, been add
 ---
 
 <details>
-<summary><span>33. What is conditional rendering?</span></summary>
+<summary><span>33. What is <b>conditional rendering</b>?</span></summary>
 <br />
 
 **Conditional rendering** is a way to display different UI elements depending on conditions — like whether a user is logged in or if data has loaded.
@@ -455,7 +455,7 @@ In React, you can access a DOM element using **refs** — via `useRef` in functi
 ---
 
 <details>
-<summary><span>35. What new hooks have been introduced in React?</span></summary>
+<summary><span>35. What <b>new hooks</b> have been introduced in React?</span></summary>
 <br />
 
 1. **`useId`** — generates a unique and stable ID, useful for form elements and SSR.

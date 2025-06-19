@@ -7,7 +7,7 @@
 <br />
 
 <details>
-<summary><span>1. What is CSS?</span></summary>
+<summary><span>1. What is <b>CSS</b>?</span></summary>
 <br />
 
 CSS (Cascading Style Sheets) is a style sheet language used to describe the presentation of HTML documents. It defines how elements should be displayed on screen, controlling layout, colors, fonts, spacing and other visual aspects of web pages.
@@ -83,7 +83,7 @@ There are three ways to include CSS in an HTML document:
 ---
 
 <details>
-<summary><span>3. What is the difference between margin and padding?</span></summary>
+<summary><span>3. What is the difference between <b>margin</b> and <b>padding</b>?</span></summary>
 <br />
 
 - **Padding** is the space inside an element between its content and border
@@ -215,7 +215,7 @@ Key characteristics of inline-block elements:
 ---
 
 <details>
-<summary><span>10. What is z-index and how does it work?</span></summary>
+<summary><span>10. What is <b>z-index</b> and how does it work?</span></summary>
 <br />
 
 This property defines the stacking order of elements along the Z-axis (depth), determining which elements appear on top of others. It only works for elements with position: relative, absolute, fixed, or sticky.
@@ -488,7 +488,7 @@ Each method has its own characteristics:
 ---
 
 <details>
-<summary><span>23. What is the difference between opacity and visibility?</span></summary>
+<summary><span>23. What is the difference between <b>opacity</b> and <b>visibility</b>?</span></summary>
 <br />
 
 - **`opacity`** controls transparency levels, **can be animated**, and keeps the element **interactive** (clickable, responsive to events).

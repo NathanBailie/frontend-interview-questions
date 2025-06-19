@@ -7,7 +7,7 @@
 <br />
 
 <details>
-<summary><span>1. What is Git?</span></summary>
+<summary><span>1. What is <b>Git</b>?</span></summary>
 <br />
 
 **Git** is a distributed version control system that allows you to store different versions of code, which can be reverted if needed while working collaboratively.
@@ -117,7 +117,7 @@ Instead, use **`git push --force-with-lease`**, which ensures that no new commit
 ---
 
 <details>
-<summary><span>8. What is the purpose of the set-upstream command?</span></summary>
+<summary><span>8. What is the purpose of the <b>set-upstream</b> command?</span></summary>
 <br />
 
 The `git branch --set-upstream-to` (or `-u` for short) command sets up tracking between a local and remote branch. Once configured, you can use **shorter commands** like `git pull` and `git push` without specifying the remote repository name and branch.
@@ -127,7 +127,7 @@ The `git branch --set-upstream-to` (or `-u` for short) command sets up tracking 
 ---
 
 <details>
-<summary><span>9. What is the difference between git pull and git fetch?</span></summary>
+<summary><span>9. What is the difference between <b>git pull</b> and <b>git fetch</b>?</span></summary>
 <br />
 
 `git fetch` **retrieves** changes from a remote repository but does **not** apply them to the working copy. `git pull` **retrieves and immediately merges** the changes into the current branch (essentially `git fetch` + `git merge`).
@@ -137,7 +137,7 @@ The `git branch --set-upstream-to` (or `-u` for short) command sets up tracking 
 ---
 
 <details>
-<summary><span>10. What is a pull request?</span></summary>
+<summary><span>10. What is a <b>pull-request</b>?</span></summary>
 <br />
 
 A **Pull Request (PR)** is a mechanism for proposing changes to a repository. A developer creates a separate branch, makes changes, and requests to merge them into the main branch via PR. This allows **code review, discussion, and safe integration** of changes into the project.
@@ -185,7 +185,7 @@ You can also combine options, e.g., `git log --oneline --graph` for a compact br
 ---
 
 <details>
-<summary><span>13. What is HEAD?</span></summary>
+<summary><span>13. What is <b>HEAD</b>?</span></summary>
 <br />
 
 HEAD is a special reference in Git that points to the current commit in the active branch. It acts as a "cursor" indicating where you are in the repository's history.
@@ -204,7 +204,7 @@ HEAD is like a bookmark in a book—it shows where you are in the project's hist
 ---
 
 <details>
-<summary><span>14. What is the difference between ^ and ~?</span></summary>
+<summary><span>14. What is the difference between <b>^</b> and <b>~</b>?</span></summary>
 <br />
 
 - **Tilde (`~`)** refers to a commit **N generations back** along the first parent line.
@@ -421,7 +421,7 @@ The **`git show`** command displays detailed information about a commit, includi
 ---
 
 <details>
-<summary><span>27. What are tags used for?</span></summary>
+<summary><span>27. What are <b>tags</b> used for?</span></summary>
 <br />
 
 **Tags in Git** create markers on important commits, most often used for versioning or releases. They simplify navigation and help quickly switch to significant points in project history.

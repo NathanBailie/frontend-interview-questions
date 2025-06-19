@@ -7,7 +7,7 @@
 <br />
 
 <details>
-<summary><span>1. What is HTML?</span></summary>
+<summary><span>1. What is <b>HTML</b>?</span></summary>
 <br />
 
 HTML (HyperText Markup Language) is the standard markup language used to create and structure content on the web.
@@ -17,7 +17,7 @@ HTML (HyperText Markup Language) is the standard markup language used to create 
 ---
 
 <details>
-<summary><span>2. What is DOCTYPE?</span></summary>
+<summary><span>2. What is <b>DOCTYPE</b>?</span></summary>
 <br />
 
 DOCTYPE (Document Type Declaration) is an instruction at the beginning of an HTML document that tells the browser which version of HTML to use for rendering the page
@@ -182,7 +182,7 @@ They are used to store additional data directly in the markup. Nowadays, they ar
 ---
 
 <details>
-<summary><span>10. What is the label tag used for?</span></summary>
+<summary><span>10. What is the <b>label</b> tag used for?</span></summary>
 <br />
 
 **Binding label to form element** - this makes the interface more convenient since users can click on the text to activate the corresponding `<input>`, `<textarea>` or `<select>`
