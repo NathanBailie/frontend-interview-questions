@@ -179,7 +179,7 @@ Updating `.current` **does not trigger a component re-render**.
 ---
 
 <details>
-<summary><span>13. What are the downsides of <b>useContext</b>?</span></summary>
+<summary><span>13. What are the downsides of useContext?</span></summary>
 <br />
 
 **The main downside of `useContext`** is that any change in the context value causes **all** consuming components to re-render, even if they only use part of the context — potentially hurting performance.
@@ -311,34 +311,84 @@ In React, it helps **prevent unnecessary re-renders** and redundant computations
 ---
 
 <details>
-<summary><span>23. How does <b>useMemo</b> work?</span></summary>
+<summary><span>23. Tell about the <b>useMemo</b> hook?</span></summary>
 <br />
 
-**`useMemo`** is a hook that caches a function’s result and reuses it, so it's not re-executed on every render.
+**`useMemo`** is a hook that allows you to cache the result of computations to avoid re-executing them on each re-render.
 
-A new computation runs only if dependencies (passed in the array) change.
+New computations occur only if the dependencies specified in the second argument have changed.
+<br /><br />
+
+**It is worth using when:**
+
+- **Heavy computations** — to avoid recalculating expensive operations (sorting, filtering)
+- **Stable input data** — to prevent re-renders due to reference changes
+- **Cached objects and arrays** — for stable props and to avoid unnecessary effects
+- **Used inside `useEffect` or `useCallback`** — when a stable reference to the result is important
+  <br /><br />
+
+**It is not worth using when:**
+
+- **Lightweight computations** — caching may cost more than recomputing
+- **One-time use of result** — no point in caching if it's immediately discarded
+- **No performance issues** — premature optimization complicates maintenance
+- **Simple logic** — it's easier to recalculate than to complicate code with memoization
 
 </details>
 
 ---
 
 <details>
-<summary><span>24. How does <b>useCallback</b> work?</span></summary>
+<summary><span>24. Tell about the <b>useCallback</b> hook?</span></summary>
 <br />
 
-**`useCallback`** caches the function itself to avoid recreating it on each render.
+**`useCallback`** is a hook that memoizes a function itself to avoid recreating it on each component re-render.
 
-A new function is created only if the dependencies in the second argument array change.
+A new function is created only if the dependencies passed in the second argument have changed.
+<br /><br />
+
+**It is worth using when:**
+
+- **Passing functions to child components** — to avoid unnecessary re-renders due to reference changes
+- **In conjunction with `React.memo`** — to increase the efficiency of memoized components
+- **When adding event handlers** — especially in lists and dynamic elements
+- **Inside `useEffect` or `useMemo`** — when it's important to keep a stable reference to the function
+  <br /><br />
+
+**It is not worth using when:**
+
+- **Rare use of the callback** — no need to cache something that is called once
+- **Minimal load** — if the function is lightweight and not passed elsewhere, memoization may be excessive
+- **No dependency on external values** — it's simpler to declare the function directly in the component
+- **Optimization for the sake of optimization** — the code becomes more complex with no tangible benefit
 
 </details>
 
 ---
 
 <details>
-<summary><span>25. Why use <b>React.memo</b>?</span></summary>
+<summary><span>25. Tell about <b>React.memo</b>?</span></summary>
 <br />
 
-**`React.memo`** allows React to _remember_ a component’s render result so it can **skip re-rendering** if props haven’t changed.
+**`React.memo`** is a HOC (Higher Order Component) that allows you to memoize the render result of a functional component. If the props haven't changed — the component won't re-render.
+
+It is useful for optimizing performance in components that receive the same props but are frequently re-rendered by the parent component.
+<br /><br />
+
+**It is worth using when:**
+
+- **Functional components with heavy rendering** — to avoid unnecessary updates
+- **Frequently re-rendered parent components** — reduces the load on the tree
+- **In conjunction with `useCallback` / `useMemo`** — for stable props and callbacks
+- **Components with immutable data** — when it's easy to compare props by reference
+  <br /><br />
+
+**It is not worth using when:**
+
+- **Components with frequently changing props** — memoization adds memory cost without benefit
+- **Components with simple logic and lightweight rendering** — overhead of `React.memo` isn't justified
+- **When deep prop comparison is needed** — default comparison is shallow
+- **Optimization without a clear reason** — may make behavior less predictable and debugging harder
 
 </details>
 
