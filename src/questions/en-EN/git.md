@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="../../../src/assets/icons/icons-for-titles/git.png">
-  <h2>GIT questions</h2>
+  <h2>GIT</h2>
 </div>
 <br />
 

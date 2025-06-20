@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="../../../src/assets/icons/icons-for-titles/ts.png">
-  <h2>Вопросы по TypeScript</h2>
+  <h2>TypeScript</h2>
 </div>
 <br />
 

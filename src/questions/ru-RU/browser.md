@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="../../assets/icons/icons-for-titles/browser.png">
-  <h2>Вопросы про работу браузера</h2>
+  <h2>Браузер</h2>
 </div>
 <br />
 

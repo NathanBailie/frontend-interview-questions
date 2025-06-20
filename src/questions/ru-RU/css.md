@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="../../assets/icons/icons-for-titles/css.png">
-  <h2>Вопросы по CSS</h2>
+  <h2>CSS</h2>
 </div>
 <br />
 

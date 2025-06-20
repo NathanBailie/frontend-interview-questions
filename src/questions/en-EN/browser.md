@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="../../../src/assets/icons/icons-for-titles/browser.png">
-  <h2>Browser questions</h2>
+  <h2>Browser</h2>
 </div>
 <br />
 

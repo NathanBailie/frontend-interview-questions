@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="../../../src/assets/icons/icons-for-titles/js.png">
-  <h2>JS questions</h2>
+  <h2>JavaScript</h2>
 </div>
 <br />
 

@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="../../assets/icons/icons-for-titles/react.png">
-  <h2>Вопросы по React</h2>
+  <h2>React</h2>
 </div>
 <br />
 
