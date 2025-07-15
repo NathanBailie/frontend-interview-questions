@@ -32,6 +32,8 @@ Questions are also available in <a href="./src/questions/ru-RU/README.md">Russia
 
 - ![Vue](./src/assets/icons/icons-for-main-readme/vue.png) [Vue](src/questions/en-EN/vue.md)
 
-- ![Browser](./src/assets/icons/icons-for-main-readme/browser.png) [Browser](src/questions/en-EN/browser.md)
+- ![Браузер](./src/assets/icons/icons-for-main-readme/browser.png) [Браузер](src/questions/en-EN/browser.md)
 
-- ![Protocols](./src/assets/icons/icons-for-main-readme/protocol.png) [Protocols](src/questions/en-EN/protocols.md)
+- ![Протоколы](./src/assets/icons/icons-for-main-readme/protocol.png) [Протоколы](src/questions/en-EN/protocols.md)
+
+- ![Архитектура](./src/assets/icons/icons-for-main-readme/architecture.png) [Архитектура](src/questions/en-EN/architecture.md)

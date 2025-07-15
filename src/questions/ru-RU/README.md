@@ -31,3 +31,5 @@
 - ![Browser](../../../src/assets/icons/icons-for-main-readme/browser.png) [Browser](./browser.md)
 
 - ![Protocols](../../../src/assets/icons/icons-for-main-readme/protocol.png) [Protocols](./protocols.md)
+
+- ![Architecture](../../../src/assets/icons/icons-for-main-readme/architecture.png) [Architecture](./architecture.md)
