@@ -28,8 +28,8 @@
 
 - ![Vue](../../../src/assets/icons/icons-for-main-readme/vue.png) [Vue](./vue.md)
 
-- ![Browser](../../../src/assets/icons/icons-for-main-readme/browser.png) [Browser](./browser.md)
+- ![Браузер](../../../src/assets/icons/icons-for-main-readme/browser.png) [Браузер](./browser.md)
 
-- ![Protocols](../../../src/assets/icons/icons-for-main-readme/protocol.png) [Protocols](./protocols.md)
+- ![Протоколы](../../../src/assets/icons/icons-for-main-readme/protocol.png) [Протоколы](./protocols.md)
 
-- ![Architecture](../../../src/assets/icons/icons-for-main-readme/architecture.png) [Architecture](./architecture.md)
+- ![Архитектура](../../../src/assets/icons/icons-for-main-readme/architecture.png) [Архитектура](./architecture.md)
