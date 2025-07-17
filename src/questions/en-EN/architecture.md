@@ -378,6 +378,392 @@ If the key is used in client code (e.g., in `.env.public`), it should either be 
 
 </details>
 
+---
+
+<details>
+<summary><span>23. What are the <b>programming paradigms</b>?</span></summary>
+<br />
+
+Programming paradigms are approaches to organizing code and building application logic. Each paradigm defines its own style of thinking and design.
+
+**Main paradigms:**
+
+- **Imperative** — describes _how_ to achieve a goal using step-by-step instructions. Examples: `JavaScript`, `C`.
+- **Procedural** — a subtype of imperative; emphasizes functions and procedures. Examples: `Pascal`, `C`.
+- **Declarative** — describes _what_ should be done, not _how_. Examples: `HTML`, `SQL`, templates in `Vue`.
+- **Object-Oriented (OOP)** — built around objects with state and behavior. Uses classes, inheritance, and polymorphism.
+- **Functional** — emphasizes pure functions, immutability, and composition. Examples: `Haskell`, `Elm`, `Ramda.js`.
+- **Event-driven** — behavior is structured around event handling. Often used in UI and async systems.
+- **Reactive** — tracks changes in data over time and updates dependent elements automatically (e.g., UI). Examples: `RxJS`, reactivity in `Vue`.
+- **Logical** — based on rules and logical inferences instead of explicit instructions. Example: `Prolog`.
+
+Modern languages often support **multi-paradigm** approaches, allowing combinations of styles (e.g., `TypeScript` combines OOP, functional, and reactive paradigms).
+
+</details>
+
+---
+
+<details>
+<summary><span>24. How is a framework better than native JavaScript?</span></summary>
+<br />
+
+Frameworks simplify development through built-in architecture, reactivity, and tooling that would otherwise require manual implementation in pure JavaScript.
+
+**Benefits of a framework:**
+
+- **DOM optimization** — virtual DOM and reactivity reduce manual operations and improve interface performance.
+- **Component extensibility** — instead of inheritance, frameworks use composition and assembly mechanisms for more flexible architecture.
+- **Simplified logic** — no need to manually manage state, component connections, or update mechanisms.
+- **Convenient interaction APIs** — a declarative approach enables easy lifecycle management, data flow, and UI composition.
+
+A framework is not just about syntax — it’s an **environment with best practices**, architecture, and support, allowing developers to focus on business logic rather than boilerplate.
+
+</details>
+
+---
+
+<details>
+<summary><span>25. What key problems does <b>frontend</b> solve?</span></summary>
+<br />
+
+Frontend is much more than rendering buttons — it's a system that solves numerous technical challenges to create fast, responsive, and user-friendly interfaces.
+
+**Key problems frontend solves:**
+
+- **DOM optimization** — direct DOM manipulation is resource-intensive. Techniques like virtual DOM, reactivity, and declarative templates boost performance.
+- **Routing** — handles displaying different pages and states without reloading (SPA). Modern frameworks offer efficient routing mechanisms.
+- **State management** — centralized stores (`store`) allow data synchronization across components (e.g., `Pinia`, `Vuex`, `Redux`).
+- **Component communication** — mechanisms like `props`, events, `provide/inject`, `composables` help decouple UI elements.
+- **Architecture organization** — frontend defines how to structure projects: by layers, features, separating logic from presentation.
+- **User experience (UX)** — animations, responsive feedback, adaptation to devices and user states are handled on the frontend.
+- **Async operations and APIs** — frontend fetches data from servers, handles loading states, errors, and real-time updates.
+
+Modern libraries and frameworks help tackle these challenges efficiently, making interfaces not just beautiful but also fast, scalable, and maintainable.
+
+</details>
+
+---
+
+<details>
+<summary><span>26. What are the conceptual <b>differences between frontend frameworks</b>?</span></summary>
+<br />
+
+Frontend frameworks (`Vue`, `React`, `Angular`, `Svelte`, `Solid`) solve similar problems: UI rendering, state management, routing, reactivity, etc.  
+But they approach these differently — with distinct architectures, philosophies, and developer experiences.
+
+**Key conceptual differences:**
+
+- **Architectural style**
+
+  - `Vue` — declarative templates + `Composition API`, flexible architecture. FSD fits naturally.
+  - `React` — functional style via `JSX`; logic and markup are unified; architecture is flexible and handcrafted.
+  - `Angular` — strict structure: MVC, DI (dependency injection), annotations and modules; enterprise-focused.
+  - `Svelte` — compiler-based, no virtual DOM, minimal abstraction.
+  - `Solid` — fine-grained reactivity, top-tier performance, JSX like React but without a virtual DOM.
+
+- **Template–logic connection**
+
+  - `Vue` — separates template and logic (`template`, `script`, `style`).
+  - `React` — merges logic and markup using `JSX`.
+  - `Angular` — uses separate HTML templates and `TypeScript` classes.
+  - `Svelte` — resembles `Vue` structurally but is compiled.
+  - `Solid` — logic written in `JSX`, React-like, but with low-level reactivity.
+
+- **State and reactivity**
+
+  - `Vue` — built-in reactivity via `ref`, `reactive`.
+  - `React` — hook-based (`useState`, `useEffect`), full component re-renders.
+  - `Angular` — imperative with optional `RxJS`.
+  - `Svelte / Solid` — variable-level reactivity, no full component re-renders.
+
+- **Component communication**
+
+  - `Vue` — `props`, events, `provide/inject`, `composables`.
+  - `React` — `props`, `context`, custom hooks.
+  - `Angular` — `@Input`, `@Output`, services.
+  - `Svelte / Solid` — `props`, contexts, functions, reactive variables.
+
+- **Typing and structure**
+
+  - `Vue` — flexible; TypeScript optional.
+  - `React` — full TypeScript support.
+  - `Angular` — strictly typed; TypeScript required.
+  - `Svelte` — TypeScript supported, but flexible.
+  - `Solid` — TypeScript-focused; strongly typed APIs.
+
+- **Bundle size and performance**
+
+  - `Svelte / Solid` — small bundles, high performance via compilation.
+  - `Vue / React` — moderate size, good optimization.
+  - `Angular` — heaviest, but highly scalable for large teams and apps.
+
+- **Maturity and community**
+  - `React / Vue / Angular` — mature with large communities and ecosystems.
+  - `Svelte / Solid` — newer, rapidly evolving, performance-focused.
+
+---
+
+💡 **Summary**: All frameworks solve the same core problems (UI, state, interaction), but in their own way. The choice depends on:
+
+- project requirements,
+- team size,
+- architecture preference (strict vs flexible),
+- performance and typing needs.
+
+</details>
+
+---
+
+<details>
+<summary><span>27. When does it make sense to use a prebuilt template from a UI library?</span></summary>
+<br />
+
+UI templates from libraries are useful when you need to build interfaces quickly with minimal effort on design, layout, and component testing.
+
+**It makes sense to use templates when:**
+
+- **Speed is critical** — templates help bootstrap interfaces without custom styling.
+- **Project doesn’t require unique design** — ideal for admin panels, MVPs, dashboards, or internal tools.
+- **Visual consistency matters** — templates ensure a unified style and behavior across components.
+- **Components are logic-heavy** — tables with pagination, forms with validation, modals, selects — these are easier to use prebuilt.
+- **Small team or no designer** — the library handles the visual aspect.
+
+**You should avoid templates when:**
+
+- Custom UI is needed to reflect brand and design precisely.
+- The library pulls in heavy dependencies or bloats the bundle.
+- Customizing the template is harder and slower than building from scratch.
+
+💡 **Compromise strategy** — use the library as a foundation, customizing only what's crucial for UX and visual identity.
+
+</details>
+
+---
+
+<details>
+<summary><span>28. What is a <b>pattern</b>?</span></summary>
+<br />
+
+A **pattern** is a common, well-established solution to a frequently encountered problem or architectural situation. It’s not a specific piece of code, but an **abstract model** or concept that can be adapted to various languages and projects.
+
+</details>
+
+---
+
+<details>
+<summary><span>29. Briefly describe popular <b>GoF</b> patterns</span></summary>
+<br />
+
+**Creational patterns:**
+
+- **Singleton** — ensures that a class has only one instance and provides global access to it.
+- **Factory Method** — creates objects via an interface, hiding the concrete classes being instantiated.
+- **Builder** — step-by-step construction of complex objects with various configurations.
+- **Abstract Factory** — creates families of related objects without specifying their concrete classes.
+
+**Structural patterns:**
+
+- **Adapter** — allows using incompatible interfaces by wrapping one in another.
+- **Facade** — offers a simplified interface to a complex system, hiding its inner workings.
+- **Decorator** — adds new behavior to an object without modifying its structure.
+- **Proxy** — a stand-in object that controls access to another (e.g., caching, logging, protection).
+- **Composite** — lets you treat tree-like object structures as a single entity.
+
+**Behavioral patterns:**
+
+- **Observer** — notifies subscribed objects about changes in a subject’s state.
+- **Mediator** — centralizes communication between objects, reducing their interdependencies.
+- **Strategy** — defines a family of algorithms and allows switching them at runtime.
+- **Iterator** — provides a uniform way to traverse collections without revealing their internal structure.
+- **Command** — encapsulates an action and its parameters, enabling deferred execution, logging, or undo functionality.
+
+💡 These patterns are described in the book _Design Patterns: Elements of Reusable Object-Oriented Software_ by the "Gang of Four" (GoF) and are still widely used in architecture, API, and UI design.
+
+</details>
+
+---
+
+<details>
+<summary><span>30. What is <b>coverage</b> and why is it needed in a project?</span></summary>
+<br />
+
+**Coverage** is a metric that shows how much of the source code is executed during test runs. It's expressed as a percentage and helps evaluate how thoroughly an application’s logic is tested.
+
+**Coverage indicates:**
+
+- Coverage of functions, conditions, branches (`if/else`), loops, and specific lines.
+- Which parts of the code were actually executed during testing.
+- Where "gaps" remain — logic that hasn’t been tested.
+
+**Why coverage matters:**
+
+- Helps assess test reliability and find missing cases.
+- Facilitates refactoring — shows which sections are protected by tests.
+- Raises quality standards — allows setting a minimum threshold (e.g., 80%).
+
+💡 Note: **High coverage doesn’t guarantee test quality**, but lack of coverage almost always signals risk.
+
+</details>
+
+---
+
+<details>
+<summary><span>31. What is <b>dependency injection</b>?</span></summary>
+<br />
+
+**Dependency Injection (DI)** is a pattern where an object receives its dependencies (other objects, services, etc.) from the outside rather than creating them itself.
+
+**Why DI is useful:**
+
+- **Separation of concerns** — the object doesn’t manage its dependencies, it simply uses them.
+- **Testability** — dependencies can be easily replaced with mocks or stubs.
+- **Flexibility and scalability** — changing dependency implementations doesn’t require modifying core code.
+- **Inversion of Control (IoC)** — object creation is delegated to an external system.
+
+**Example (pseudocode):**
+
+```ts
+// Without DI — object creates its own dependency
+class UserService {
+	constructor() {
+		this.api = new ApiClient();
+	}
+}
+
+// With DI — dependency is passed from outside
+class UserService {
+	constructor(apiClient) {
+		this.api = apiClient;
+	}
+}
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>32. What are <b>dynamic imports of components</b> for?</span></summary>
+<br />
+
+**Dynamic imports** allow components to be loaded only when needed, rather than during initial application load. They are crucial for optimizing performance and managing bundle size.
+
+**Reasons to use dynamic imports:**
+
+- **Lazy-loading** — components load on demand (e.g., when navigating to a page), reducing the size of the initial request.
+- **Code-splitting** — breaks the app into independent chunks that load separately.
+- **Lower client load** — unused components don’t consume resources until necessary.
+- **Faster initial render** — only critical code loads immediately; the rest loads later.
+
+**Examples:**
+**Vue 3:**
+
+```js
+const ProfilePage = defineAsyncComponent(() => import('@/pages/Profile.vue'));
+```
+
+**React:**
+
+```js
+export const SettingsPage = lazy(() => import('./SettingsPage'));
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>33. What is a <b>template method</b>?</span></summary>
+<br />
+
+A **Template Method** is a behavioral design pattern that defines the overall sequence of steps in an algorithm while leaving some details for subclasses to implement. It sets the structure, allowing specific steps to be overridden.
+
+**Why it’s used:**
+
+- Ensures **control over the algorithm**, while customizing only necessary parts.
+- Eliminates **duplication** — shared logic lives in a base class.
+- Promotes **extensibility** without breaking architecture.
+
+**Example:**
+
+```ts
+abstract class Page {
+	render() {
+		this.renderHeader();
+		this.renderContent();
+		this.renderFooter();
+	}
+
+	protected abstract renderContent(): void;
+
+	private renderHeader() {
+		console.log('Header');
+	}
+
+	private renderFooter() {
+		console.log('Footer');
+	}
+}
+
+class HomePage extends Page {
+	protected renderContent() {
+		console.log('Home content');
+	}
+}
+```
+
+💡 `Page.render()` is the template method. Header and Footer are fixed; Content is customizable.
+
+Bottom line: the template method lays out the “skeleton” of behavior, letting you vary selected steps without altering the whole algorithm.
+
+</details>
+
+---
+
+<details>
+<summary><span>34. What is <b>SSR</b> (Server-Side Rendering) used for?</span></summary>
+<br />
+
+**SSR (Server-Side Rendering)** is a technique where the HTML page is generated on the server rather than in the browser. Instead of sending an empty HTML shell and rendering it with JavaScript, the client receives fully formed HTML.
+
+**Why SSR is used:**
+
+- **Faster initial page display** — browser receives content immediately, no JS wait.
+- **Better SEO** — search engines index content more effectively when it's part of the initial HTML.
+- **Reduced client load** — helpful for low-powered devices or slow connections.
+- **Improved accessibility and UX** — content loads faster, layout appears more stable.
+
+**Used in:**
+
+- Marketing websites and landing pages.
+- Blogs, articles, e-commerce platforms.
+- When fast delivery of content to search engines and social previews matters.
+
+💡 SSR can be combined with SPA — this is called **hybrid rendering**, seen in `Nuxt`, `Next.js`, `SvelteKit`.
+
+</details>
+
+---
+
+<details>
+<summary><span>35. What are the <b>disadvantages of SSR</b>?</span></summary>
+<br />
+
+Despite SSR’s benefits (fast initial render, SEO, UX), it has **notable drawbacks** worth considering when choosing an architecture.
+
+**Disadvantages of SSR:**
+
+- **Server load** — every request requires HTML generation on the server, increasing pressure under heavy traffic.
+- **Infrastructure complexity** — requires a server or serverless platform for rendering, complicating deployment and scaling.
+- **Slower response time** — if the server is overloaded or the network is unstable, SSR may lag behind SPA.
+- **Reduced interactivity** — hydration (activating JS after HTML arrives) can delay interactions.
+- **Debugging and development complexity** — SSR demands environment awareness (`window`, `document` may be unavailable), adding code challenges.
+- **Caching intricacies** — improper cache setup can result in frequent unnecessary re-rendering.
+
+💡 SSR works great for public pages, blogs, e-commerce — but may be overkill for internal SPAs or admin panels.
+
+</details>
+
 <!-- <details>
 <summary><span></span></summary>
 <br />

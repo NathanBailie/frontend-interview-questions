@@ -548,6 +548,21 @@ This method is well-suited for **small teams and frequent releases**.
 
 ---
 
+<details>
+<summary><span>33. What is a <b>squash commit</b> (git squash)?</span></summary>
+<br />
+
+A **squash commit** is the process of combining multiple consecutive commits into a single one, usually before merging changes into the main branch. It’s used to keep the commit history clean and logical.
+
+**Why squash is used:**
+
+- **Simplified history** — instead of dozens of minor edits, there’s one final commit.
+- **Improved readability** — makes it easier to review changes.
+- **Removal of intermediate commits** — like `fix typo`, `added test`, `removed console.log`, which add noise to the project’s history.
+- **Merge preparation** — often used with `git rebase`, especially before submitting a Pull Request.
+
+</details>
+
 <!-- <details>
 <summary><span></span></summary>
 <br />
