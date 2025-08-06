@@ -616,3 +616,116 @@ This is a CSS property that allows an element to "float" along the left or right
 - The `clear` property **is used to prevent unwanted wrapping**.
 
 </details>
+
+---
+
+<details>
+<summary><span>31. What is <b>margin collapsing</b>?</span></summary>
+<br />
+
+This is a CSS behavior where the vertical external margins of two adjacent blocks collapse into one, equal to the larger of them, instead of being summed.
+
+</details>
+
+---
+
+<details>
+<summary><span>32. What are <b>reset</b> and <b>normalize</b> in CSS?</span></summary>
+<br />
+
+<b>Reset</b> removes all default browser styles to create a clean slate for styling.
+
+<b>Normalize</b> preserves useful defaults and makes styles consistent across different browsers.
+
+</details>
+
+---
+
+<details>
+<summary><span>33. What are the <b>disadvantages of table-based layout</b>?</span></summary>
+<br />
+
+<ul>
+  <li>Poor adaptability and difficulty in creating responsive design</li>
+  <li>Hard to maintain and modify the structure</li>
+  <li>Breaks HTML semantics and reduces accessibility</li>
+  <li>Larger code size and lower performance</li>
+  <li>Inconvenient for styling with CSS</li>
+</ul>
+
+</details>
+
+---
+
+<details>
+<summary><span>34. Difference between CSS variables and preprocessor variables?</span></summary>
+<br />
+
+<table>
+  <thead>
+    <tr>
+      <th>Criterion</th>
+      <th>CSS Variables</th>
+      <th>Preprocessor Variables</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Execution Stage</td>
+      <td>At runtime (in the browser)</td>
+      <td>At build time (during compilation)</td>
+    </tr>
+    <tr>
+      <td>Dynamic Behavior</td>
+      <td>Can be overridden and inherited</td>
+      <td>Static, no inheritance support</td>
+    </tr>
+    <tr>
+      <td>DevTools Visibility</td>
+      <td>Visible and editable</td>
+      <td>Not visible, removed after compilation</td>
+    </tr>
+  </tbody>
+</table>
+
+</details>
+
+---
+
+<details>
+<summary><span>35. What is the difference between <b>responsive</b> and <b>adaptive</b> design?</span></summary>
+<br />
+
+<table>
+  <thead>
+    <tr>
+      <th>Criterion</th>
+      <th>Responsive Design</th>
+      <th>Adaptive Design</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Approach</td>
+      <td>Flexible grid, elements adjust to any screen size</td>
+      <td>Fixed layouts for specific screen sizes</td>
+    </tr>
+    <tr>
+      <td>Technologies</td>
+      <td>Media queries, relative units (%, em, rem)</td>
+      <td>Media queries with predefined breakpoints</td>
+    </tr>
+    <tr>
+      <td>Flexibility</td>
+      <td>High — works on any device</td>
+      <td>Limited — depends on defined sizes</td>
+    </tr>
+    <tr>
+      <td>Development</td>
+      <td>One universal layout</td>
+      <td>Multiple separate layouts</td>
+    </tr>
+  </tbody>
+</table>
+
+</details>

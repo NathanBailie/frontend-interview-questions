@@ -262,7 +262,30 @@ Used when no specific name is provided:
 Allow you to insert content into specific template regions:
 
 ```vue
-<slot name="header"></slot>
+<template>
+	<div>
+		<header><slot name="header" /></header>
+		<main><slot /></main>
+		<!-- default slot -->
+		<footer><slot name="footer" /></footer>
+	</div>
+</template>
+```
+
+Now the parent can pass content into the appropriate named slots:
+
+```vue
+<ChildComponent>
+  <template #header>
+    <h1>Header</h1>
+  </template>
+
+  <p>Main content — will go into the default slot</p>
+
+  <template #footer>
+    <small>Footer information</small>
+  </template>
+</ChildComponent>
 ```
 
 </details>
@@ -633,6 +656,400 @@ watch(count, newVal => {
 	console.log('Count changed:', newVal);
 });
 ```
+
+</details>
+
+---
+
+<details>
+<summary><span>29. What’s the difference in reactivity between Vue 2 and Vue 3?</span></summary>
+<br />
+
+**Vue 2 — reactivity via `Object.defineProperty`:**
+
+- Uses `Object.defineProperty` to track changes
+- Doesn’t track property addition/removal
+- Limited array handling
+- Less flexible architecture
+- Based on `Options API`
+- Lower performance with complex structures
+
+**Vue 3 — reactivity via `Proxy`:**
+
+- Uses `Proxy` to intercept all operations
+- Tracks any changes, including nested objects and arrays
+- Supports dynamic property addition/removal
+- More flexible and scalable architecture
+- Supports `Composition API`
+- Better performance and control
+
+</details>
+
+---
+
+<details>
+<summary><span>30. How to avoid losing reactivity with ref?</span></summary>
+<br />
+
+### 1. Always use `.value` in JavaScript logic
+
+Inside `<script setup>` or regular `<script>`, access `ref` values via `.value`.
+
+```js
+const count = ref(0);
+console.log(count.value); // correct
+```
+
+### 2. When passing `ref` to functions or components — pass the ref itself
+
+Pass the ref object, not its value, to preserve reactivity.
+
+```js
+function useCounter(counter) {
+	watch(counter, val => console.log(val));
+}
+
+useCounter(count); // pass the ref, not count.value
+```
+
+### 3. Use `toRef` and `toRefs` for reactive objects
+
+To access a reactive property as a ref:
+
+```js
+const state = reactive({ count: 0 });
+const countRef = toRef(state, 'count');
+```
+
+### 4. In templates, `ref` is auto-unwrapped
+
+Vue automatically unwraps `.value` in templates:
+
+```html
+<template>
+	<p>{{ count }}</p>
+	<!-- works without .value -->
+</template>
+```
+
+### 5. Don’t wrap `ref` inside `reactive`
+
+Vue doesn’t track nested `ref` inside `reactive` — this breaks reactivity.
+
+```js
+const broken = reactive({ count: ref(0) });
+console.log(broken.count); // won’t update
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>31. Differences between ref and reactive?</span></summary>
+<br />
+
+### 1. Purpose: what they wrap
+
+- `ref` is for primitives (numbers, strings, booleans) and single values
+- `reactive` is for objects and arrays to track nested changes
+
+```js
+const count = ref(0);
+console.log(count.value); // 0
+
+const state = reactive({ count: 0 });
+console.log(state.count); // 0
+```
+
+### 2. Behavior in templates
+
+Both are auto-unwrapped in templates:
+
+```html
+<template>
+	<p>{{ count }}</p>
+	<!-- works with both ref and reactive -->
+</template>
+```
+
+### 3. Access in JavaScript
+
+- `ref`: access via `.value`
+- `reactive`: access directly
+
+```js
+count.value += 1;
+state.count += 1;
+```
+
+### 4. Nesting
+
+- `ref` doesn’t track nested object properties
+- `reactive` tracks everything, including nested objects and arrays
+
+```js
+const objRef = ref({ a: 1 });
+objRef.value.a = 2; // not always tracked
+
+const objReactive = reactive({ a: 1 });
+objReactive.a = 2; // tracked
+```
+
+### 5. Destructuring
+
+`reactive` loses reactivity when destructured, `ref` does not.
+
+```js
+const state = reactive({ count: 0 });
+const { count } = state;
+count++; // not reactive
+
+const countRef = ref(0);
+const { value } = countRef;
+value++; // value updates
+```
+
+</details>
+
+---
+
+<details>
+<summary><span>32. What’s new in v-model in Vue 3?</span></summary>
+<br />
+
+### 1. Support for multiple `v-model` bindings on one component
+
+You can now bind multiple props reactively:
+
+```html
+<MyComponent v-model:title="title" v-model:content="content" />
+```
+
+In the component:
+
+```js
+defineProps(['title', 'content']);
+defineEmits(['update:title', 'update:content']);
+```
+
+### 2. Explicit prop naming
+
+Instead of being tied to `value`, you can name the prop:
+
+```html
+<MyInput v-model="username" />
+```
+
+In the component:
+
+```js
+defineProps(['modelValue']);
+defineEmits(['update:modelValue']);
+```
+
+### 3. Custom arguments for `v-model`
+
+You can specify model name via colon:
+
+```html
+<MyComponent v-model:checked="isChecked" />
+```
+
+In the component:
+
+```js
+defineProps(['checked']);
+defineEmits(['update:checked']);
+```
+
+### 4. `v-model` support in `setup` components
+
+Works directly via `defineProps` and `defineEmits` without `this`.
+
+</details>
+
+---
+
+<details>
+<summary><span>33. <b>Scoped slots</b> in Vue 2 and Vue 3? Differences?</span></summary>
+<br />
+
+### 🔍 What are scoped slots?
+
+**Scoped slots** allow child components to pass data to the parent via a slot. This makes components more flexible and reusable: the parent decides how to render content using child-provided data.
+
+---
+
+### 📘 Vue 2: Syntax and features
+
+```html
+<!-- Parent -->
+<Child>
+	<template slot="default" slot-scope="slotProps">
+		{{ slotProps.text }}
+	</template>
+</Child>
+```
+
+- Uses `slot` and `slot-scope` (or legacy `scope`)
+- Slot must be wrapped in `<template>`
+- Verbose and less intuitive syntax
+
+---
+
+### 📗 Vue 3: Updated syntax
+
+```html
+<!-- Parent -->
+<Child v-slot="{ text }"> {{ text }} </Child>
+```
+
+Or with named slot:
+
+```html
+<Child>
+	<template #header="{ title }"> {{ title }} </template>
+</Child>
+```
+
+- Unified syntax via `v-slot` or shorthand `#`
+- Can be written directly on the component, no `<template>` needed
+- More readable and declarative
+
+---
+
+### 🆚 Key differences
+
+| Feature            | Vue 2                     | Vue 3                        |
+| ------------------ | ------------------------- | ---------------------------- |
+| Main syntax        | `slot` + `slot-scope`     | `v-slot` or `#`              |
+| Usage location     | Only inside `<template>`  | Directly on component        |
+| Readability        | Less intuitive            | More compact and declarative |
+| Named slots        | `slot="name"`             | `#name` or `v-slot:name`     |
+| Legacy API support | Present for compatibility | Simplified, legacy removed   |
+
+---
+
+### 💡 Summary
+
+In **Vue 3**, scoped slots are simpler and more flexible: unified `v-slot` syntax, shorthand `#`, and direct usage on components. In **Vue 2**, you had to use `slot-scope` inside `<template>`, making the code more verbose.
+
+</details>
+
+---
+
+<details>
+<summary><span>34. What’s the difference between <b>slot</b> and <b>scoped slot</b>?</span></summary>
+<br />
+
+### 🔍 Regular slots
+
+**Regular slot** — a placeholder in the child component where the parent inserts its content.
+
+- Slot **does not have access to child component data**
+- Used for simple layout overrides
+
+```html
+<!-- Child component -->
+<div>
+	<slot>Default content</slot>
+</div>
+
+<!-- Parent -->
+<Child>
+	<p>This text replaces the slot</p>
+</Child>
+```
+
+---
+
+### 🔍 Scoped slots
+
+**Scoped slot** — allows the child component to pass data to the parent via the slot.
+
+- Parent **can use passed data** for dynamic rendering
+- Works like a function: data flows from child to parent markup
+
+```html
+<!-- Child component -->
+<slot :text="'Hello from child component'"></slot>
+
+<!-- Parent (Vue 3 syntax) -->
+<Child v-slot="{ text }">
+	<p>{{ text }}</p>
+</Child>
+```
+
+---
+
+### 🆚 Main difference
+
+| Feature           | Slot           | Scoped slot                                       |
+| ----------------- | -------------- | ------------------------------------------------- |
+| Child data access | No             | Yes, passed via props                             |
+| Purpose           | Static content | Dynamic content with data                         |
+| Syntax            | `<slot>`       | `<slot :prop="value">` + `v-slot` or `slot-scope` |
+
+---
+
+### 💡 Summary
+
+- **Slot** — just a placeholder for parent content.
+- **Scoped slot** — a placeholder **with data passed from child to parent**, making the component more flexible.
+
+</details>
+
+---
+
+<details>
+<summary><span>35. How does <b>nextTick</b> work?</span></summary>
+<br />
+
+### 🔍 What is `nextTick`?
+
+`Vue.nextTick()` or `this.$nextTick()` is a method that defers the execution of a callback until after the next DOM update.
+Vue updates the DOM **asynchronously**: when data changes, the component doesn’t update immediately — changes are batched and applied in the next event loop tick.
+
+---
+
+### 📘 Why use `nextTick`?
+
+Sometimes you need to wait for Vue to update the DOM after a state change before performing actions (e.g. measuring an element, calling a third-party library, setting focus).
+
+```js
+this.message = 'New text';
+// DOM is not updated yet!
+this.$nextTick(() => {
+	// DOM is now updated
+	console.log(this.$refs.el.textContent);
+});
+```
+
+---
+
+### 📗 How does it work internally?
+
+- Vue queues DOM updates as microtasks using `Promise.resolve().then(...)` or `MutationObserver`, and falls back to `setTimeout` if needed.
+- `nextTick` adds your callback to the same queue so it runs **after Vue updates the virtual DOM and applies changes to the real DOM**.
+
+---
+
+### 🆚 Vue 2 vs Vue 3
+
+- In **Vue 2**, use `this.$nextTick(callback)` or `Vue.nextTick(callback)`.
+- In **Vue 3**, the method returns a **Promise**, allowing `await`:
+
+```js
+await nextTick();
+// DOM is now updated
+```
+
+---
+
+### 💡 Summary
+
+`nextTick` ensures your code runs **after the DOM update**, synchronizing with Vue’s asynchronous rendering mechanism. It’s useful for any operations that depend on the updated DOM state.
 
 </details>
 
