@@ -22,13 +22,15 @@
 
 - ![TypeScript](../../../src/assets/icons/icons-for-main-readme/ts.png) [TypeScript](./ts.md)
 
-- ![Node.js](../../../src/assets/icons/icons-for-main-readme/nodejs.png) [Node.js](./nodejs.md)
-
-- ![GIT](../../../src/assets/icons/icons-for-main-readme/git.png) [GIT](./git.md)
-
 - ![React](../../../src/assets/icons/icons-for-main-readme/react.png) [React](./react.md)
 
 - ![Vue](../../../src/assets/icons/icons-for-main-readme/vue.png) [Vue](./vue.md)
+
+- ![Node.js](../../../src/assets/icons/icons-for-main-readme/nodejs.png) [Node.js](./nodejs.md)
+
+- ![NestJs](../../../src/assets/icons/icons-for-main-readme/nestjs.png) [NestJs](./nestjs.md)
+
+- ![GIT](../../../src/assets/icons/icons-for-main-readme/git.png) [GIT](./git.md)
 
 - ![Браузер](../../../src/assets/icons/icons-for-main-readme/browser.png) [Браузер](./browser.md)
 
