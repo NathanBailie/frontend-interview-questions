@@ -22,6 +22,8 @@
 
 - ![TypeScript](../../../src/assets/icons/icons-for-main-readme/ts.png) [TypeScript](./ts.md)
 
+- ![Node.js](../../../src/assets/icons/icons-for-main-readme/nodejs.png) [Node.js](./nodejs.md)
+
 - ![GIT](../../../src/assets/icons/icons-for-main-readme/git.png) [GIT](./git.md)
 
 - ![React](../../../src/assets/icons/icons-for-main-readme/react.png) [React](./react.md)

@@ -736,3 +736,9 @@ Flexbox использует **две оси**, которые помогают 
 </details>
 
 --- -->
+
+<!--
+flex shrink за что отвечает
+CSS Popover API
+Nesting Api
+ -->

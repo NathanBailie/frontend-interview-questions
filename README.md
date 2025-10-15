@@ -26,6 +26,8 @@ Questions are also available in <a href="./src/questions/ru-RU/README.md">Russia
 
 - ![TypeScript](./src/assets/icons/icons-for-main-readme/ts.png) [TypeScript](src/questions/en-EN/ts.md)
 
+- ![Node.js](./src/assets/icons/icons-for-main-readme/nodejs.png) [Node.js](src/questions/en-EN/nodejs.md)
+
 - ![GIT](./src/assets/icons/icons-for-main-readme/git.png) [GIT](src/questions/en-EN/git.md)
 
 - ![React](./src/assets/icons/icons-for-main-readme/react.png) [React](src/questions/en-EN/react.md)
