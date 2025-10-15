@@ -34,6 +34,8 @@ Questions are also available in <a href="./src/questions/ru-RU/README.md">Russia
 
 - ![NestJs](./src/assets/icons/icons-for-main-readme/nestjs.png) [NestJs](src/questions/en-EN/nestjs.md)
 
+- ![Databases](./src/assets/icons/icons-for-main-readme/db.png) [Databases](src/questions/en-EN/db.md)
+
 - ![GIT](./src/assets/icons/icons-for-main-readme/git.png) [GIT](src/questions/en-EN/git.md)
 
 - ![Browser](./src/assets/icons/icons-for-main-readme/browser.png) [Browser](src/questions/en-EN/browser.md)

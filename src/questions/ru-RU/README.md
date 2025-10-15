@@ -30,6 +30,8 @@
 
 - ![NestJs](../../../src/assets/icons/icons-for-main-readme/nestjs.png) [NestJs](./nestjs.md)
 
+- ![Базы данных](../../../src/assets/icons/icons-for-main-readme/db.png) [Базы данных](./db.md)
+
 - ![GIT](../../../src/assets/icons/icons-for-main-readme/git.png) [GIT](./git.md)
 
 - ![Браузер](../../../src/assets/icons/icons-for-main-readme/browser.png) [Браузер](./browser.md)
