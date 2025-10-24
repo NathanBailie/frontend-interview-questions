@@ -243,6 +243,199 @@ Locks in DBMS control concurrent access to data:
 
 </details>
 
+---
+
+<details>
+<summary><span>13. Why are <b>indexes</b> needed in databases? Examples of indexes</span></summary>
+<br />
+
+**Indexes** are auxiliary structures that speed up access to data in a table.
+
+**Why they are needed:**
+
+- Increase speed of **search**, **sorting**, **filtering**, and `JOIN`s
+- Reduce **CPU** and **I/O** load for large volumes of data
+- Enable **uniqueness**, **constraints**, and **fast access** by keys
+
+**Examples:**
+
+- `B-tree` — universal index for range and exact queries
+- `Hash` — fast access by exact match
+- `GIN`, `GiST` — for `JSONB`, arrays, full-text search
+- **Composite index** — index on multiple columns
+- **Partial index** — index on a subset of data based on a condition
+
+</details>
+
+---
+
+<details>
+<summary><span>14. Why is search in a B-tree faster than a full data scan?</span></summary>
+<br />
+
+**B-tree** is a balanced structure where data is stored sorted and split into blocks.
+
+**Why it's faster:**
+
+- Uses **logarithmic search**: at each level, a large portion of data is eliminated
+- Stores **keys** and **pointers** in nodes, allowing quick navigation to the desired range
+- Optimized for **disk I/O**, minimizing read operations
+
+</details>
+
+---
+
+<details>
+<summary><span>15. Why are <b>transactions</b> needed?</span></summary>
+<br />
+
+**Transactions** are a set of operations executed as a single unit.
+
+**Why they are needed:**
+
+- Ensure **data integrity** in case of failures or errors
+- Guarantee **atomicity**: either all operations succeed or none
+- Support **isolation**: parallel transactions don't interfere with each other
+- Ensure **consistency**: data remains in a valid state
+- Allow rollback of changes via `ROLLBACK` if something goes wrong
+
+</details>
+
+---
+
+<details>
+<summary><span>16. What is the difference between <b>WHERE and HAVING</b>?</span></summary>
+<br />
+
+`WHERE` — filters rows **before** grouping (`GROUP BY`), applies to individual records  
+`HAVING` — filters groups **after** aggregation, applies to `GROUP BY` results
+
+**Example:**
+
+- `WHERE age > 18` — excludes rows where age is less than or equal to 18
+- `HAVING COUNT(*) > 5` — excludes groups with fewer than 6 records
+
+</details>
+
+---
+
+<details>
+<summary><span>17. What are examples of <b>aggregate functions</b>? In which query section can they be used to filter results?</span></summary>
+<br />
+
+**Examples of aggregate functions:**
+
+- `COUNT()` — number of rows
+- `SUM()` — sum of values
+- `AVG()` — average value
+- `MIN()` / `MAX()` — minimum and maximum
+
+**Where to use for filtering:**
+
+- In the `HAVING` section, after `GROUP BY` — to filter aggregated groups
+- In `SELECT` — to display results
+- In `ORDER BY` — to sort by aggregate value
+
+</details>
+
+---
+
+<details>
+<summary><span>18. What is a <b>trigger</b>? What is it used for?</span></summary>
+<br />
+
+**Trigger** is a special procedure that automatically executes upon a specific event in a table (`INSERT`, `UPDATE`, `DELETE`).
+
+**What it's used for:**
+
+- Automating **logic** at the database level
+- Maintaining **data integrity**
+- Tracking **audit** of changes
+- Implementing **business rules** without changing the application
+
+</details>
+
+---
+
+<details>
+<summary><span>19. What is the difference between OLAP and OLTP databases?</span></summary>
+<br />
+
+**OLTP (Online Transaction Processing)** — for fast execution of transactions: `INSERT`, `UPDATE`, `DELETE`, `SELECT`  
+**OLAP (Online Analytical Processing)** — for analyzing large volumes of data: aggregation, `JOIN`, `GROUP BY`
+
+**Differences:**
+
+- OLTP — high write speed, small queries, normalized data
+- OLAP — complex analytical queries, denormalized data, low update frequency
+
+</details>
+
+---
+
+<details>
+<summary><span>20. What is <b>database replication</b> and what types are there?</span></summary>
+<br />
+
+**Replication** is the process of copying and synchronizing data between multiple database servers or nodes.
+
+**Why it's needed:**
+
+- Increases **availability** and **fault tolerance**
+- Speeds up **data reading** by distributing the load
+- Provides **backup** and **geo-distribution**
+
+**Main types:**
+
+- **Master-Slave** — one node writes, others read
+- **Master-Master** — multiple nodes can write and read, requires synchronization
+- **Peer-to-Peer** — all nodes are equal, data is replicated between them
+- **Log-based** — replication via transaction log
+- **Snapshot** — periodic copying of database state
+
+</details>
+
+---
+
+<details>
+<summary><span>21. What is <b>sharding</b> and what problems are associated with it?</span></summary>
+<br />
+
+**Sharding** is horizontal partitioning of a database into parts (**shards**), each storing a subset of data.
+
+**Why it's needed:**
+
+- Increases **scalability** and **performance**
+- Allows processing of **large volumes of data** in parallel
+
+**Problems:**
+
+- Complexity of **implementation** and **maintenance**
+- Difficulty with `JOIN`s across shards
+- Possible **load imbalance** (`hot shards`)
+- Challenges in **data redistribution**
+- Complicates **backup** and **recovery**
+
+</details>
+
+---
+
+<details>
+<summary><span>22. What problems can arise when using indexes?</span></summary>
+<br />
+
+**Problems with using indexes:**
+
+- Slower write operations: `INSERT`, `UPDATE`, `DELETE` — due to index updates
+- Excessive **memory** and **disk** usage — especially with many or complex indexes
+- Poor choice — can lead to **inefficient query plans**
+- Performance degradation with **frequent data changes**
+- Maintenance **complexity** — need to monitor relevance and freshness
+
+</details>
+
+---
+
 <!-- <details>
 <summary><span><b></b></span></summary>
 <br />
