@@ -436,6 +436,71 @@ Locks in DBMS control concurrent access to data:
 
 ---
 
+<details>
+<summary><span>23. Describe <b>BASE</b> properties</span></summary>
+<br />
+
+- **Basically Available** — guarantees data availability, but not necessarily in real time
+- **Soft State** — the system state may change over time, even without external input, allowing adaptation and recovery
+- **Eventually Consistent** — ensures that data will eventually become consistent across the system
+
+</details>
+
+---
+
+<details>
+<summary><span>24. Describe transactional mechanisms: <b>WAL / MVCC / 2PL / Deferrable</b></span></summary>
+<br />
+
+- **WAL (Write-Ahead Logging)** — data is first recorded in a log before changes are applied. Provides high reliability but requires more resources and slightly slows down the process
+- **MVCC** — each transaction sees its own version of the data. Minimizes conflicts, requires more memory, but offers high reliability
+- **2PL** — two-phase locking. The transaction locks the required data before execution and releases the lock after completion. Ensures reliability without extra memory cost, but may lead to deadlocks and delays
+- **Deferrable** — constraint checks are deferred until the end of the transaction. Faster if everything goes smoothly, but harder to debug in case of errors
+
+</details>
+
+---
+
+<details>
+<summary><span>26. Why are <b>Constraints</b> needed? Give examples</span></summary>
+<br />
+
+Constraints are rules that help ensure data correctness in database tables. They prevent errors, maintain integrity, and simplify application logic.
+
+- **NOT NULL** — disallows empty values. For example, the "email" field must be filled
+- **UNIQUE** — ensures uniqueness. For example, "username" must not be duplicated
+- **FOREIGN KEY** — links tables. For example, "user_id" in orders refers to "id" in the users table
+- **CHECK** — restricts acceptable values. For example, "age > 0"
+- **DEFAULT** — sets a default value. For example, order status is "new" if not specified otherwise
+
+</details>
+
+---
+
+<details>
+<summary><span>27. What are <b>stored procedures</b> and why are they needed?</span></summary>
+<br />
+
+Stored procedures are precompiled blocks of SQL code saved in the database and can be called multiple times when needed.
+
+- **Pros**: speed up operations, reduce network load, and improve performance
+- **Cons**: make debugging and maintenance more difficult, especially with complex logic inside the database
+
+</details>
+
+---
+
+<details>
+<summary><span>28. What is a <b>Materialized View</b> and why is it needed?</span></summary>
+<br />
+
+A Materialized View is a snapshot of data in the database that stores the result of a pre-executed query.
+
+- **Pros**: speeds up complex queries, reduces computational load
+- **Cons**: requires additional memory and resources for updates
+
+</details>
+
 <!-- <details>
 <summary><span><b></b></span></summary>
 <br />
