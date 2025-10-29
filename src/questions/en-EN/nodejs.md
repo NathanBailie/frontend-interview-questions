@@ -171,16 +171,12 @@ After deoptimization, code runs slower but remains correct. This helps V8 balanc
 ---
 
 <details>
-<summary><span>12. Can you <b>measure performance</b> in libuv?</span></summary>
+<summary><span>12. Can you <b>evaluate performance</b> using libuv?</span></summary>
 <br />
 
-Yes, although libuv doesn’t expose built-in metrics directly, performance can be assessed indirectly:
-
-- by measuring <b>execution time of async tasks</b> (e.g., `fs`, `crypto`)
-- using <b>Event Loop profiling tools</b> like `perf_hooks`, `clinic.js`
-- by observing <b>callback delays</b> — increased lag may indicate thread pool overload
-
-You can also increase `UV_THREADPOOL_SIZE` and compare results.
+There are no direct metrics, but performance can be assessed indirectly — for example, by measuring callback execution time.  
+If delays increase, it may indicate overload in the Event Loop or thread pool.  
+You can also use `perf_hooks`, `clinic.js`, or adjust `UV_THREADPOOL_SIZE` for comparison.
 
 </details>
 
@@ -225,18 +221,17 @@ So Node.js can work with TypeScript, but through an intermediate layer.
 ---
 
 <details>
-<summary><span>15. How does Node.js <b>execute your code</b>? What happens after JavaScript is passed to Node?</span></summary>
+<summary><span>15. How does Node.js <b>execute your code</b>? What happens after JavaScript is passed to Node.js?</span></summary>
 <br />
 
-Once launched, JavaScript code goes through several stages:
+Once started, JavaScript code goes through several stages:
 
-1. <b>V8</b> compiles JavaScript into machine code
+1. <b>V8</b> compiles the JavaScript into machine code
 2. <b>Node.js</b> wraps the code in its module system (CommonJS)
-3. <b>Event Loop</b> starts and begins tracking asynchronous events
-4. <b>libuv</b> handles system-level operations (I/O, timers, threads)
-5. Callback functions are queued and executed when ready
+3. <b>libuv</b> handles system operations (I/O, timers, threads)
+4. Callback functions enter the <b>Event Loop</b> and are executed as the queue progresses
 
-This turns your JS code into an asynchronous, non-blocking application powered by V8, libuv, and the Event Loop.
+This way, Node.js turns your JS code into an asynchronous, non-blocking application using V8, libuv, and the Event Loop.
 
 </details>
 

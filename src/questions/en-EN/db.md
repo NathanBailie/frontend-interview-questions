@@ -227,19 +227,24 @@ It simulates sequential execution, preventing conflicts, phantom reads, and repe
 ---
 
 <details>
-<summary><span>12. <b>Types of locks</b> in DBMS?</span></summary>
+<summary><span>12. <b>Types of Locks</b> in DBMS</span></summary>
 <br />
 
-Locks in DBMS control concurrent access to data:
+**Pessimistic locks** — assume a high likelihood of conflicts, so resources are locked in advance.
 
-- **Shared Lock** — allows reading, blocks writing
-- **Exclusive Lock** — blocks both reading and writing
-- **Row-level Lock** — locks individual rows
-- **Table-level Lock** — locks entire table
-- **Intent Lock** — signals intent to lock rows or tables
-- **Deadlock** — circular wait between transactions; requires resolution or rollback
+- **Shared Lock (S-lock)** — allows reading, but prevents modification.
+- **Exclusive Lock (X-lock)** — blocks both reading and writing.
+- **Lock levels:** row, page, table.
 
-💡 Locks preserve data integrity but may impact performance.
+**Optimistic locks** — assume conflicts are rare; validation occurs at commit time.
+
+- **MVCC** — each transaction works with its own version of the data.
+- **Timestamps** — compare transaction start times to resolve conflicts.
+- **Hashes/checksums** — verify data hasn't changed before committing.
+
+**Summary:**  
+Pessimistic — safer but slower.  
+Optimistic — faster but requires conflict checks.
 
 </details>
 
@@ -498,6 +503,20 @@ A Materialized View is a snapshot of data in the database that stores the result
 
 - **Pros**: speeds up complex queries, reduces computational load
 - **Cons**: requires additional memory and resources for updates
+
+</details>
+
+---
+
+<details>
+<summary><span>29. What are the <b>anomalies</b>?</span></summary>
+<br />
+
+- **Dirty Read** — a transaction reads data that was modified by another uncommitted transaction.
+- **Non-repeatable Read** — repeated reads of the same data within a transaction yield different results due to updates by another transaction.
+- **Phantom Read** — repeated execution of a query returns different sets of rows because another transaction inserted new data.
+- **Lost Update** — two processes read the same value and update it, but one update is overwritten and lost.
+- **Unordered Read** — data is read in an unpredictable order due to lack of consistency between transactions.
 
 </details>
 
