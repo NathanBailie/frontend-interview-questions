@@ -1,9 +1,9 @@
 <div align="center">
-  <h1>⚡ Frontend developer interview questions</h1>
+  <h1>⚡ Fullstack developer interview questions</h1>
 </div>
 
 <p style="font-size: 16px">
-This repository contains carefully selected questions covering key aspects of frontend development. It can be useful both for preparing for a frontend developer interview and for conducting the interview itself 🎯
+This repository contains carefully selected questions covering key aspects of fullstack development. It can be useful both for preparing for a fullstack developer interview and for conducting the interview itself 🎯
 </p>
 
 <p style="font-size: 16px">
@@ -43,3 +43,5 @@ Questions are also available in <a href="./src/questions/ru-RU/README.md">Russia
 - ![Protocols](./src/assets/icons/icons-for-main-readme/protocol.png) [Protocols](src/questions/en-EN/protocols.md)
 
 - ![Architecture](./src/assets/icons/icons-for-main-readme/architecture.png) [Architecture](src/questions/en-EN/architecture.md)
+
+- ![System design](./src/assets/icons/icons-for-main-readme/system-design.png) [System design](src/questions/en-EN/system-design.md)

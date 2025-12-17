@@ -788,4 +788,11 @@ class HomePage extends Page {
 Event-driven design архитектура
 Расскажи про гексагональную архитектуру
 Монолит и микросервисы — преимущества и недостатки
+
+6 принципов рест архитектуры
+Сравнить стратегии развертывания: Rolling, Blue/Green, Canary
+Сравнить стратегии: Lazy Caching, Write-Through, Read-Through
+Три компонента Observability: Логи, Метрики, Трейсы.
+Сравнить REST, gRPC, GraphQL. Когда какой выбрать?
+Паттерн Graceful Degradation (Fallback)
  -->
