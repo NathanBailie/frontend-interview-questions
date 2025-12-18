@@ -810,3 +810,271 @@ For each task, industry standards (De Facto) have emerged:
 </details>
 
 ---
+
+---
+
+<details>
+<summary><span>28. <b>Database Types</b> and Their Purpose</span></summary>
+<br />
+
+| Database Type           | Popular Examples                  | Best Use Case                                                                                                                                 |
+| ----------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Relational (SQL)**    | PostgreSQL, MySQL, Oracle         | Data with a strict structure where **transactions (ACID)** and complex relationships are important. Ideal for financial systems and accounts. |
+| **Document**            | MongoDB, CouchDB                  | Storing data with a weak structure (JSON-like). Suitable for product catalogs, user profiles, and rapid development iteration.                |
+| **Search Engines**      | Elasticsearch, Solr, Meilisearch  | Full-text search, complex filtering, autocomplete, and log analytics.                                                                         |
+| **Key-Value (K-V)**     | Redis, Memcached, etcd, Tarantool | **Caching**, session storage, queues, or configurations. Work as fast as possible (often in RAM).                                             |
+| **Columnar (OLAP)**     | ClickHouse, Cassandra, Vertica    | **Big data analytics**. They read only the necessary columns, which speeds up report generation across billions of rows.                      |
+| **Graph**               | Neo4j, Memgraph                   | Data with a vast number of connections. Social networks (finding friends), recommendation systems, fraud detection.                           |
+| **Time Series**         | InfluxDB, VictoriaMetrics         | Time-stamped data. System metrics, stock quotes, sensor data (IoT).                                                                           |
+| **Blob Store (Object)** | Amazon S3, MinIO, Ceph            | Storing **unstructured files**: videos, photos, backups, website static assets.                                                               |
+
+---
+
+### **Quick Selection Cheat Sheet:**
+
+1. **Need clear relationships and money guarantees?** — Use **Postgres**.
+2. **Need to quickly search for text like "blue jacket"?** — Use **Elasticsearch**.
+3. **Need to build a "sales over 5 years by region" report?** — Use **ClickHouse**.
+4. **Need to quickly retrieve a user's cart by ID?** — Use **Redis**.
+5. **Need to understand how many handshakes apart two people are?** — Use **Neo4j**.
+
+</details>
+
+---
+
+<details>
+<summary><span>29. <b>Search Engines</b> - are they a DB or an add-on?</span></summary>
+<br />
+
+### **1. Technically — it is a full-fledged database**
+
+Search engines (e.g., **Elasticsearch**, **Solr**, **Meilisearch**) possess all the characteristics of a DBMS:
+
+- **Storage:** They write data to disk in their specific format (inverted index).
+- **Interface:** They have an API (usually REST) or their own query language for inserting, deleting, and searching data.
+- **Scalability:** They support clustering, sharding (splitting data into parts), and replication (copies for reliability).
+
+### **2. Architecturally — it is most often an "add-on"**
+
+In most systems, a search engine is not the primary storage ("Source of Truth"). It is used as a **secondary store** alongside a relational DB (PostgreSQL/MySQL):
+
+- **Why:** Relational DBs excel at transactions and relationships but are very slow and poor at text searching (especially considering typos, synonyms, or weights).
+- **How it works:** Data is first written to the primary DB and then synchronized with the search engine.
+
+---
+
+### **Internal Structure: Inverted Index**
+
+The main "magic" that makes a search engine what it is, is the way data is organized.
+
+- **In a regular DB (Row-based):** Data is stored in rows. To find the word "Apple" in a description column, the database needs to scan all rows (or use a limited B-Tree index).
+- **In a search engine (Inverted Index):** A table is created where the key is the **word** and the value is a **list of IDs of documents** where it occurs.
+  > _Example:_
+  > "Apple" -> [ID: 1, ID: 5, ID: 102]
+  > "Smartphone" -> [ID: 5, ID: 20]
+  > Search becomes instantaneous because the engine immediately knows where to look.
+
+---
+
+### **When to use as the only DB?**
+
+Sometimes search engines are used without a primary DB. The most prominent example is the **ELK Stack (Elasticsearch, Logstash, Kibana)** for working with logs:
+
+- Logs are written directly to Elasticsearch.
+- They are stored, indexed, and analyzed there.
+- Transactions or complex relationships are not important here, so Elasticsearch handles it on its own.
+
+</details>
+
+---
+
+<details>
+<summary><span>30. What does the <b>database choice</b> depend on?</span></summary>
+<br />
+
+### **1. Transactions (ACID vs BASE)**
+
+- If data integrity is critical (e.g., money transfers), a DB with full **ACID** transaction support is necessary (usually relational DBs).
+- If high availability and scalability are more important, NoSQL solutions operating under the **BASE** model can be considered.
+
+### **2. Nature and Format of Data**
+
+- **Data Format:** How structured is the data? For rigid schemas, SQL is suitable; for flexible (JSON-like) ones, document-oriented DBs.
+- **Frequency of Format Changes:** If the data schema changes constantly (dynamic product attributes), it is better to choose a **Schemaless** solution (e.g., MongoDB) to avoid heavy table migrations during every code update.
+
+### **3. Nature of Data Access (Workload)**
+
+- Do we need many small writes and reads by key (OLTP)?
+- Or will we be creating heavy analytical reports across billions of rows (OLAP)?
+- This determines whether the database will be **row-based** (Postgres) or **columnar** (ClickHouse).
+
+### **4. Expertise and Community**
+
+- **Skill in working with the technology:** How familiar is the team with the tool? Even the fastest DB can become a bottleneck if no one knows how to properly configure and optimize indexes.
+- **Community and Maturity of Technology:** How time-tested is the database? Does it have a developed community, ready-made driver libraries, and is it easy to find answers to emerging errors on Stack Overflow?
+
+---
+
+### **Summary for an Architect**
+
+When choosing a DB, ask yourself three questions:
+
+1. Is data loss or temporary inconsistency acceptable?
+2. How often will the document structure change?
+3. Do we have the resources (people and time) to support this specific technology?
+
+</details>
+
+---
+
+<details>
+<summary><span>31. What are the <b>classes of databases?</b></span></summary>
+<br />
+
+### **1. By Load Type (OLTP vs OLAP vs HTAP)**
+
+- **OLTP (Online Transactional Processing):** Oriented toward a huge number of short transactions (reading/writing a single row).
+
+  > _Example:_ PostgreSQL, MySQL. Used for real-time user interaction with an application.
+
+- **OLAP (Online Analytical Processing):** Optimized for complex analytical queries over large data volumes (aggregations, reports).
+
+  > _Example:_ ClickHouse, BigQuery. Store data in columns.
+
+- **HTAP (Hybrid Transactional/Analytical Processing):** "Two in one." They allow analytical queries to be performed directly on transactional data without delays for copying.
+  > _Example:_ TiDB, MemSQL.
+
+---
+
+### **2. By Deployment and Operation Method**
+
+- **Embedded:** They run inside the application process itself and do not require a separate server.
+
+  > _Example:_ SQLite, H2. Ideal for mobile apps or local caching.
+
+- **Single File Database:** The entire database physically exists as a single file on the disk.
+
+  > _Example:_ SQLite. Convenient for portability and simple applications.
+
+- **Distributed:** Data is physically spread across many servers (nodes), providing scalability and fault tolerance.
+  > _Example:_ Cassandra, CockroachDB.
+
+---
+
+### **3. By Storage Medium**
+
+- **In-memory:** All data is stored in the Random Access Memory (RAM). This provides extreme speed, but data may be lost if the power is turned off (unless there is a disk snapshot mechanism).
+
+  > _Example:_ Redis, Memcached, SAP HANA.
+
+- **Persistent:** Data is stored on non-volatile media (HDD/SSD). The main priority is data safety during reboots.
+  > _Example:_ Most classic DBs (Oracle, MSSQL).
+
+---
+
+### **Summary for Selection:**
+
+| If you need...                        | Choose class...            |
+| ------------------------------------- | -------------------------- |
+| **Maximum RPS and low Latency**       | **In-memory**              |
+| **Build a report on a billion sales** | **OLAP**                   |
+| **Store data in a mobile app**        | **Embedded / Single file** |
+| **Process orders in an online store** | **OLTP / Persistent**      |
+
+</details>
+
+---
+
+<details>
+<summary><span>32. <b>Indexes:</b> what are they, why are they needed, and what are their features?</span></summary>
+<br />
+
+### **What is it?**
+
+An **index** is an auxiliary data structure (usually a tree or hash table) that stores the values of one or more table columns and links to the corresponding rows. Instead of going through a million records in order, the database refers to the index and finds the necessary result in a few steps.
+
+---
+
+### **Why are they needed?**
+
+The main and only goal is to **speed up reading**. Without an index, the database is forced to perform a **Full Table Scan**, which takes a critically long time on large data volumes.
+
+---
+
+### **Key Features and the "Cost" of Use**
+
+Indexes are not "free" speedups. They have three important features that must be considered when designing:
+
+1. **Speed up reading:** They allow searching, filtering (`WHERE`), and sorting (`ORDER BY`) to be performed orders of magnitude faster.
+2. **Slow down writing:** This is the main downside. With every `INSERT`, `UPDATE`, or `DELETE` operation, the database must not only modify the table itself but also **update all related indexes**. The more indexes on a table, the slower data is written to it.
+3. **Use additional memory:** Indexes are separate objects that take up space on disk and (ideally) in RAM. In some cases, the size of all indexes can exceed the size of the data in the table itself.
+
+---
+
+### **When to use (Best Practices):**
+
+- Create indexes for columns that are frequently involved in search conditions (`WHERE`).
+- Index columns that are frequently used for joining tables (`JOIN`).
+- Avoid creating indexes for columns with very low selectivity (e.g., gender "male/female"), as it will be easier for the database to read the whole table.
+- Delete unused indexes so as not to slow down writing for nothing.
+
+</details>
+
+---
+
+<details>
+<summary><span>33. What are the <b>types of indexes?</b></span></summary>
+<br />
+
+### **1. B-Tree (Balanced Tree)**
+
+The most universal and default index type in most DBs.
+
+- **How it works:** Data is stored as a balanced tree where nodes contain values and leaves contain links to rows.
+- **What for:** Comparison operations (`=`, `>`, `<`, `>=`) and range searches (`BETWEEN`).
+- **Feature:** Supports data sorting.
+
+---
+
+### **2. Hash Index**
+
+- **How it works:** Applies a hash function to a column value and maps it to a row address.
+- **What for:** Only for exact match searches (`=`, `IN`).
+- **Pros:** Works faster than B-Tree when searching for a specific value.
+- **Cons:** Cannot search ranges and does not support sorting.
+
+---
+
+### **3. Bitmap Index**
+
+- **How it works:** Creates a bitmask (0 and 1) for each unique value in a column.
+- **What for:** Columns with low selectivity (where there are few unique values: gender, order status, region).
+- **Pros:** Takes up very little space and allows for instant combining of conditions via logical `AND`/`OR`.
+
+---
+
+### **4. GIST and GIN (Specialized)**
+
+- **GIN (Generalized Inverted Index):** "Inverted index". Ideal for searching inside composite objects (arrays, JSONB, full-text search).
+- **GiST (Generalized Search Tree):** Used for indexing geometric data (coordinates) and "nearest neighbor" searches.
+
+---
+
+### **5. Other Types (by application logic)**
+
+- **Clustered Index:** Determines the physical order of row storage in a table. A table can have only one such index (usually the Primary Key).
+- **Covering Index:** An index that contains all the fields requested in the `SELECT`. The database doesn't need to refer to the table itself; it takes everything from the index.
+- **Composite Index:** An index on several columns at once. Order is important: a `(A, B)` index will help when searching for `A` or `A+B`, but will be useless when searching only for `B`.
+- **Partial Index:** An index not on the whole table, but based on a condition.
+  > _Example:_ Index only active orders `WHERE status = 'active'`. This saves memory.
+
+**Cheat Sheet:**
+
+- Need to search by number or date? — **B-Tree**.
+- Need to search by coordinates on a map? — **GiST**.
+- Need to search tags in JSON? — **GIN**.
+- Need to quickly find by exact ID? — **Hash**.
+
+</details>
+
+---
