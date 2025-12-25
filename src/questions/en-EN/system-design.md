@@ -2384,3 +2384,426 @@ This is a low-level library (often used in the MySQL ecosystem).
 </details>
 
 ---
+
+<details>
+<summary><span>62. Deployment Strategies: <b>Rolling, Blue/Green, Canary</b></span></summary>
+<br />
+
+These terms describe Deployment Strategies — methods of updating an application that minimize or completely eliminate system downtime and the risk of failure for all users at once.
+
+### **1. Rolling Release (Incremental Update)**
+
+The most common method in Kubernetes. A new version of the application is installed on servers one by one.
+
+- **How it works:** The system shuts down one node (or group) of the old version (**V1**), replaces it with the new version (**V2**), and moves to the next one only after the new node successfully passes a health check.
+- **Pros:** Does not require doubling server resources.
+- **Cons:** During the update process, both old and new versions run in the cluster simultaneously (data compatibility issue).
+- **Risk:** If there is a critical bug in **V2**, it will affect some users before the deployment is stopped.
+
+---
+
+### **2. Blue/Green Release (Blue-Green Deployment)**
+
+A method that provides instantaneous switching between versions.
+
+- **How it works:** Two identical environments run in parallel. **Blue** is the current (production) version, **Green** is the new version. When **Green** is fully ready and tested, the traffic load balancer redirects all users from Blue to Green with a single click.
+- **Pros:** Zero downtime. Instant rollback — if a bug is found in Green, simply switch traffic back to Blue.
+- **Cons:** Expensive, as it requires **twice the capacity** (servers) to maintain two copies of the system.
+
+---
+
+### **3. Canary Release (Canary Deployment)**
+
+The name comes from the practice of miners taking a canary with them: if it stopped singing, it meant there was gas in the mine.
+
+- **How it works:** The new version is rolled out to a very small group of users (e.g., 5%). We monitor errors and metrics for this group. If everything is fine, the percentage is gradually increased to 100%.
+- **Pros:** The safest method. If there is a bug in the code, only a small part of the audience is affected. New features can be tested on real traffic.
+- **Cons:** Complex configuration of traffic routing and monitoring.
+- **Example:** Facebook first rolls out a feature to employees, then to New Zealand, and only then to the rest of the world.
+
+---
+
+### **Summary Comparison Table**
+
+| Characteristic     | Rolling             | Blue/Green        | Canary      |
+| ------------------ | ------------------- | ----------------- | ----------- |
+| **Downtime**       | Zero                | Zero              | Zero        |
+| **Resource Cost**  | Low (100% + buffer) | **High (200%)**   | Low         |
+| **Rollback Speed** | Medium              | **Instantaneous** | Fast        |
+| **Safety**         | Medium              | High              | **Maximum** |
+
+</details>
+
+---
+
+<details>
+<summary><span>63. Where to store static files and architectural diagrams (MVP and beyond)</span></summary>
+<br />
+
+### **1. Where to store static files? (From simple to complex)**
+
+| Method                                           | Essence                                                                                                                          | When to use                                                                                                                                    |
+| ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Locally in the repository (Asset Pipeline):**  | Files are located directly in the project code folder.                                                                           | Only for critical CSS/JS and icons. Bad for user images, as files will be lost or duplicated during each deployment or scaling (new instance). |
+| **Dedicated server storage (Local Disk / NAS):** | A separate folder on the disk served by Nginx.                                                                                   | **MVP** or small internal projects. Cheap, but difficult to scale across multiple servers.                                                     |
+| **Object Storage (S3-like):**                    | Services like AWS S3, Google Cloud Storage, or MinIO. Files are stored as objects with unique URLs rather than in a file system. | **Standard for modern systems**. Unlimited volume, high reliability, easy to integrate.                                                        |
+| **CDNs (Content Delivery Network):**             | A network of servers around the world (Cloudflare, Akamai) that caches your static files as close to the user as possible.       | When the project expands beyond one country or there is a lot of static content.                                                               |
+
+---
+
+### **2. Architectural Diagrams**
+
+#### **A. MVP (Minimum Viable Product)**
+
+Usually, this is a **two-tier** architecture or a simplified three-tier one.
+
+1. **Client:** Browser or mobile application.
+2. **Monolith (App + DB):** A single server where the code and database run, and static files are stored on the same disk.
+
+- _Pros:_ Maximum development speed, zero infrastructure cost.
+- _Cons:_ If the server goes down, everything goes down. Difficult to update.
+
+#### **B. Classic Three-Tier Architecture**
+
+Separation of concerns into three levels:
+
+1. **Presentation Tier:** Web server (Nginx) or frontend framework. Handles display and static file distribution.
+2. **Logic Tier:** Backend server (API) where the business logic resides.
+3. **Data Tier:** A separate database server.
+
+- _Advantage:_ Tiers can be scaled independently (e.g., adding more API servers without touching the DB).
+
+#### **C. N-Tier Architecture (N-Tier / Microservices)**
+
+The modern standard for large systems.
+
+- **Client** -> **CDN** (for static files) -> **API Gateway** -> **Microservices** -> **Caches (Redis)** -> **DB Clusters**.
+- Static files here are fully offloaded to S3 + CDN to avoid loading the main compute servers.
+
+---
+
+### **Comparison of Static File Strategies**
+
+| Method                    | Complexity | Scalability | Speed for user    |
+| ------------------------- | ---------- | ----------- | ----------------- |
+| **Inside project folder** | Low        | Zero        | Depends on server |
+| **S3 Storage**            | Medium     | Infinite    | High              |
+| **S3 + CDN**              | High       | Infinite    | **Maximum**       |
+
+</details>
+
+---
+
+<details>
+<summary><span>64. Data Exchange Methods: <b>Polling, Streaming, WebSocket, Pub/Sub</b></span></summary>
+<br />
+
+The choice of method depends on how critical latency is and how often data is updated.
+
+### **1. Polling**
+
+- **Short Polling:** The client asks every N seconds: "Any news?". The server immediately answers "Yes" or "No".
+- _Minus:_ Many unnecessary empty requests.
+- **Long Polling:** The client asks, but the server **holds the connection open** until data appears (or a timeout occurs).
+- _When it's better:_ When data is updated infrequently and an instantaneous reaction is not required.
+
+### **2. Streaming vs WebSockets**
+
+- **WebSockets:** A two-way (Full-duplex) channel. Ideal for chats and games.
+- **Streaming (SSE - Server-Sent Events):** A one-way channel from server to client. Easier to implement than sockets.
+- **Comparison:** **Polling** is about periodicity (discreteness). **Streaming** is when there is no periodicity and data flows as it becomes available.
+
+### **3. Pub/Sub (Publisher/Subscriber)**
+
+A pattern for exchanging messages between services via a broker (e.g., Redis, RabbitMQ).
+
+- A publisher sends a message to a "topic" without knowing who will receive it.
+- Subscribers receive a copy of the message. This allows for maximum "decoupling" of system components.
+
+---
+
+### **4. Service Discovery**
+
+In a dynamic environment (Docker, K8s), the IP addresses of services are constantly changing.
+
+- **Service Discovery** is a "phone book" (e.g., Consul, Eureka) where each service registers its address so that others can find it.
+
+</details>
+
+---
+
+<details>
+<summary><span>65. Resilience: <b>Retries, Backoff, Circuit Breaker, Idempotency</b></span></summary>
+<br />
+
+If Service B does not respond to Service A, we must be able to handle this error correctly.
+
+### **1. Idempotency and Retries**
+
+- **Retry:** Re-sending a request upon error.
+- **Problem:** If a payment request was successful but the response was lost, a retry will charge the money a second time.
+- **Solution:** **Idempotency Key** (Idempotency Key / Request ID). The client generates a unique ID. The server checks: "Have I processed this ID already?". If yes, it simply returns the old result without repeating the action.
+
+### **2. Backoff and Backpressure**
+
+- **Exponential Backoff:** You cannot retry every second. You need to increase the pause: 1s, 2s, 4s, 8s... so as not to "finish off" an already failing service.
+- **Backpressure:** When the receiver cannot keep up with processing data, it tells the sender: "Slow down!". This prevents queue overflows and memory crashes.
+
+### **3. Circuit Breaker**
+
+Protects the system from cascading failures. States:
+
+1. **Closed:** Everything is fine, requests go through.
+2. **Open:** Too many errors. Requests are immediately rejected with an error without reaching the service. We give it time to "rest".
+3. **Half-Open:** We allow one trial request. If it is successful, we close the circuit breaker.
+
+---
+
+### **4. Graceful Degradation and Fallback**
+
+- **Graceful Degradation:** The ability of a system to function partially (e.g., if the recommendation service fails, the main page will simply show a list of popular products but will not crash entirely).
+- **Fallback:** A backup plan. "If data could not be retrieved from the cache and DB, return an empty list or data from a static file."
+
+</details>
+
+---
+
+<details>
+<summary><span>66. Data Patterns: <b>CQRS, MapReduce, Caching</b></span></summary>
+<br />
+
+### **1. CQRS (Command Query Responsibility Segregation)**
+
+Separation of the **Write** model (Command) and the **Read** model (Query).
+
+- _Why:_ Data often needs to be read in a completely different form than it is written. You can use a fast DB for writing (e.g., Postgres) and Elastic for search (reading).
+
+### **2. Cache Tagging and Versioning**
+
+- **Versioning:** Adding a version to the key (`user_v1_123`). When the data schema changes, simply change the version in the code, and the old cache is ignored.
+- **Tagging:** Assigning tags to cache entries. Allows you to clear (invalidate) all entries with the `articles` tag at once without touching the rest of the cache.
+
+### **3. MapReduce**
+
+A model for processing huge volumes of data on a cluster:
+
+1. **Map:** Divide the task into parts and distribute them to worker nodes.
+2. **Reduce:** Collect results from all nodes into a single final answer.
+
+</details>
+
+---
+
+<details>
+<summary><span>67. Background Task Execution</span></summary>
+<br />
+
+### **The Problem of Load Variability**
+
+Example with YouTube: today a video uploads in 1 hour, and tomorrow in 3 hours.
+
+- **Reason:** The load on the video encoding cluster is uneven.
+- **Solution:** Task queues. We don't make the user wait for the processing to finish. We say: "Accepted," put the task in a queue, and worker nodes (Workers) process it as they are able.
+- **User Experience:** If the queue grows, processing time increases, but the system does not crash and continues to accept new files.
+
+</details>
+
+---
+
+<details>
+<summary><span>68. Interaction in Microservices: <b>Aggregator</b> and <b>Chaining</b></span></summary>
+<br />
+
+When functionality is broken down into many small services, the question arises: how to collect data for the user if it resides in different places?
+
+### **1. Aggregator Pattern**
+
+This is a service (or API Gateway) that receives a single request from a client, makes parallel requests to several microservices, combines their responses, and returns a single result to the client.
+
+- **Example:** A product page. The aggregator goes to `Service A` for the description, `Service B` for the price, and `Service C` for stock availability.
+- **Pros:** The client makes only one network request. The merging logic is hidden inside.
+- **Cons:** The aggregator can become a bottleneck and a single point of failure.
+
+### **2. Chaining Pattern**
+
+Services are called sequentially: Client -> Service A -> Service B -> Service C.
+
+- **Example:** Order placement. `Order Service` creates an order, then calls `Payment Service` for payment, which in turn calls `Inventory Service` to reserve the item.
+- **Pros:** Direct and clear sequence of actions.
+- **Cons:** Long chains increase response time (latency adds up). If even one link in the middle fails, the entire chain is broken.
+
+</details>
+
+---
+
+<details>
+<summary><span>69. Event-Driven Architecture (EDA): <b>3 Interaction Types</b></span></summary>
+<br />
+
+Instead of direct calls (REST/gRPC), services communicate via a message bus (Kafka/RabbitMQ). Martin Fowler identifies several key approaches in EDA:
+
+### **1. Event Notification**
+
+A service sends a minimal message: "Event X occurred with object ID=123".
+
+- **How it works:** The recipient, upon learning of the change, must itself go to the source service via API to retrieve the details.
+- **Pros:** Messages are very lightweight. High degree of independence (Decoupling).
+- **Cons:** Increased load on the source, as all subscribers will come to it for details.
+
+### **2. Event-Carried State Transfer**
+
+A service sends **all data** that changed in the message.
+
+- **How it works:** "User 123 changed email to new@mail.com". The recipient does not need to go anywhere; it simply updates its local copy of the data (cache).
+- **Pros:** Maximum autonomy. The recipient can work even if the source service is unavailable.
+- **Cons:** Data duplication across the system. It is necessary to ensure that data in all services does not "diverge".
+
+### **3. Event Collaboration**
+
+In this approach, there is no central "controller" of the business process. Services simply react to each other's actions.
+
+- **Example:** Order created -> Warehouse sees the event and reserves the item -> Delivery sees the reservation event and assigns a courier.
+- **Pros:** Flexibility — it is easy to add a new participant to the process simply by subscribing them to events.
+- **Cons:** It is very difficult to understand the overall process logic ("what follows what") just by looking at the code of one service.
+
+### **Summary Comparison of EDA Strategies:**
+
+| Pattern            | What's inside the message? | Dependence on source             | Network load           |
+| ------------------ | -------------------------- | -------------------------------- | ---------------------- |
+| **Notification**   | Only ID and event type.    | **High** (extra request needed). | Low (small messages).  |
+| **State Transfer** | Full object (Snapshot).    | **Zero**.                        | High (heavy messages). |
+| **Collaboration**  | Command/Fact of action.    | Depends on implementation.       | Medium.                |
+
+</details>
+
+---
+
+<details>
+<summary><span>70. Call Optimization: <b>Throttling</b> and <b>Debouncing</b></span></summary>
+<br />
+
+| Method         | Essence                                                                                        | How it works                                                                                                                                                                                                                  | Analogy                                                                                 | Where to use                                                                                                |
+| -------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Throttling** | Guarantees that a function will be called **no more than once in a specified period of time**. | If we set a limit of 1 second and the user performs 10 actions, the function will execute at the start of the second, and all other clicks during that second will be ignored. The next call is possible only after 1 second. | A water tap that releases exactly one drop per second, no matter how hard you press it. | - Tracking page scrolling (`onScroll`) — to avoid recalculating element positions 100 times per second.<br> |
+
+<br>- Window resizing (`onResize`).<br>
+
+<br>- Processing game events (e.g., shooting in a shooter). |
+| **Debouncing** | Postpones the function call until a certain amount of time has passed **since the last action**. | Every time an event occurs, the "waiting timer" is reset. The function will execute only when the user takes a pause. | An elevator in a high-rise. It doesn't move immediately as soon as the first person enters. It waits 5-10 seconds: if someone else enters, the timer resets. The elevator moves only when people stop entering. | - Live search (Autocomplete) — to avoid sending a request to the server after every typed letter, but wait until the user finishes writing the word.<br>
+
+<br>- Form submit button — to prevent a double click and creating two orders. |
+
+---
+
+### **Comparison of Throttling and Debouncing**
+
+| Characteristic       | Throttling                         | Debouncing                       |
+| -------------------- | ---------------------------------- | -------------------------------- |
+| **Main Goal**        | Limit frequency (constant rhythm). | Wait for silence (pause).        |
+| **When it triggers** | Regularly during the process.      | Only at the end (after a pause). |
+| **Execution**        | Once per X milliseconds.           | X ms after the last event.       |
+| **Best Example**     | Page scrolling.                    | Search input field.              |
+
+[Image showing Throttling vs Debouncing timelines comparison]
+
+---
+
+### **Why is this important for System Design?**
+
+These mechanisms are used not only on the frontend but also at the API level (Rate Limiting) and in distributed systems:
+
+1. **Resource Protection:** We don't allow a client to "spam" the backend with heavy requests.
+2. **Cost Savings:** Fewer requests mean lower costs for traffic, CPU, and cloud computing.
+
+</details>
+
+---
+
+<details>
+<summary><span>71. Distributed Transactions: <b>2PC, Saga, Outbox/Inbox</b></span></summary>
+<br />
+
+In distributed systems, data is spread across different databases, making it difficult to ensure **ACID**.
+
+### **1. Two-Phase Commit (2PC)**
+
+This is a classic protocol for ensuring atomicity.
+
+- **Phase 1 (Prepare):** The coordinator asks all nodes: "Are you ready to write the data?". Nodes check conditions and lock resources.
+- **Phase 2 (Commit/Abort):** If **all** answered "Yes," the coordinator gives the command to write. If at least one answered "No" or remained silent, an abort command is sent to all.
+- **Minus:** Low performance due to locks. If the coordinator fails between phases, the system "hangs."
+
+### **2. Saga Pattern**
+
+Instead of locks, a chain of local transactions is used.
+
+- For every action, there is a **compensating action** (rollback).
+- If an error occurs at step #3, the Saga sequentially performs rollbacks for steps #2 and #1.
+- _Types:_ **Orchestration** (control center) and **Choreography** (services react to events).
+
+### **3. Transactional Outbox / Inbox**
+
+A pattern for reliable message transfer between a DB and a broker (Kafka).
+
+- **Outbox:** In one transaction, we write data to the entity table and to a special `outbox` table. A separate process (Relay) reads the `outbox` table and sends messages to the broker. This guarantees that the event is not lost if the broker is down.
+- **Inbox:** Similarly on the receiver side — first save the incoming event in the DB, and then process it to avoid duplicates during redeliveries.
+
+</details>
+
+---
+
+<details>
+<summary><span>72. Consensus and Coordination: <b>Raft, Paxos, Leaders</b></span></summary>
+<br />
+
+Consensus is when multiple nodes must agree on a single value (e.g., who is currently the Master).
+
+### **1. Leader Election**
+
+In a cluster, there must be a main node that coordinates writing.
+
+- **Bully Algorithm:** When a node notices the leader has failed, it sends a request to all nodes with an ID higher than its own. If no one responds, it declares itself the leader. If "senior" nodes respond, they begin their own elections. The "strongest" (with the highest ID) wins.
+
+### **2. Raft and Paxos**
+
+These are modern consensus protocols.
+
+- **Paxos:** The first theoretically correct protocol. Very difficult to implement.
+- **Raft:** Designed as a more understandable alternative to Paxos. It uses three states: _Follower, Candidate, Leader_. It is built on log replication.
+- **Where they are used:** **etcd** (the basis of Kubernetes) uses Raft; **Zookeeper** uses ZAB (similar to Paxos).
+
+### **3. Distributed Locks**
+
+Needed so that different processes do not modify the same resource simultaneously.
+
+- Usually implemented via **Redis (Redlock)** or **Zookeeper/etcd**.
+- It is important to use a **TTL** (Time To Live) so that if the lock owner "dies," the resource does not remain locked forever.
+
+</details>
+
+---
+
+<details>
+<summary><span>73. System Design: <b>Functional and Non-Functional Requirements</b></span></summary>
+<br />
+
+Before drawing a diagram in System Design, you need to clearly outline the boundaries of the task.
+
+### **1. Functional Requirements (FR)**
+
+_What should the system do?_ These are specific features.
+
+- _Example (for YouTube):_ A user can upload videos. A user can like videos. The system must support searching by titles.
+
+### **2. Non-Functional Requirements (NFR)**
+
+_How should the system work?_ These are constraints and qualities.
+
+- **Scalability:** The system must handle 100 million users.
+- **Availability:** 99.9% of the time (three nines).
+- **Latency:** Video should start playing in no more than 200 ms.
+- **Durability:** An uploaded video must not be lost under any circumstances.
+
+> **Why separate them?** FRs determine the code architecture (logic), while NFRs determine the infrastructure architecture (sharding, replication, CDN).
+
+</details>
